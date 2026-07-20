@@ -1,0 +1,21 @@
+{
+  "name": "Qwen3-Coder-Next",
+  "repo": "https://github.com/QwenLM/Qwen3-Coder",
+  "category": "models-weights",
+  "collections": ["daybreak"],
+  "type": "model",
+  "tagline": "Frontier-adjacent coding from 3B active parameters",
+  "description": "Alibaba's coding MoE: 80B total parameters with only 3B active, a hybrid Gated DeltaNet + gated attention layout across 512 experts, and 262K context natively. Scores 70.6% on SWE-Bench Verified and 44.3% on SWE-Bench Pro — territory that recently demanded 10–20x the active compute.",
+  "why": "The economics of agentic coding, moved. Apache-2.0 weights, a million Hugging Face downloads a month, and an activation footprint small enough that quantized builds run serious agent workloads on a single big GPU.",
+  "useCases": ["Self-hosted agentic coding behind vLLM or SGLang", "Long-context repository-scale refactoring", "Fine-tuning a coding specialist you actually own"],
+  "audience": "AI engineers, self-hosting developers, teams leaving API coding models",
+  "setup": { "difficulty": "moderate", "requirements": "159GB of weights at BF16 — multi-GPU or a heavily quantized GGUF for single-card use. Served via vLLM, SGLang, or llama.cpp" },
+  "license": { "code": "Apache-2.0 (declared; see notes)", "weights": "Apache-2.0 (declared; see notes)", "verdict": "open", "notes": "Apache-2.0 is declared by Qwen in the model-card metadata and README, but at check time neither the Hugging Face repo nor the QwenLM/Qwen3-Coder GitHub repo ships a standalone LICENSE file. Prior Qwen coder releases carried the full Apache text; we'd like to see the file return." },
+  "tally": { "stars": "1M+ HF downloads/mo", "lastActivity": "Released Feb 2026; GGUF and ecosystem builds active", "status": "maintained", "checked": "2026-07-20" },
+  "links": { "docs": "https://huggingface.co/Qwen/Qwen3-Coder-Next" },
+  "limitations": "Full-precision inference is multi-GPU territory, the hardest agentic benchmarks still favor closed flagships, and the missing LICENSE file is a paperwork wobble worth watching.",
+  "related": ["DeepSeek-V3", "SmolLM3"],
+  "take": "Every few months the compute floor for real coding agents drops through another story. This is the current basement.",
+  "added": "2026-07-20",
+  "featured": true
+}

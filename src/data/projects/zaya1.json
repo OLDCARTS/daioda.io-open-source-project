@@ -1,0 +1,21 @@
+{
+  "name": "ZAYA1",
+  "repo": "https://huggingface.co/Zyphra/ZAYA1-8B",
+  "category": "models-weights",
+  "collections": ["daybreak"],
+  "type": "model",
+  "tagline": "The existence proof that open models don't need NVIDIA",
+  "description": "Zyphra's reasoning MoE — 8.4B total parameters, 760M active — pretrained end-to-end on AMD Instinct MI300X GPUs, the first credible frontier-recipe run on an all-AMD stack. Ships as base, reasoning, and vision-language variants, all Apache-2.0, with a full technical report.",
+  "why": "Punches far above its 760M active parameters on math and reasoning, and the hardware story matters as much as the scores: every proven alternative to the CUDA monoculture makes open AI harder to choke off.",
+  "useCases": ["Efficient reasoning on modest GPUs", "Studying MoE training outside the NVIDIA stack via the tech report", "Fine-tuning a small reasoner you can deploy cheaply"],
+  "audience": "Researchers, efficiency-minded ML engineers, AMD-curious infrastructure teams",
+  "setup": { "difficulty": "easy", "requirements": "Inference via transformers or vLLM; the 8.4B model fits comfortably on a 24GB GPU, with the tiny active footprint keeping it fast" },
+  "license": { "code": "Apache-2.0 (model repos and integrations)", "weights": "Apache-2.0 (base, reasoning, and VL variants)", "verdict": "open" },
+  "tally": { "stars": "152k HF downloads/mo", "lastActivity": "ZAYA1-VL-8B June 2026", "status": "maintained", "checked": "2026-07-20" },
+  "links": { "site": "https://www.zyphra.com/our-work/zaya1-8b", "paper": "https://arxiv.org/abs/2605.05365" },
+  "limitations": "The small activation budget shows outside math and reasoning, coverage is English-centric, and the training data itself is not released — this is open weights and recipe, not OLMo-grade full provenance.",
+  "related": ["SmolLM3", "OLMo 3"],
+  "take": "The scores are good; the supply chain is the headline. Open AI got measurably harder to strangle the day this training run finished.",
+  "added": "2026-07-20",
+  "featured": false
+}

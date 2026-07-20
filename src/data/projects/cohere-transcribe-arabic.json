@@ -1,0 +1,21 @@
+{
+  "name": "Cohere Transcribe Arabic",
+  "repo": "https://huggingface.co/CohereLabs/cohere-transcribe-arabic-07-2026",
+  "category": "audio-voice",
+  "collections": ["daybreak"],
+  "type": "model",
+  "tagline": "State-of-the-art Arabic speech recognition — and actually Apache",
+  "description": "A 2B-parameter speech-to-text model built for Arabic's hardest cases: dialect variation, code-switching, and long-form audio. Tops the Open Universal Arabic ASR leaderboard at 25.87 WER / 11.80 CER average, beating 7B-class rivals, with native transformers support and vLLM integration for production serving.",
+  "why": "Cohere's lab releases usually ship under non-commercial licenses; this one is explicitly Apache-2.0. A frontier lab giving one underserved language its full attention, under a license that lets anyone build on the result.",
+  "useCases": ["Transcription across Arabic dialects, not just MSA", "Voice interfaces and captioning for Arabic-speaking users", "Long-form audio transcription pipelines via vLLM"],
+  "audience": "Speech engineers, Arabic-language product teams, accessibility builders",
+  "setup": { "difficulty": "easy", "requirements": "Hugging Face transformers on a modest GPU; vLLM recipes provided for production serving" },
+  "license": { "code": "Apache-2.0 (transformers-native; no separate code repo)", "weights": "Apache-2.0", "verdict": "open", "notes": "A notable departure — CohereLabs models have typically been CC-BY-NC. The model card states plainly that this release is governed by Apache 2.0." },
+  "tally": { "stars": "New — released July 2026", "lastActivity": "Released July 2026", "status": "early", "checked": "2026-07-20" },
+  "links": { "docs": "https://docs.cohere.com/docs/transcribe-arabic", "site": "https://cohere.com/blog/transcribe-arabic" },
+  "limitations": "Arabic-only by design, and brand-new — little community mileage yet, so evaluate on your specific dialect before trusting it in production.",
+  "related": ["Kokoro", "Chatterbox"],
+  "take": "Open ASR has been English-first since forever. This is what it looks like when that stops being taken for granted.",
+  "added": "2026-07-20",
+  "featured": false
+}

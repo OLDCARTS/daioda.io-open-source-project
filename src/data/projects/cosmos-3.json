@@ -1,0 +1,21 @@
+{
+  "name": "NVIDIA Cosmos 3",
+  "repo": "https://github.com/NVIDIA/cosmos",
+  "category": "robotics",
+  "collections": ["daybreak", "deep-water"],
+  "type": "model",
+  "tagline": "The physical-AI omnimodel that made license nerds sit up",
+  "description": "A unified world model for physical AI: video generation, physical reasoning, and action generation in one architecture. Ships as Nano (8B reasoner + 8B generator) for efficient inference and Super (32B + 32B) for large-scale synthetic data, with a cookbook, training framework, and post-training scripts across the Cosmos ecosystem.",
+  "why": "Top of the robotics benchmarks, and the license is the other story: NVIDIA moved Cosmos to the Linux Foundation's OpenMDW-1.1 — a genuinely permissive model license granting rights 'without restriction' — rather than its own restriction-laden Open Model License.",
+  "useCases": ["Synthetic data generation for robot and AV training", "Physical reasoning over video for embodied agents", "Post-training world models for specific robots and environments"],
+  "audience": "Robotics teams, AV researchers, simulation and synthetic-data engineers",
+  "setup": { "difficulty": "advanced", "requirements": "Nano wants a serious GPU; Super is datacenter territory. The ecosystem spans several repos — start from the Cosmos cookbook" },
+  "license": { "code": "OpenMDW-1.1 (umbrella repo); Apache-2.0 (cosmos-predict/transfer repos)", "weights": "OpenMDW-1.1", "verdict": "partial", "notes": "Editor's judgment call, flagged for review. OpenMDW-1.1 (Linux Foundation) is MIT-grade in substance: rights granted 'without restriction' across copyright, patent, database, and trade-secret law; attribution-only conditions; no use or output restrictions; a litigation-termination clause. But it is not OSI-approved, and our bright line is OSI approval — so per house policy we downgrade rather than round up. Substantively among the most permissive model licenses in use." },
+  "tally": { "stars": "329k HF downloads/mo (Reason2 line)", "lastActivity": "Cosmos 3 released May 31, 2026; commits daily", "status": "maintained", "checked": "2026-07-20" },
+  "links": { "docs": "https://nvidia-cosmos.github.io/cosmos-cookbook/", "paper": "https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf" },
+  "limitations": "Datacenter-class hardware for the Super variants, an ecosystem sprawling across a dozen repos with mixed licenses and generations, and OpenMDW itself is young — permissive on paper, untested in court.",
+  "related": ["openpi", "LeRobot"],
+  "take": "When the biggest chipmaker on earth picks a brand-new license for its crown-jewel models, the license is the news. This one reads better than almost any corporate model license before it.",
+  "added": "2026-07-20",
+  "featured": true
+}

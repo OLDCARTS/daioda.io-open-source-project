@@ -45,6 +45,13 @@
   /* lightness for category-hued label TEXT — dark theme */
   --cat-text-l: 70%;
 
+  /* hero daylight wash: the daybreak shader is night-dark by design, so in the
+     daylight theme a paper wash lifts it to a sunlit sky and keeps text on AA */
+  --hero-wash: 0;
+  --hero-em-1: var(--gold);
+  --hero-em-2: var(--ember);
+  --hero-eyebrow: var(--gold);
+
   --font-display: 'Fraunces Variable', Georgia, serif;
   --font-text: 'Instrument Sans Variable', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
@@ -74,6 +81,10 @@
   --v-amber: #7C5109;
   --v-slate: #4F5573;
   --v-violet: #4E3F86;
+  --hero-wash: 1;
+  --hero-em-1: #8A5A10;
+  --hero-em-2: #A83C18;
+  --hero-eyebrow: #6E4600;
 }
 
 * { box-sizing: border-box; }

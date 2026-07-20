@@ -176,18 +176,18 @@ const finePrintCount = projects.filter((p) => p.data.license.verdict === 'not-op
   <style>
     .hero { position: relative; min-height: 92vh; display: flex; align-items: center; }
     .hero-inner { position: relative; z-index: 2; padding-top: 8vh; padding-bottom: 12vh; }
-    .hero-eyebrow { color: var(--gold); letter-spacing: 0.24em; font-size: 0.72rem; margin-bottom: 1.2rem; }
+    .hero-eyebrow { color: var(--hero-eyebrow); letter-spacing: 0.24em; font-size: 0.72rem; margin-bottom: 1.2rem; }
     .hero-h1 { font-size: clamp(2.8rem, 8.5vw, 6.2rem); font-weight: 600; margin: 0 0 1.3rem; }
-    .hero-em { background: linear-gradient(100deg, var(--gold), var(--ember)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-em { background: linear-gradient(100deg, var(--hero-em-1), var(--hero-em-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .hero-lede { font-size: clamp(1.05rem, 2vw, 1.4rem); color: var(--ink-dim); max-width: 40ch; line-height: 1.5; }
     .hero-cta { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 2rem; }
     .hero-daybreak { margin-top: 2.5rem; font-size: 0.76rem; color: var(--ink-dim); display: inline-flex; align-items: center; gap: 0.5rem; }
-    .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 0 var(--gold); animation: pulse 2.4s infinite; }
-    @keyframes pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--gold) 70%, transparent);} 70%{ box-shadow: 0 0 0 9px transparent;} 100%{ box-shadow:0 0 0 0 transparent;} }
+    .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--gold-ink); box-shadow: 0 0 0 0 var(--gold-ink); animation: pulse 2.4s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--gold-ink) 70%, transparent);} 70%{ box-shadow: 0 0 0 9px transparent;} 100%{ box-shadow:0 0 0 0 transparent;} }
     @media (prefers-reduced-motion: reduce){ .pulse { animation: none; } }
     .scroll-cue { position: absolute; bottom: 2.2rem; left: 50%; transform: translateX(-50%); z-index: 2; }
     .scroll-cue span { display: block; width: 22px; height: 34px; border: 2px solid var(--line-strong); border-radius: 12px; position: relative; }
-    .scroll-cue span::after { content:''; position:absolute; top:6px; left:50%; transform:translateX(-50%); width:3px; height:7px; border-radius:2px; background: var(--gold); animation: cue 1.8s infinite; }
+    .scroll-cue span::after { content:''; position:absolute; top:6px; left:50%; transform:translateX(-50%); width:3px; height:7px; border-radius:2px; background: var(--gold-ink); animation: cue 1.8s infinite; }
     @keyframes cue { 0%{opacity:0; transform:translate(-50%,0);} 40%{opacity:1;} 100%{opacity:0; transform:translate(-50%,10px);} }
     @media (prefers-reduced-motion: reduce){ .scroll-cue span::after { animation: none; } }
 

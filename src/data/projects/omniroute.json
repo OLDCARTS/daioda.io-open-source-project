@@ -1,0 +1,21 @@
+{
+  "name": "OmniRoute",
+  "repo": "https://github.com/diegosouzapw/OmniRoute",
+  "category": "local-private-ai",
+  "collections": [],
+  "type": "software",
+  "tagline": "One endpoint, 231 providers, zero loyalty",
+  "description": "A self-hosted AI gateway exposing a single OpenAI-compatible endpoint across 231+ providers — around 90 with free tiers — with automatic fallback, cost/speed/quality routing, token compression, and ready-made hookups for Claude Code, Cursor, Cline, and other coding agents.",
+  "why": "The 'never pay for tokens' pitch made it explode, and it's a revealing lens on the free-tier arbitrage subculture around coding agents — including the risks that come with it.",
+  "useCases": ["Cost-optimized routing for coding agents", "Provider failover for multi-provider apps", "A local gateway consolidating API keys"],
+  "audience": "Individual developers and tinkerers minimizing LLM spend",
+  "setup": { "difficulty": "easy", "requirements": "Node or Docker; API keys for the providers you enable; point your agent at the endpoint" },
+  "license": { "code": "MIT", "weights": null, "verdict": "open" },
+  "tally": { "stars": "18.7k", "lastActivity": "Very active, rapid releases", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "site": "https://omniroute.online" },
+  "limitations": "Routing your prompts and code through many third-party 'free' providers raises real privacy and terms-of-service questions — free-tier access via a gateway may violate upstream terms. Marketing claims (95% token compression) deserve skepticism, and the project leans hard on one maintainer.",
+  "related": ["Ollama", "Gemini CLI"],
+  "take": "Genuinely useful infrastructure wrapped in a value proposition that works right up until the providers decide it doesn't. Route accordingly.",
+  "added": "2026-07-19",
+  "featured": true
+}

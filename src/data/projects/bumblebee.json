@@ -1,0 +1,21 @@
+{
+  "name": "Bumblebee",
+  "repo": "https://github.com/perplexityai/bumblebee",
+  "category": "agents-coding",
+  "collections": [],
+  "type": "software",
+  "tagline": "Perplexity's answer to the supply-chain attack wave",
+  "description": "A read-only scanner for developer machines that inventories lockfiles, installed packages across npm, PyPI, Go, RubyGems, and Composer, browser and editor extensions, and MCP server configurations — so when an advisory names a compromised package, you can answer 'which machines have it?' immediately.",
+  "why": "A timely response to the npm and extension supply-chain attacks of the past two years, and one of the first tools to treat the MCP ecosystem itself as an attack surface. Read-only by design: it never executes package managers.",
+  "useCases": ["Fleet-wide incident response when an advisory drops", "Continuous developer-machine inventory", "Auditing which MCP servers are configured where"],
+  "audience": "Security and IT teams; individual developers who install things",
+  "setup": { "difficulty": "easy", "requirements": "A single Go binary; macOS or Linux; no runtime dependencies" },
+  "license": { "code": "Apache-2.0", "weights": null, "verdict": "open" },
+  "tally": { "stars": "2.1k", "lastActivity": "v0.1.1 May 2026", "status": "early", "checked": "2026-07-19" },
+  "links": { "docs": "https://github.com/perplexityai/bumblebee" },
+  "limitations": "Detection is metadata-based, so payloads that hide outside manifests will not be caught. No Windows support yet, and you still need to feed it advisory data to match against.",
+  "related": ["Strix", "Codebase Memory MCP"],
+  "take": "The MCP boom created a new attack surface faster than anyone built defenses. This is the defense showing up.",
+  "added": "2026-07-19",
+  "featured": true
+}

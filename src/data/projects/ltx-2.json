@@ -1,0 +1,21 @@
+{
+  "name": "LTX-2",
+  "repo": "https://github.com/Lightricks/LTX-2",
+  "category": "generative-media",
+  "collections": [],
+  "type": "model",
+  "tagline": "Open video that comes with its own soundtrack",
+  "description": "A DiT-based audio-video model — the first open-weights system generating synchronized sound and picture together, up to 4K at 50fps. The 22B LTX-2.3 (with a fast distilled variant) covers text-to-video, image-to-video, interpolation, camera-control LoRAs, and ships an official LoRA trainer.",
+  "why": "Speed and audio are the edge: distilled variants run near real time on an H100 and 2-3x faster than rivals on consumer cards, and native synchronized audio puts an open-weights model in territory otherwise exclusive to closed systems.",
+  "useCases": ["Fast stylized video with synchronized audio", "Real-time and interactive video experiments", "LoRA-customized brand motion"],
+  "audience": "Motion designers, app developers, indie filmmakers",
+  "setup": { "difficulty": "moderate", "requirements": "Official Python packages, ComfyUI, or Diffusers; distilled variants from ~8-16GB VRAM, the 22B quality tier 24GB+" },
+  "license": { "code": "Apache-2.0", "weights": "LTX-2 Community License — freely downloadable, commercial use for smaller entities, company-scale restrictions apply", "verdict": "partial", "notes": "Not OSI-open on the weights side; larger companies need a Lightricks agreement." },
+  "tally": { "stars": "8.1k + 10.3k (LTX-Video)", "lastActivity": "2.3 weights updated July 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://docs.ltx.video" },
+  "limitations": "Community-licensed weights with scale thresholds; photoreal humans trail Wan 2.2; frame counts must be a multiple of 8 plus 1.",
+  "related": ["Wan 2.2", "ComfyUI"],
+  "take": "Sound changes everything about generated video — silence was the uncanny part. First open model to figure that out.",
+  "added": "2026-07-19",
+  "featured": true
+}

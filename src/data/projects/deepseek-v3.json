@@ -1,0 +1,21 @@
+{
+  "name": "DeepSeek-V3",
+  "repo": "https://github.com/deepseek-ai/DeepSeek-V3",
+  "category": "models-weights",
+  "collections": ["deep-water"],
+  "type": "model",
+  "tagline": "Frontier-class weights, with an asterisk worth reading",
+  "description": "A 671-billion-parameter mixture-of-experts model (37B active per token) with multi-head latent attention and multi-token prediction — one of the strongest open-weight frontier-class models, distributed with paper and inference guidance.",
+  "why": "A textbook case for reading licenses separately: the code is MIT, but these weights ship under the custom DeepSeek Model License — commercial use permitted, behavioral restrictions attached. Later DeepSeek releases moved to MIT weights; this checkpoint didn't.",
+  "useCases": ["Self-hosted frontier-class inference", "Research on MoE architectures", "Distillation into smaller models"],
+  "audience": "Well-resourced infra teams and researchers",
+  "setup": { "difficulty": "advanced", "requirements": "Multi-GPU H100/H200-class hardware for full weights (hundreds of GB); most users consume via providers; SGLang, vLLM, or TensorRT-LLM to serve" },
+  "license": { "code": "MIT", "weights": "DeepSeek Model License (commercial OK; use restrictions in Attachment A)", "verdict": "partial", "notes": "Check the license of the specific checkpoint you deploy — the family's terms changed across releases." },
+  "tally": { "stars": "104k", "lastActivity": "Release repo, low churn by design; the org is very active", "status": "stable", "checked": "2026-07-19" },
+  "links": { "docs": "https://github.com/deepseek-ai/DeepSeek-V3" },
+  "limitations": "The weights license carries use restrictions that keep it outside strict OSI/OSAID definitions, and the hardware bill is enormous.",
+  "related": ["OLMo 3", "Colibri"],
+  "take": "Historically important and technically superb — and the exact reason this site prints weights licenses next to code licenses.",
+  "added": "2026-07-19",
+  "featured": true
+}

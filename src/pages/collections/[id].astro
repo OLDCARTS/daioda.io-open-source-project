@@ -1,0 +1,56 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+import { collections, collectionOrder } from '../../lib/taxonomy';
+
+export async function getStaticPaths() {
+  return collectionOrder.filter((c) => c !== 'fine-print').map((id) => ({ params: { id }, props: { id } }));
+}
+const { id } = Astro.props;
+const col = collections[id];
+const allProjects = await getCollection('projects');
+
+let projects;
+if (id === 'daybreak') {
+  const latest = allProjects.map((p) => p.data.added).sort().at(-1)!;
+  projects = allProjects.filter((p) => p.data.added === latest && p.data.featured);
+} else {
+  projects = allProjects.filter((p) => p.data.collections.includes(id as any) && p.data.featured);
+}
+projects = projects.sort((a, b) => a.data.name.localeCompare(b.data.name));
+const others = collectionOrder.filter((c) => c !== id);
+---
+<Base title={col.name} description={col.blurb} path={`collections/${id}`}>
+  <section class="wrap col-hero">
+    <p class="eyebrow">Collection</p>
+    <h1>{col.name}</h1>
+    <p class="col-lede">{col.blurb}</p>
+    <p class="mono col-n">{projects.length} project{projects.length === 1 ? '' : 's'}</p>
+  </section>
+  <section class="wrap">
+    <div class="card-grid">
+      {projects.map((p) => <ProjectCard project={p} />)}
+    </div>
+  </section>
+  <section class="wrap col-nav">
+    <p class="eyebrow">Other collections</p>
+    <div class="col-nav-row">
+      {others.map((c) => (
+        <a href={c === 'fine-print' ? '/fine-print' : `/collections/${c}`} class="col-nav-link">{collections[c].name}</a>
+      ))}
+    </div>
+  </section>
+  <style>
+    .col-hero { padding-top: 3.5rem; }
+    .col-lede { color: var(--ink-dim); font-size: 1.15rem; max-width: 56ch; }
+    .col-n { color: var(--ink-faint); font-size: 0.78rem; margin-top: 0.5rem; }
+    .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; margin-top: 1.5rem; }
+    .col-nav { margin-top: 4rem; }
+    .col-nav-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+    .col-nav-link { padding: 0.5rem 1rem; border: 1px solid var(--line); border-radius: 100px; color: var(--ink-dim); font-size: 0.9rem; transition: all 0.2s; }
+    .col-nav-link:hover { border-color: var(--accent); color: var(--accent); }
+    @media (max-width: 1000px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .card-grid { grid-template-columns: 1fr; } }
+  </style>
+</Base>

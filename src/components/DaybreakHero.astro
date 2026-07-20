@@ -1,0 +1,139 @@
+---
+// Generative daybreak — a custom WebGL fragment shader rendering a slow dawn over
+// a data-harbor. Falls back to a static CSS gradient with no JS and honors
+// prefers-reduced-motion. Deliberately small: a single full-screen quad, no libraries.
+---
+<div class="hero-canvas-wrap" aria-hidden="true">
+  <canvas id="daybreak" class="hero-canvas"></canvas>
+  <div class="hero-fallback"></div>
+  <div class="hero-veil"></div>
+</div>
+<style>
+  .hero-canvas-wrap { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+  .hero-canvas { width: 100%; height: 100%; display: block; }
+  .hero-fallback {
+    position: absolute; inset: 0; display: none;
+    background:
+      radial-gradient(120% 90% at 50% 118%, #F5C55A 0%, #E8734A 16%, #7A4A78 38%, #2A2E5C 60%, #0A0E23 88%);
+  }
+  .hero-veil {
+    position: absolute; inset: 0;
+    background: radial-gradient(120% 80% at 50% 8%, color-mix(in srgb, var(--bg) 55%, transparent), transparent 55%),
+                linear-gradient(to bottom, transparent 55%, var(--bg) 99%);
+    pointer-events: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-canvas { display: none; }
+    .hero-fallback { display: block; }
+  }
+</style>
+<script>
+  const canvas = document.getElementById('daybreak') as HTMLCanvasElement | null;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (canvas && !reduce) {
+    const gl = canvas.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'low-power' });
+    if (!gl) {
+      canvas.style.display = 'none';
+      (document.querySelector('.hero-fallback') as HTMLElement).style.display = 'block';
+    } else {
+      const vs = `attribute vec2 p; void main(){ gl_Position = vec4(p,0.,1.); }`;
+      const fs = `
+      precision highp float;
+      uniform vec2 R; uniform float T;
+      // hash + value noise
+      float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7)))*43758.5453); }
+      float noise(vec2 p){
+        vec2 i=floor(p), f=fract(p);
+        float a=hash(i), b=hash(i+vec2(1.,0.)), c=hash(i+vec2(0.,1.)), d=hash(i+vec2(1.,1.));
+        vec2 u=f*f*(3.-2.*f);
+        return mix(mix(a,b,u.x), mix(c,d,u.x), u.y);
+      }
+      float fbm(vec2 p){ float v=0.,a=.5; for(int i=0;i<5;i++){ v+=a*noise(p); p*=2.03; a*=.5;} return v; }
+      void main(){
+        vec2 uv = gl_FragCoord.xy / R;
+        vec2 q = uv; q.x *= R.x/R.y;
+        float horizon = 0.20;
+        // dawn gradient bottom (warm) to night top (indigo)
+        vec3 night = vec3(0.039, 0.055, 0.137);
+        vec3 harbor = vec3(0.09, 0.11, 0.27);
+        vec3 violet = vec3(0.30, 0.22, 0.47);
+        vec3 ember = vec3(0.91, 0.45, 0.29);
+        vec3 gold  = vec3(0.96, 0.77, 0.35);
+        float g = smoothstep(-0.1, 1.0, uv.y);
+        vec3 col = mix(gold, ember, smoothstep(0.0,0.16,uv.y));
+        col = mix(col, violet, smoothstep(0.12,0.4,uv.y));
+        col = mix(col, harbor, smoothstep(0.35,0.7,uv.y));
+        col = mix(col, night, smoothstep(0.6,1.05,uv.y));
+        // soft dawn glow rising & breathing
+        float glow = exp(-abs(uv.y-horizon)*4.5) ;
+        float breathe = 0.6 + 0.4*sin(T*0.18);
+        col += gold * glow * 0.5 * breathe;
+        // aurora-ish drifting bands of light in the upper sky
+        float bands = fbm(vec2(q.x*1.6 + T*0.03, q.y*2.4 - T*0.02));
+        col += violet * smoothstep(0.55,0.95,bands) * smoothstep(0.25,0.9,uv.y) * 0.35;
+        // cargo lights — points of light drifting on the dark water (lower band = projects)
+        float water = smoothstep(horizon+0.02, -0.05, uv.y);
+        vec2 wp = vec2(uv.x*8.0, uv.y*3.0);
+        float lights = 0.0;
+        for(int i=0;i<5;i++){
+          float fi=float(i);
+          float x = fract(uv.x*2.0 + fi*0.37 + T*(0.006+0.002*fi));
+          float d = length(vec2((x-0.5)*1.2, (uv.y-(horizon-0.03-fi*0.028))*7.0));
+          lights += smoothstep(0.06,0.0,d) * (0.5+0.5*sin(T*1.3+fi*2.0));
+        }
+        col += gold * lights * water * 0.6;
+        // subtle water shimmer streaks
+        float shimmer = sin((uv.x*40.0) + T*0.6 + fbm(q*3.0)*6.0);
+        col += vec3(0.9,0.7,0.5) * water * smoothstep(0.7,1.0,shimmer) * 0.05;
+        // vignette + grain
+        col *= 1.0 - 0.35*length(uv-vec2(0.5,0.42));
+        col += (hash(uv*R + T)-0.5)*0.012;
+        gl_FragColor = vec4(col, 1.0);
+      }`;
+      const compile = (type: number, src: string) => {
+        const s = gl.createShader(type)!; gl.shaderSource(s, src); gl.compileShader(s); return s;
+      };
+      const prog = gl.createProgram()!;
+      gl.attachShader(prog, compile(gl.VERTEX_SHADER, vs));
+      gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, fs));
+      gl.linkProgram(prog); gl.useProgram(prog);
+      const buf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
+      const loc = gl.getAttribLocation(prog, 'p');
+      gl.enableVertexAttribArray(loc);
+      gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+      const uR = gl.getUniformLocation(prog, 'R');
+      const uT = gl.getUniformLocation(prog, 'T');
+      let W = 0, H = 0;
+      const resize = () => {
+        const dpr = Math.min(window.devicePixelRatio || 1, 1.6);
+        W = Math.floor(canvas.clientWidth * dpr);
+        H = Math.floor(canvas.clientHeight * dpr);
+        canvas.width = W; canvas.height = H;
+        gl.viewport(0, 0, W, H);
+      };
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+      let raf = 0, running = true;
+      const start = performance.now();
+      const frame = (t: number) => {
+        if (!running) return;
+        gl.uniform2f(uR, W, H);
+        gl.uniform1f(uT, (t - start) / 1000);
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+        raf = requestAnimationFrame(frame);
+      };
+      raf = requestAnimationFrame(frame);
+      // pause when offscreen to save battery
+      const io = new IntersectionObserver((es) => {
+        for (const e of es) {
+          running = e.isIntersecting;
+          if (running) raf = requestAnimationFrame(frame);
+          else cancelAnimationFrame(raf);
+        }
+      });
+      io.observe(canvas);
+    }
+  }
+</script>

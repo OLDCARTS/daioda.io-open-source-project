@@ -1,0 +1,21 @@
+{
+  "name": "supervision",
+  "repo": "https://github.com/roboflow/supervision",
+  "category": "computer-vision",
+  "collections": ["first-light"],
+  "type": "software",
+  "tagline": "The glue code of computer vision, written once, properly",
+  "description": "Roboflow's model-agnostic utility library: reusable building blocks for detection, tracking, annotation, dataset conversion, and video analytics. Connects to models from Ultralytics, Transformers, and MMDetection, and provides annotators, multi-object tracking, zone counting, and speed estimation.",
+  "why": "The toolkit that sits on top of any detector so teams stop rewriting drawing, tracking, and dataset plumbing. MIT-licensed — a commercially clean layer over an ecosystem where the most famous models are AGPL.",
+  "useCases": ["Object counting and zone analytics", "Speed estimation from video", "Dataset conversion and annotation overlays"],
+  "audience": "CV engineers, startups, hobbyists, researchers",
+  "setup": { "difficulty": "trivial", "requirements": "Python 3.10+, pip install supervision, plus any detection model" },
+  "license": { "code": "MIT", "weights": null, "verdict": "open", "notes": "The library is MIT; it merely connects to external models, some of which (Ultralytics YOLO) are AGPL — your model choice sets your obligations." },
+  "tally": { "stars": "47.5k", "lastActivity": "v0.29.1 June 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://supervision.roboflow.com/" },
+  "limitations": "Not a model itself — throughput and accuracy come from whatever you plug into it.",
+  "related": ["RF-DETR", "SAM 3"],
+  "take": "Every field has one library everyone quietly depends on. In vision analytics, you're looking at it.",
+  "added": "2026-07-19",
+  "featured": true
+}

@@ -1,0 +1,21 @@
+{
+  "name": "openpi",
+  "repo": "https://github.com/Physical-Intelligence/openpi",
+  "category": "robotics",
+  "collections": ["deep-water"],
+  "type": "model",
+  "tagline": "A frontier robot policy, weights and all",
+  "description": "Physical Intelligence's open release of its flow-based vision-language-action models. π0 is pretrained on 10,000+ hours of robot data; π0.5 adds open-world generalization via 'knowledge insulation'; π0-FAST is an autoregressive variant. Base models ship with DROID, ALOHA, and LIBERO checkpoints.",
+  "why": "A rare fully open (Apache-2.0, weights included) release of a frontier generalist robot policy from a leading robotics-foundation-model company — the kind of model that's usually locked away entirely.",
+  "useCases": ["Generalist manipulation policies", "Fine-tuning a real VLA on new robots and tasks", "Benchmarking on standard robot-learning suites"],
+  "audience": "Robotics researchers, advanced ML engineers, robot-learning labs",
+  "setup": { "difficulty": "advanced", "requirements": "A >8GB GPU for inference; a 4090 for LoRA fine-tuning; A100/H100-class for full fine-tuning" },
+  "license": { "code": "Apache-2.0", "weights": "Apache-2.0", "verdict": "open" },
+  "tally": { "stars": "11.8k", "lastActivity": "π0.5 + PyTorch support Sept 2025", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "site": "https://www.pi.website/blog/openpi" },
+  "limitations": "Developed for PI's own robots, so it may need adaptation on standard platforms, and compute needs are heavy.",
+  "related": ["LeRobot", "SAM 3"],
+  "take": "When a robotics-foundation-model company open-sources its actual policy, the field moves. This is that release.",
+  "added": "2026-07-19",
+  "featured": true
+}

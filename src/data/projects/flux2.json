@@ -1,0 +1,21 @@
+{
+  "name": "FLUX.2",
+  "repo": "https://github.com/black-forest-labs/flux2",
+  "category": "generative-media",
+  "collections": [],
+  "type": "model",
+  "tagline": "The FLUX lineage, now partly Apache",
+  "description": "Black Forest Labs' successor to FLUX.1, covering text-to-image plus single- and multi-reference editing in one architecture. The distilled klein 4B runs on ~8GB VRAM under Apache-2.0, while the 32B dev model sets the open-weights quality bar under a non-commercial license.",
+  "why": "The most prominent Western open-weights image family — and klein 4B is the first genuinely Apache-licensed FLUX-quality model that runs on mainstream consumer GPUs. The catch: the family mixes licenses per variant.",
+  "useCases": ["High-end text-to-image", "Reference-based editing and character consistency", "Local generation with klein"],
+  "audience": "Prosumers, researchers, and (for klein 4B) commercial users",
+  "setup": { "difficulty": "moderate", "requirements": "klein 4B: ~8GB VRAM. dev 32B: H100-class, or a 4090 with FP8 quantization" },
+  "license": { "code": "Apache-2.0", "weights": "Mixed: klein 4B + autoencoder Apache-2.0; klein 9B and dev 32B under the FLUX Non-Commercial License", "verdict": "partial", "notes": "Verify the exact variant before shipping a product — the licenses differ checkpoint by checkpoint." },
+  "tally": { "stars": "2.4k (flux2) + 24k (original flux)", "lastActivity": "klein family released Jan 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://docs.bfl.ai" },
+  "limitations": "The flagship dev weights are non-commercial; distilled variants trade peak quality for speed.",
+  "related": ["Qwen-Image", "Z-Image"],
+  "take": "A family portrait of the open-weights business model: give away the small one, license the big one. Read the label on each box.",
+  "added": "2026-07-19",
+  "featured": true
+}

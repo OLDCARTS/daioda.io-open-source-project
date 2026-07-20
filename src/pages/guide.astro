@@ -1,0 +1,276 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="The Build Guide" description="A complete, reproducible guide to how DAIODA was designed, built, deployed, and maintained — stack, architecture, content model, workflows, deployment, performance, accessibility, and cost." path="guide">
+  <article class="guide">
+    <div class="wrap">
+      <header class="pp-head">
+        <p class="eyebrow">The build guide · /guide</p>
+        <h1>Build one yourself.</h1>
+        <p class="pp-lede">
+          Everything a technically capable person would need to reproduce a site like DAIODA — the
+          stack, the architecture, the content model, the research and verification workflow, the
+          deployment, and the running costs. No private credentials, keys, or tokens appear anywhere
+          in here; those live in environment variables and never in the repository.
+        </p>
+      </header>
+
+      <nav class="toc" aria-label="On this page">
+        <a href="#stack">Stack</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#structure">Repository structure</a>
+        <a href="#content-model">Content model</a>
+        <a href="#research">Research &amp; verification</a>
+        <a href="#visual">Visual &amp; motion</a>
+        <a href="#deploy">Deployment &amp; Netlify</a>
+        <a href="#updates">Updates &amp; automation</a>
+        <a href="#analytics">Analytics</a>
+        <a href="#a11y-perf">Accessibility &amp; performance</a>
+        <a href="#local">Local development</a>
+        <a href="#cost">Costs &amp; limitations</a>
+      </nav>
+
+      <section class="pp-section" id="stack">
+        <h2>Technology stack</h2>
+        <p>The guiding principle is <strong>ship as little JavaScript as possible</strong>: a content site should be fast, static, and legible to search engines by default, with interactivity added only where it earns its weight.</p>
+        <table class="spec">
+          <tbody>
+            <tr><th>Framework</th><td>Astro 5 — static output, content collections, view transitions, zero-JS by default</td></tr>
+            <tr><th>Language</th><td>TypeScript for logic; Astro components for templating; vanilla TS islands for interactivity</td></tr>
+            <tr><th>Styling</th><td>Hand-written CSS with custom properties (design tokens); no CSS framework</td></tr>
+            <tr><th>Content</th><td>JSON records per project, validated at build with Zod via Astro's content collections</td></tr>
+            <tr><th>Fonts</th><td>Fraunces (display), Instrument Sans (text), IBM Plex Mono (data) — all SIL OFL, self-hosted via Fontsource</td></tr>
+            <tr><th>Graphics</th><td>A hand-written WebGL fragment shader for the daybreak hero; no 3D library</td></tr>
+            <tr><th>Search</th><td>Client-side filtering over data attributes — no search service, no index to host</td></tr>
+            <tr><th>Feeds</th><td>@astrojs/rss and @astrojs/sitemap generate the RSS feed and sitemap at build time</td></tr>
+            <tr><th>Hosting</th><td>Netlify static hosting with CDN, redirects, and headers via netlify.toml</td></tr>
+            <tr><th>Analytics</th><td>GoatCounter — privacy-first, cookieless, no personal data</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="pp-section" id="architecture">
+        <h2>Architecture</h2>
+        <p>
+          DAIODA is a fully static site. At build time, Astro reads the project JSON records, validates
+          each against the schema, and renders one HTML page per project plus the category, collection,
+          discovery, and content pages. There is no server, no database, and no runtime API — the entire
+          site is HTML, CSS, and a few small scripts served from a CDN.
+        </p>
+        <p>
+          Interactivity is confined to three small, dependency-free islands: the theme toggle, the
+          discovery-page search and filters (which operate on data attributes already in the HTML, so
+          the page works with JS disabled), and the WebGL hero (which degrades to a static gradient).
+          Nothing blocks first paint.
+        </p>
+      </section>
+
+      <section class="pp-section" id="structure">
+        <h2>Repository structure</h2>
+        <pre class="code"><code>daioda/
+├─ src/
+│  ├─ data/
+│  │  ├─ projects/        # one JSON record per project (the catalog)
+│  │  └─ taxonomy.json    # categories + collections
+│  ├─ components/         # Header, Footer, ProjectCard, DaybreakHero, Wordmark
+│  ├─ layouts/            # Base.astro (head, meta, theme, skip link)
+│  ├─ lib/                # taxonomy helpers, verdict labels
+│  ├─ pages/
+│  │  ├─ index.astro
+│  │  ├─ projects/index.astro      # discovery
+│  │  ├─ projects/[id].astro       # detail (the Tally)
+│  │  ├─ categories/[id].astro
+│  │  ├─ collections/[id].astro
+│  │  ├─ fine-print.astro
+│  │  ├─ about / guide / methodology / credits
+│  │  ├─ rss.xml.ts
+│  │  └─ 404.astro
+│  ├─ styles/global.css   # design tokens + primitives
+│  └─ content.config.ts   # Zod schema for the projects collection
+├─ public/                # favicon, og image, robots.txt
+├─ astro.config.mjs
+└─ netlify.toml           # headers, redirects, build config</code></pre>
+      </section>
+
+      <section class="pp-section" id="content-model">
+        <h2>Content model</h2>
+        <p>
+          Each project is a single JSON file, validated at build against a Zod schema so a malformed
+          or incomplete record fails the build rather than shipping broken. The schema captures the
+          editorial fields (tagline, description, why, use cases, takeaway), the setup profile, the
+          related projects, and — the heart of it — the license and tally objects:
+        </p>
+        <pre class="code"><code>license: &#123;
+  code:    "MIT",            // the code license, read from the repo
+  weights: null,             // model weights license, if different
+  verdict: "open",           // open | partial | not-open | unclear
+  notes:   "..."             // any caveats worth surfacing
+&#125;,
+tally: &#123;
+  stars:        "175k",
+  lastActivity: "v0.31.1 June 2026",
+  status:       "maintained",
+  checked:      "2026-07-19" // when this tally was last verified
+&#125;</code></pre>
+        <p>
+          Categories and collections live in <span class="mono">taxonomy.json</span>, each with a name,
+          a blurb, and (for categories) a hue that colors that category consistently everywhere it appears.
+        </p>
+      </section>
+
+      <section class="pp-section" id="research">
+        <h2>Research &amp; open-source verification workflow</h2>
+        <p>This is the editorial engine, and it's deliberately rigorous. For each candidate:</p>
+        <ol class="num-steps">
+          <li><strong>Discover</strong> from primary sources — repositories, official docs and sites, papers, maintainer announcements — plus community signal.</li>
+          <li><strong>Verify the license from the source</strong> by reading the actual LICENSE file, never a third-party label. Record the code license and, separately, the weights license for models.</li>
+          <li><strong>Assign a verdict</strong>: open, open-code/restricted-weights (partial), or not-open — with added-condition licenses (fair-code, Apache-with-conditions, branding locks) flagged explicitly.</li>
+          <li><strong>Tally activity</strong>: stars, last meaningful update, and a status judgment (maintained / stable / experimental / static).</li>
+          <li><strong>Write original editorial context</strong> — description, why it matters, use cases, cautions, and a takeaway — in the site's own voice, never copied from the README.</li>
+          <li><strong>Review before publishing.</strong> No unverified claim ships as fact; when a license is unclear, the project is downgraded rather than given the benefit of the doubt.</li>
+        </ol>
+        <p>The full public version of these rules lives on the <a href="/methodology">methodology</a> page.</p>
+      </section>
+
+      <section class="pp-section" id="visual">
+        <h2>Visual, animation &amp; asset workflow</h2>
+        <p>
+          The visual identity is a "night shift at daybreak" harbor: deep-indigo night warming to a
+          dawn-gold horizon. All imagery is generated in code, so there are no third-party image assets
+          to license or attribute. The hero is a single full-screen WebGL quad running a hand-written
+          GLSL fragment shader that renders a slow generative dawn — value-noise aurora bands, a
+          breathing horizon glow, and drifting "cargo lights" standing in for projects. It pauses when
+          scrolled offscreen and is replaced by a static CSS gradient when a GPU context is unavailable
+          or when the visitor prefers reduced motion.
+        </p>
+        <p>
+          The rest of the motion is CSS: scroll-reveal via IntersectionObserver, stepped count-ups on
+          the home statistics (a nod to the tally song's counted bunches), and hover microinteractions.
+          Every animation is gated behind <span class="mono">prefers-reduced-motion</span>. The favicon
+          and OG image are hand-authored SVG. No living artist's style, copyrighted campaign, or
+          proprietary layout is imitated; the one cultural reference — a dockworkers' tally song — is
+          honored structurally through rhythm and daybreak language, never by reproducing lyrics,
+          recordings, or protected artwork.
+        </p>
+      </section>
+
+      <section class="pp-section" id="deploy">
+        <h2>Deployment &amp; Netlify configuration</h2>
+        <p>Deployment is a static build connected to Netlify from the GitHub repository:</p>
+        <ol class="num-steps">
+          <li>Push the repository to GitHub (here, the OLDCARTS organization).</li>
+          <li>Connect the repo to Netlify. Build command <span class="mono">npm run build</span>, publish directory <span class="mono">dist</span>.</li>
+          <li>Configure headers, redirects, and caching in <span class="mono">netlify.toml</span> (security headers, long-cache for hashed assets, apex-to-www canonicalization).</li>
+          <li>Connect the <span class="mono">daioda.io</span> domain, set the primary domain (www or apex) so the other redirects to it, and let Netlify provision the automatic HTTPS certificate.</li>
+          <li>Confirm HTTPS, that the non-primary host 301-redirects to the canonical one, that canonical URLs and the sitemap resolve, and that the 404 renders.</li>
+        </ol>
+        <p>
+          No secrets live in the repo. Any keys (for example the analytics endpoint) are set as Netlify
+          environment variables and referenced at build time.
+        </p>
+      </section>
+
+      <section class="pp-section" id="updates">
+        <h2>Update &amp; automation process</h2>
+        <p>
+          Content updates on a <strong>weekly Daybreak cadence</strong>. Adding a project is adding one
+          JSON file and opening a pull request; the schema validates it, a preview deploy renders it, and
+          merging publishes it — the RSS feed and sitemap regenerate automatically. Automation assists
+          with discovery and with re-checking activity metrics, but the license verdict and the editorial
+          writing stay under review. The firm rule: <strong>no automatically generated claim is published
+          without source verification.</strong> Abandoned projects are re-tallied and flagged, or moved
+          out of the featured catalog.
+        </p>
+      </section>
+
+      <section class="pp-section" id="analytics">
+        <h2>Analytics configuration</h2>
+        <p>
+          DAIODA uses <strong>GoatCounter</strong>, a privacy-first analytics service: no cookies, no
+          cross-site tracking, no personal data, and a lightweight script. It's added once in the base
+          layout (commented out until the production site key is set) and answers the only questions that
+          matter here — how many people visit, which projects and categories draw attention, and which
+          repository links get clicked. There is no advertising technology anywhere on the site, and
+          nothing that would require a cookie banner. Netlify's server-side analytics is a drop-in
+          alternative if you prefer no client script at all.
+        </p>
+      </section>
+
+      <section class="pp-section" id="a11y-perf">
+        <h2>Accessibility &amp; performance</h2>
+        <p><strong>Accessibility</strong> is built in, not bolted on: semantic landmarks, a skip link, visible focus rings, keyboard-operable search and filters, ARIA labels on icon controls, honored reduced-motion preferences, and color contrast checked against WCAG AA in both themes. The dark theme is primary; a daylight theme is one toggle away and persists via localStorage.</p>
+        <p><strong>Performance</strong> follows from the architecture. The site is static HTML from a CDN; the JavaScript is a few small dependency-free islands; fonts are self-hosted and subset; the WebGL hero runs at a capped device-pixel-ratio, pauses offscreen, and never blocks paint; images are hand-authored SVG. The result targets strong Core Web Vitals — fast first paint, negligible layout shift, and quick interactivity — even on low-power devices and slow connections.</p>
+      </section>
+
+      <section class="pp-section" id="local">
+        <h2>Local development</h2>
+        <pre class="code"><code># prerequisites: Node 20+
+
+npm install         # install dependencies
+npm run dev         # local dev server with hot reload
+npm run build       # produce the static site in dist/
+npm run preview     # serve the built site locally
+
+# add a project:
+#   1. create src/data/projects/&lt;slug&gt;.json
+#   2. fill every schema field (license + tally included)
+#   3. npm run dev and confirm the card + detail page render
+#   4. open a pull request</code></pre>
+        <p>Publishing an update is merging a pull request; Netlify builds and deploys automatically, and the feed and sitemap update themselves.</p>
+      </section>
+
+      <section class="pp-section" id="cost">
+        <h2>Estimated costs &amp; known limitations</h2>
+        <p>Running costs are low by design, because a static site needs almost no infrastructure:</p>
+        <table class="spec">
+          <tbody>
+            <tr><th>Domain</th><td>~$15–40 / year, depending on the TLD registrar</td></tr>
+            <tr><th>Hosting</th><td>$0 on Netlify's free tier for a site this size; a paid tier only becomes relevant at high traffic</td></tr>
+            <tr><th>Analytics</th><td>$0 self-hosted GoatCounter, or a few dollars a month hosted</td></tr>
+            <tr><th>Fonts &amp; assets</th><td>$0 — all self-hosted, openly licensed, or code-generated</td></tr>
+            <tr><th>Research/curation</th><td>The real recurring cost is time (and, for automated discovery, some model/API usage) — not infrastructure</td></tr>
+          </tbody>
+        </table>
+        <p class="callout">
+          <strong>Known limitations:</strong> tally figures are point-in-time snapshots and drift;
+          client-side search suits a curated catalog but wouldn't scale to tens of thousands of entries
+          without a real index; and the WebGL hero, while it degrades gracefully, is the one place the
+          site asks anything of the GPU. None of these are load-bearing, and each has a documented
+          fallback.
+        </p>
+      </section>
+
+      <div class="pp-cta">
+        <a href="/about" class="btn btn-primary">About the experiment →</a>
+        <a href="/methodology" class="btn">Editorial methodology</a>
+      </div>
+    </div>
+  </article>
+  <style>
+    .guide { padding-top: 3rem; }
+    .pp-head { max-width: 64ch; }
+    .pp-lede { font-size: 1.28rem; color: var(--ink-dim); line-height: 1.55; }
+    .pp-lede strong { color: var(--ink); }
+    .toc { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2.5rem; padding: 1.2rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-raised); }
+    .toc a { font-family: var(--font-mono); font-size: 0.76rem; color: var(--ink-dim); padding: 0.35rem 0.7rem; border-radius: 100px; border: 1px solid var(--line); transition: all 0.2s; }
+    .toc a:hover { color: var(--accent); border-color: var(--line-strong); }
+    .pp-section { max-width: 74ch; margin-top: 3.5rem; scroll-margin-top: 90px; }
+    .pp-section h2 { font-size: 1.9rem; margin-bottom: 0.8rem; }
+    .pp-section p { color: var(--ink-dim); font-size: 1.06rem; line-height: 1.65; }
+    .pp-section strong { color: var(--ink); }
+    .pp-section a { color: var(--accent); border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
+    .spec { width: 100%; border-collapse: collapse; margin: 1.3rem 0; }
+    .spec th, .spec td { text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--line); vertical-align: top; font-size: 0.96rem; }
+    .spec th { width: 32%; color: var(--ink); font-weight: 600; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.03em; }
+    .spec td { color: var(--ink-dim); }
+    .code { background: var(--bg-raised); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.2rem 1.4rem; overflow-x: auto; margin: 1.3rem 0; }
+    .code code { font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.6; color: var(--ink-dim); white-space: pre; }
+    .callout { padding: 1.1rem 1.4rem; border-left: 3px solid var(--gold); background: color-mix(in srgb, var(--gold) 8%, var(--bg-raised)); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 1.5rem 0; }
+    .callout strong { color: var(--ink); }
+    .num-steps { padding-left: 0; margin: 1.2rem 0; list-style: none; counter-reset: s; }
+    .num-steps li { position: relative; padding: 0.8rem 0 0.8rem 2.6rem; border-bottom: 1px solid var(--line); color: var(--ink-dim); counter-increment: s; }
+    .num-steps li::before { content: counter(s); position: absolute; left: 0; top: 0.8rem; width: 1.7rem; height: 1.7rem; display: grid; place-items: center; font-family: var(--font-mono); font-size: 0.8rem; color: var(--night); background: var(--gold); border-radius: 50%; }
+    .pp-cta { display: flex; gap: 0.8rem; margin-top: 3.5rem; flex-wrap: wrap; }
+    @media (max-width: 620px) { .spec th { width: 40%; } }
+  </style>
+</Base>

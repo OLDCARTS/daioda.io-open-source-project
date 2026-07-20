@@ -1,0 +1,21 @@
+{
+  "name": "Khoj",
+  "repo": "https://github.com/khoj-ai/khoj",
+  "category": "experimental",
+  "collections": ["night-shift"],
+  "type": "software",
+  "tagline": "A self-hosted second brain",
+  "description": "An AI 'second brain' that indexes your personal corpus — PDFs, Markdown, org-mode, Notion, Word docs — for semantic search and chat. Custom agents with personas and tools, scheduled automations, and clients for browser, Obsidian, Emacs, desktop, and WhatsApp, with local LLMs for zero-cloud operation.",
+  "why": "One of the few personal-AI-companion projects that is both genuinely open source and battle-tested at scale. The Emacs and org-mode roots give it unusual depth with plain-text knowledge bases, and the agents plus automations turn it from search into a proactive assistant.",
+  "useCases": ["Private chat over a lifetime of notes", "A personal research assistant with web plus document grounding", "A self-hosted alternative to ChatGPT-with-memory"],
+  "audience": "PKM enthusiasts, privacy-focused individuals, self-hosters",
+  "setup": { "difficulty": "moderate", "requirements": "Docker Compose self-host (Postgres with pgvector), ~8GB RAM baseline, more for local inference; a hosted option exists" },
+  "license": { "code": "AGPL-3.0", "weights": null, "verdict": "open", "notes": "AGPL is OSI-approved but copyleft — network-service modifications must be shared, which matters for commercial embedders." },
+  "tally": { "stars": "35k", "lastActivity": "2.0 beta line, active", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://docs.khoj.dev" },
+  "limitations": "The 2.x line is still beta, and the best experience assumes a text-centric knowledge base.",
+  "related": ["Jan", "txtai"],
+  "take": "The 'personal AI' most products only promise: your data, your machine, your rules — and it actually ships.",
+  "added": "2026-07-19",
+  "featured": true
+}

@@ -1,0 +1,146 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+import { categories, categoryOrder } from '../../lib/taxonomy';
+
+const projects = (await getCollection('projects'))
+  .filter((p) => p.data.featured)
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+---
+<Base title="Discover" description="Search, filter, and sort the full DAIODA catalog of verified open-source AI projects by category, license verdict, and setup difficulty." path="projects">
+  <section class="wrap disc-head">
+    <p class="eyebrow">The discovery deck</p>
+    <h1>Find your next repository</h1>
+    <p class="disc-lede">Every card here is a genuinely open-source project, verified against its source. Search by name, filter by category or how much machine you'll need, and sort by what matters to you.</p>
+  </section>
+
+  <section class="wrap disc-controls">
+    <div class="search-row">
+      <svg class="search-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input id="q" type="search" placeholder={`Search ${projects.length} projects — try 'video', 'local', 'MIT'…`} autocomplete="off" aria-label="Search projects" />
+      <button id="random" class="btn random-btn" title="Take me somewhere">⚲ Random</button>
+    </div>
+    <div class="filters" role="group" aria-label="Filters">
+      <div class="filter-set" data-filter="cat">
+        <button class="chip active" data-val="all">All categories</button>
+        {categoryOrder.map((k) => <button class="chip" data-val={k}>{categories[k].short}</button>)}
+      </div>
+      <div class="filter-set filter-verdict" data-filter="verdict">
+        <button class="chip active" data-val="all">Any license</button>
+        <button class="chip" data-val="open">Open ✓</button>
+        <button class="chip" data-val="partial">Restricted weights</button>
+      </div>
+      <div class="filter-set" data-filter="setup">
+        <button class="chip active" data-val="all">Any setup</button>
+        <button class="chip" data-val="trivial">Trivial</button>
+        <button class="chip" data-val="easy">Easy</button>
+        <button class="chip" data-val="moderate">Moderate</button>
+        <button class="chip" data-val="advanced">Advanced</button>
+      </div>
+    </div>
+    <p class="result-count mono" id="count" aria-live="polite"></p>
+  </section>
+
+  <section class="wrap">
+    <div class="card-grid" id="grid">
+      {projects.map((p) => (
+        <div class="grid-item"
+          data-name={p.data.name.toLowerCase()}
+          data-search={`${p.data.name} ${p.data.tagline} ${p.data.category} ${p.data.license.code} ${p.data.audience} ${p.data.useCases.join(' ')}`.toLowerCase()}
+          data-cat={p.data.category}
+          data-verdict={p.data.license.verdict}
+          data-setup={p.data.setup.difficulty}>
+          <ProjectCard project={p} />
+        </div>
+      ))}
+    </div>
+    <p class="empty" id="empty" hidden>
+      No projects match that combination. The tally man found nothing in that hold —
+      try loosening a filter.
+    </p>
+  </section>
+
+  <style>
+    .disc-head { padding-top: 3rem; }
+    .disc-lede { color: var(--ink-dim); max-width: 56ch; font-size: 1.05rem; }
+    .disc-controls { margin-top: 2rem; position: sticky; top: 64px; z-index: 20; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); padding-top: 1rem; padding-bottom: 1rem; }
+    .search-row { display: flex; gap: 0.7rem; align-items: center; }
+    .search-ico { position: absolute; margin-left: 1rem; color: var(--ink-faint); pointer-events: none; }
+    #q { flex: 1; padding: 0.85rem 1rem 0.85rem 2.8rem; font-size: 1rem; font-family: var(--font-text); color: var(--ink);
+      background: var(--bg-raised); border: 1px solid var(--line-strong); border-radius: 100px; }
+    #q::placeholder { color: var(--ink-faint); }
+    .random-btn { white-space: nowrap; }
+    .filters { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1rem; }
+    .filter-set { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .chip { font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.02em; padding: 0.4em 0.85em; border-radius: 100px;
+      border: 1px solid var(--line); background: transparent; color: var(--ink-dim); cursor: pointer; transition: all 0.2s; }
+    .chip:hover { border-color: var(--line-strong); color: var(--ink); }
+    .chip.active { background: var(--gold); color: #1A1128; border-color: transparent; font-weight: 600; }
+    [data-theme='day'] .chip.active { background: #6E4200; color: #fff; }
+    .result-count { margin-top: 0.9rem; font-size: 0.76rem; color: var(--ink-faint); }
+    .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; margin-top: 0.5rem; }
+    .grid-item { display: flex; }
+    .grid-item[hidden] { display: none; }
+    .empty { text-align: center; color: var(--ink-dim); padding: 4rem 1rem; font-size: 1.05rem; }
+    @media (max-width: 1000px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .card-grid { grid-template-columns: 1fr; } .disc-controls { top: 56px; } }
+  </style>
+
+  <script>
+    const q = document.getElementById('q') as HTMLInputElement;
+    const items = Array.from(document.querySelectorAll<HTMLElement>('.grid-item'));
+    const countEl = document.getElementById('count')!;
+    const emptyEl = document.getElementById('empty')!;
+    const state = { q: '', cat: 'all', verdict: 'all', setup: 'all' };
+
+    function apply() {
+      const term = state.q.trim().toLowerCase();
+      let n = 0;
+      for (const it of items) {
+        const okCat = state.cat === 'all' || it.dataset.cat === state.cat;
+        const okV = state.verdict === 'all' || it.dataset.verdict === state.verdict;
+        const okS = state.setup === 'all' || it.dataset.setup === state.setup;
+        const okQ = !term || (it.dataset.search || '').includes(term);
+        const show = okCat && okV && okS && okQ;
+        it.hidden = !show;
+        if (show) n++;
+      }
+      countEl.textContent = `${n} project${n === 1 ? '' : 's'} in view`;
+      emptyEl.hidden = n !== 0;
+    }
+
+    q?.addEventListener('input', () => { state.q = q.value; apply(); });
+
+    document.querySelectorAll<HTMLElement>('.filter-set').forEach((set) => {
+      const key = set.dataset.filter as keyof typeof state;
+      set.querySelectorAll<HTMLButtonElement>('.chip').forEach((chip) => {
+        chip.addEventListener('click', () => {
+          set.querySelectorAll('.chip').forEach((c) => c.classList.remove('active'));
+          chip.classList.add('active');
+          (state as any)[key] = chip.dataset.val;
+          apply();
+        });
+      });
+    });
+
+    document.getElementById('random')?.addEventListener('click', () => {
+      const visible = items.filter((i) => !i.hidden);
+      const pool = visible.length ? visible : items;
+      const pick = pool[Math.floor(Math.random() * pool.length)];
+      const link = pick.querySelector('a');
+      if (link) window.location.href = (link as HTMLAnchorElement).href;
+    });
+
+    // support ?cat= / ?q= deep links
+    const params = new URLSearchParams(location.search);
+    const cat = params.get('cat');
+    if (cat) {
+      const btn = document.querySelector<HTMLElement>(`.filter-set[data-filter="cat"] .chip[data-val="${cat}"]`);
+      btn?.click();
+    }
+    const pq = params.get('q');
+    if (pq && q) { q.value = pq; state.q = pq; }
+    apply();
+  </script>
+</Base>

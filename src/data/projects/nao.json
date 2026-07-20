@@ -1,0 +1,21 @@
+{
+  "name": "nao",
+  "repo": "https://github.com/getnao/nao",
+  "category": "science-data",
+  "collections": [],
+  "type": "software",
+  "tagline": "Chat with your warehouse, self-hosted",
+  "description": "An open framework for building and deploying analytics agents. You build a context layer over your data with the nao-core CLI, then deploy a chat interface so non-technical teammates can ask natural-language questions the agent answers against the warehouse. Warehouse-agnostic; bring your own LLM.",
+  "why": "A genuinely open, self-hostable alternative to closed chat-with-your-data SaaS. The context-first design — curate the semantics before letting the agent query — is aimed squarely at the accuracy problems that plague simpler text-to-SQL tools.",
+  "useCases": ["Natural-language analytics for business teams", "Self-serve data Q&A", "Deploying an internal data agent"],
+  "audience": "Data engineers and analysts, analytics-engineering teams",
+  "setup": { "difficulty": "moderate", "requirements": "Python (nao-core) and Node.js; optional LLM API keys and a warehouse connection (BigQuery, Postgres, Snowflake, Databricks)" },
+  "license": { "code": "Apache-2.0", "weights": null, "verdict": "open" },
+  "tally": { "stars": "1.1k", "lastActivity": "v0.1.7 April 2026", "status": "early", "checked": "2026-07-19" },
+  "links": { "docs": "https://docs.getnao.io/", "site": "https://getnao.io/" },
+  "limitations": "Early-stage (v0.1.x) with a small community; answer quality is bounded by the curated context and the LLM you choose.",
+  "related": ["marimo", "LightRAG"],
+  "take": "The interesting bet here is architectural: fix the semantics first, and the agent stops hallucinating your revenue. Early, but pointed the right way.",
+  "added": "2026-07-19",
+  "featured": true
+}

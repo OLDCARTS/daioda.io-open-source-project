@@ -1,0 +1,21 @@
+{
+  "name": "Aurora",
+  "repo": "https://github.com/microsoft/aurora",
+  "category": "science-data",
+  "collections": [],
+  "type": "model",
+  "tagline": "A foundation model for the whole Earth system",
+  "description": "Microsoft Research's foundation model for the Earth system, pretrained on large atmospheric datasets and fine-tuned into specialized versions for weather, air pollution, and ocean-wave forecasting. Aurora 1.5 extends it with more variables and hourly forecasts.",
+  "why": "An open, pip-installable AI weather model in the GraphCast lineage that runs forecasts far faster and cheaper than numerical models — with air-quality and ocean-wave heads that reach beyond standard weather prediction.",
+  "useCases": ["Medium- and high-resolution weather forecasting", "Air-pollution prediction", "Ocean-wave and climate research"],
+  "audience": "Atmospheric and climate scientists, forecasting teams",
+  "setup": { "difficulty": "moderate", "requirements": "Python, pip install microsoft-aurora, a GPU, and ERA5-style input data" },
+  "license": { "code": "MIT", "weights": "MIT code, but weights are described as research-oriented; commercial use is directed to Microsoft", "verdict": "partial", "notes": "The repo states the code hasn't been developed or tested for non-academic use — treat the weights as research-oriented." },
+  "tally": { "stars": "0.9k", "lastActivity": "v1.8.0 Oct 2025; 1.5 open Nov 2025", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://microsoft.github.io/aurora/" },
+  "limitations": "As a neural forecaster it can be arbitrarily poor in edge conditions with no accuracy guarantees, and the commercial path routes through Microsoft.",
+  "related": ["MatterGen", "Boltz" ],
+  "take": "AI weather models are quietly rewriting a field that ran on supercomputers for fifty years. This is one of the few you can actually pip install.",
+  "added": "2026-07-19",
+  "featured": true
+}

@@ -1,0 +1,21 @@
+{
+  "name": "OpenEvolve",
+  "repo": "https://github.com/codelion/openevolve",
+  "category": "experimental",
+  "collections": ["deep-water"],
+  "type": "software",
+  "tagline": "Run 'AI discovers algorithms' yourself",
+  "description": "An open evolutionary coding agent in the lineage of DeepMind's AlphaEvolve: it uses LLMs as mutation operators inside a quality-diversity loop with island-based parallel populations, evolving programs against automated evaluators. It has reproduced state-of-the-art results and discovered real GPU-kernel speedups.",
+  "why": "The most accessible way to run algorithm-discovery experiments yourself — a genuine research frontier packaged so that someone with an API key or a local model can hunt for novel optimizations over a weekend.",
+  "useCases": ["Automated optimization of hot code paths and GPU kernels", "Heuristic and algorithm discovery for well-specified problems", "Research into LLM-guided evolutionary search"],
+  "audience": "Researchers, performance engineers, adventurous tinkerers",
+  "setup": { "difficulty": "moderate", "requirements": "Python 3.10+, an OpenAI-compatible LLM endpoint, and a scoring function you write for your problem" },
+  "license": { "code": "Apache-2.0", "weights": null, "verdict": "open" },
+  "tally": { "stars": "6.7k", "lastActivity": "v0.3.2 July 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://github.com/codelion/openevolve" },
+  "limitations": "Only works on problems with an automatable fitness metric, can burn large token budgets, and evolved code needs human review before production.",
+  "related": ["Vibe-Trading", "nanochat"],
+  "take": "AlphaEvolve made headlines and stayed closed. This is the version you can point at your own bottleneck tonight.",
+  "added": "2026-07-19",
+  "featured": true
+}

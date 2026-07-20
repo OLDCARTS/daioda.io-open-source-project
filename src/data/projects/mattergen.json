@@ -1,0 +1,21 @@
+{
+  "name": "MatterGen",
+  "repo": "https://github.com/microsoft/mattergen",
+  "category": "science-data",
+  "collections": ["deep-water"],
+  "type": "model",
+  "tagline": "Generative design for new materials",
+  "description": "Microsoft's generative diffusion model for inorganic materials across the periodic table. It proposes novel stable crystal structures and can be fine-tuned to steer generation toward property constraints — band gap, bulk modulus, magnetic density, or target chemistry.",
+  "why": "A fully MIT-licensed generative model — code and weights — for inverse materials design. Instead of screening known materials, it proposes new candidates conditioned on the properties you want, an open counterpart to closed discovery pipelines.",
+  "useCases": ["Novel crystal-structure generation", "Property-conditioned inverse design", "Battery, magnet, and semiconductor materials research"],
+  "audience": "Materials scientists, computational chemists, ML-for-science researchers",
+  "setup": { "difficulty": "advanced", "requirements": "Python 3.10+, a CUDA GPU (Linux recommended), Git LFS" },
+  "license": { "code": "MIT", "weights": "MIT", "verdict": "open" },
+  "tally": { "stars": "1.7k", "lastActivity": "v1.0.3 July 2025", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://github.com/microsoft/mattergen" },
+  "limitations": "Apple Silicon support is experimental, evaluation leans on an ML force field (fast but less reliable than DFT for unusual systems), and licensed reference structures can't be shipped, so reproduced numbers may differ from the paper.",
+  "related": ["Boltz", "Aurora"],
+  "take": "Generative AI pointed at the periodic table instead of the timeline. The quiet, world-changing corner of the field.",
+  "added": "2026-07-19",
+  "featured": true
+}

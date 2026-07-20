@@ -1,0 +1,21 @@
+{
+  "name": "Grok Build",
+  "repo": "https://github.com/xai-org/grok-build",
+  "category": "agents-coding",
+  "collections": [],
+  "type": "software",
+  "tagline": "xAI's coding agent CLI, Apache-licensed and Rust-fast",
+  "description": "A fullscreen, mouse-interactive terminal harness (written in Rust) that understands a codebase, edits files, runs shell commands, searches the web, and manages long-running tasks — interactively or headless. Supports the Agent Client Protocol.",
+  "why": "A frontier-lab coding CLI under a true OSI license, in direct contrast to Claude Code's all-rights-reserved terms. The nuance: the license is open, but development is closed — external pull requests are not accepted.",
+  "useCases": ["Agentic coding in the terminal against the Grok API", "Headless agent runs in CI and scripts"],
+  "audience": "Developers, especially those already on xAI's API",
+  "setup": { "difficulty": "easy", "requirements": "Installer from x.ai/cli or build from source with Rust; an xAI API key" },
+  "license": { "code": "Apache-2.0", "weights": null, "verdict": "open", "notes": "Open license, closed development: no external contributions accepted, and the binary carries vendor telemetry. A community fork exists specifically to strip both." },
+  "tally": { "stars": "19.6k", "lastActivity": "Released July 2026, actively developed", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://docs.x.ai/build/overview", "site": "https://x.ai/cli" },
+  "limitations": "Effectively locked to xAI models; telemetry on by default; the usual agentic-CLI caution about arbitrary shell execution applies.",
+  "related": ["Gemini CLI", "Claude Code"],
+  "take": "Open source as a distribution strategy rather than a community project — worth knowing the difference, and still one of the most interesting Rust TUIs shipping today.",
+  "added": "2026-07-19",
+  "featured": true
+}

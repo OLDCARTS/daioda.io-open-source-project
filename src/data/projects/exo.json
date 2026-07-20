@@ -1,0 +1,21 @@
+{
+  "name": "exo",
+  "repo": "https://github.com/exo-explore/exo",
+  "category": "local-private-ai",
+  "collections": ["night-shift", "deep-water"],
+  "type": "software",
+  "tagline": "Your spare Macs, united into one AI cluster",
+  "description": "Auto-discovers the machines on your network, shards a model across them with tensor parallelism, and — as of the 2026 relaunch — supports RDMA over Thunderbolt 5 on Apple Silicon for near-datacenter interconnect speeds. Exposes OpenAI-, Claude-, and Ollama-compatible APIs.",
+  "why": "The most credible open path to running frontier-scale open models at home: two Mac Studios over TB5 instead of an H100 box. The 1.x rewrite turned the pitch from aspirational to real.",
+  "useCases": ["Running models too large for any single machine you own", "Pooling office Macs into a private inference cluster", "A local API endpoint backed by distributed inference"],
+  "audience": "Hardware enthusiasts, small teams with several Macs, homelab builders",
+  "setup": { "difficulty": "moderate", "requirements": "Best on Apple Silicon (M3/M4 with Thunderbolt 5 for RDMA); uv/Python, Node 18+, Rust nightly. Linux is CPU-only for now" },
+  "license": { "code": "Apache-2.0", "weights": null, "verdict": "open" },
+  "tally": { "stars": "45k", "lastActivity": "v1.0.71 April 2026; active", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://github.com/exo-explore/exo" },
+  "limitations": "Linux GPU support is still cooking, the RDMA path needs matched macOS versions and TB5 cabling, and clustering adds failure modes single-box tools never see.",
+  "related": ["Colibri", "mistral.rs"],
+  "take": "Datacenter tricks arriving in living rooms. The gap between 'my hardware' and 'their hardware' keeps shrinking.",
+  "added": "2026-07-19",
+  "featured": true
+}

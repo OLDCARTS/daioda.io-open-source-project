@@ -1,0 +1,219 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { categories, verdictClass, verdictLabel, difficultyLabel } from '../../lib/taxonomy';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((p) => ({ params: { id: p.id }, props: { project: p, all: projects } }));
+}
+const { project, all } = Astro.props;
+const d = project.data;
+const cat = categories[d.category];
+const related = (d.related || [])
+  .map((name: string) => all.find((p: any) => p.data.name === name))
+  .filter(Boolean);
+const repoLabel = d.repo.replace('https://github.com/', '');
+const verdictBlurb = d.license.verdict === 'open'
+  ? 'Verified open source. The code is under an OSI-approved license, read from the repository itself.'
+  : d.license.verdict === 'partial'
+  ? 'Open code, restricted weights. The software is open source, but the model weights ship under a custom or non-commercial license — read the terms before you build.'
+  : d.license.verdict === 'not-open'
+  ? 'Not open source. Despite appearances, the license restricts use in ways the Open Source Definition does not allow. Included as a public service.'
+  : 'License unverified.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareSourceCode',
+  name: d.name,
+  description: d.description,
+  codeRepository: d.repo,
+  license: d.license.code,
+  applicationCategory: cat.name,
+};
+---
+<Base title={d.name} description={`${d.tagline} — ${d.description.slice(0, 130)}`} ogType="article" path={`projects/${project.id}`}>
+  <article class="detail" style={`--hue:${cat.hue}`}>
+    <div class="wrap">
+      <nav class="crumbs mono" aria-label="Breadcrumb">
+        <a href="/projects">Discover</a> <span>/</span>
+        <a href={`/categories/${d.category}`}>{cat.name}</a> <span>/</span>
+        <span class="crumb-here">{d.name}</span>
+      </nav>
+
+      <header class="det-head">
+        <div class="det-head-main">
+          <span class="det-cat mono">{cat.name}</span>
+          <h1>{d.name}</h1>
+          <p class="det-tag">{d.tagline}</p>
+          <div class="det-badges">
+            <span class={verdictClass(d.license.verdict)}>{verdictLabel(d.license.verdict)}</span>
+            {d.type === 'model' && <span class="badge badge-model">Model</span>}
+            {d.type === 'content' && <span class="badge badge-unclear">Content, not software</span>}
+          </div>
+        </div>
+        <div class="det-actions">
+          <a href={d.repo} class="btn btn-primary" rel="noopener" target="_blank">Repository ↗</a>
+          {d.links.docs && <a href={d.links.docs} class="btn" rel="noopener" target="_blank">Docs ↗</a>}
+          {d.links.site && <a href={d.links.site} class="btn" rel="noopener" target="_blank">Site ↗</a>}
+          {d.links.paper && <a href={d.links.paper} class="btn" rel="noopener" target="_blank">Paper ↗</a>}
+        </div>
+      </header>
+
+      <div class="det-body">
+        <div class="det-main">
+          <section class="det-section">
+            <h2 class="det-h">What it is</h2>
+            <p class="lead-p">{d.description}</p>
+          </section>
+
+          <section class="det-section">
+            <h2 class="det-h">Why it's interesting</h2>
+            <p>{d.why}</p>
+          </section>
+
+          <div class="det-two">
+            <section>
+              <h3 class="det-sub">Use cases</h3>
+              <ul class="det-list">
+                {d.useCases.map((u: string) => <li>{u}</li>)}
+              </ul>
+            </section>
+            <section>
+              <h3 class="det-sub">Who it's for</h3>
+              <p class="det-p-sm">{d.audience}</p>
+              <h3 class="det-sub" style="margin-top:1.4rem">Setup</h3>
+              <p class="det-p-sm"><strong>{difficultyLabel(d.setup.difficulty)}.</strong> {d.setup.requirements}</p>
+            </section>
+          </div>
+
+          <section class="det-section caution">
+            <h3 class="det-sub">Limitations &amp; cautions</h3>
+            <p class="det-p-sm">{d.limitations}</p>
+          </section>
+
+          <section class="det-take">
+            <p class="eyebrow">Editorial takeaway</p>
+            <p class="take-body">{d.take}</p>
+          </section>
+
+          {related.length > 0 && (
+            <section class="det-section">
+              <h3 class="det-sub">Related &amp; alternatives</h3>
+              <div class="rel-row">
+                {related.map((r: any) => (
+                  <a href={`/projects/${r.id}`} class="rel-chip">
+                    <span class="rel-name">{r.data.name}</span>
+                    <span class={verdictClass(r.data.license.verdict) + ' rel-badge'}>{r.data.license.verdict === 'open' ? 'Open' : r.data.license.verdict === 'partial' ? 'Partial' : r.data.license.verdict === 'not-open' ? 'Not open' : '—'}</span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
+        </div>
+
+        <aside class="det-aside">
+          <div class="tally card">
+            <div class="tally-head">
+              <span class="tally-title mono">The Tally</span>
+              <span class="tally-check mono">checked {d.tally.checked}</span>
+            </div>
+            <dl class="tally-rows">
+              <div class="tally-row">
+                <dt>License (code)</dt>
+                <dd class="mono">{d.license.code}</dd>
+              </div>
+              {d.license.weights && (
+                <div class="tally-row">
+                  <dt>License (weights)</dt>
+                  <dd class="mono weights-lic">{d.license.weights}</dd>
+                </div>
+              )}
+              <div class="tally-row">
+                <dt>Verdict</dt>
+                <dd><span class={verdictClass(d.license.verdict)}>{verdictLabel(d.license.verdict)}</span></dd>
+              </div>
+              <div class="tally-row">
+                <dt>Stars</dt>
+                <dd class="mono tally-stars">★ {d.tally.stars}</dd>
+              </div>
+              <div class="tally-row">
+                <dt>Status</dt>
+                <dd class="mono cap">{d.tally.status}</dd>
+              </div>
+              <div class="tally-row">
+                <dt>Last activity</dt>
+                <dd class="mono">{d.tally.lastActivity}</dd>
+              </div>
+              <div class="tally-row">
+                <dt>Repository</dt>
+                <dd class="mono"><a href={d.repo} target="_blank" rel="noopener">{repoLabel} ↗</a></dd>
+              </div>
+            </dl>
+            {d.license.notes && <p class="tally-note">{d.license.notes}</p>}
+            <p class="tally-verdict-blurb">{verdictBlurb}</p>
+          </div>
+          <p class="aside-foot mono">Something off? <a href="/methodology#corrections">Submit a correction</a>.</p>
+        </aside>
+      </div>
+    </div>
+  </article>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <style>
+    .detail { padding-top: 2rem; }
+    .crumbs { font-size: 0.74rem; color: var(--ink-faint); display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .crumbs a { color: var(--ink-dim); } .crumbs a:hover { color: var(--accent); }
+    .crumb-here { color: var(--ink); }
+    .det-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; padding-bottom: 2rem; border-bottom: 1px solid var(--line); }
+    .det-cat { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: hsl(var(--hue) 52% var(--cat-text-l)); }
+    .det-head h1 { margin: 0.5rem 0 0.4rem; font-size: clamp(2.4rem, 6vw, 4rem); }
+    .det-tag { font-size: 1.2rem; color: var(--ink-dim); margin: 0; max-width: 44ch; }
+    .det-badges { display: flex; gap: 0.5rem; margin-top: 1rem; flex-wrap: wrap; }
+    .det-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .det-body { display: grid; grid-template-columns: 1fr 340px; gap: 3rem; margin-top: 2.5rem; align-items: start; }
+    .det-section { margin-bottom: 2.5rem; }
+    .det-h { font-size: 1.5rem; margin-bottom: 0.7rem; }
+    .lead-p { font-size: 1.15rem; color: var(--ink); }
+    .det-main p { color: var(--ink-dim); font-size: 1.05rem; }
+    .det-two { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; }
+    .det-sub { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.7rem; }
+    .det-list { list-style: none; padding: 0; margin: 0; }
+    .det-list li { padding: 0.4rem 0 0.4rem 1.3rem; position: relative; color: var(--ink-dim); border-bottom: 1px solid var(--line); font-size: 0.98rem; }
+    .det-list li::before { content: '↦'; position: absolute; left: 0; color: hsl(var(--hue) 55% 60%); }
+    .det-p-sm { font-size: 0.98rem !important; }
+    .det-p-sm strong { color: var(--ink); }
+    .caution { padding: 1.3rem 1.5rem; background: color-mix(in srgb, var(--amber) 7%, var(--bg-raised)); border: 1px solid color-mix(in srgb, var(--amber) 22%, transparent); border-radius: var(--radius); }
+    .det-take { padding: 1.8rem; border-left: 3px solid var(--gold); background: linear-gradient(100deg, color-mix(in srgb, var(--gold) 9%, var(--bg-raised)), var(--bg-raised)); border-radius: 0 var(--radius) var(--radius) 0; margin-bottom: 2.5rem; }
+    .take-body { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.4; color: var(--ink) !important; margin: 0.4rem 0 0; }
+    .rel-row { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .rel-chip { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0.9rem; border: 1px solid var(--line-strong); border-radius: 100px; transition: border-color 0.2s; }
+    .rel-chip:hover { border-color: var(--accent); }
+    .rel-name { font-weight: 600; font-size: 0.92rem; }
+    .rel-badge { font-size: 0.6rem !important; }
+
+    .det-aside { position: sticky; top: 84px; }
+    .tally { padding: 1.5rem; }
+    .tally-head { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 0.9rem; margin-bottom: 0.5rem; border-bottom: 2px solid var(--line-strong); }
+    .tally-title { font-size: 0.82rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-ink); }
+    .tally-check { font-size: 0.66rem; color: var(--ink-faint); }
+    .tally-rows { margin: 0; }
+    .tally-row { display: flex; justify-content: space-between; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+    .tally-row dt { font-size: 0.78rem; color: var(--ink-faint); white-space: nowrap; }
+    .tally-row dd { margin: 0; font-size: 0.82rem; color: var(--ink); text-align: right; }
+    .tally-stars { color: var(--gold-ink); }
+    .weights-lic { font-size: 0.72rem !important; line-height: 1.4; }
+    .cap { text-transform: capitalize; }
+    .tally-row dd a { color: hsl(var(--hue) 52% var(--cat-text-l)); }
+    .tally-note { font-size: 0.78rem; color: var(--ink-dim); margin-top: 1rem; padding: 0.8rem; background: color-mix(in srgb, var(--amber) 8%, transparent); border-radius: var(--radius-sm); border: 1px solid color-mix(in srgb, var(--amber) 20%, transparent); }
+    .tally-verdict-blurb { font-size: 0.8rem; color: var(--ink-dim); margin-top: 1rem; line-height: 1.5; }
+    .aside-foot { font-size: 0.7rem; color: var(--ink-faint); margin-top: 1rem; text-align: center; }
+    .aside-foot a { color: var(--accent); }
+
+    @media (max-width: 900px) {
+      .det-body { grid-template-columns: 1fr; }
+      .det-aside { position: static; }
+      .det-two { grid-template-columns: 1fr; }
+    }
+  </style>
+</Base>

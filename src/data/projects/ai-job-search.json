@@ -1,0 +1,21 @@
+{
+  "name": "AI Job Search",
+  "repo": "https://github.com/MadsLorentzen/ai-job-search",
+  "category": "agents-coding",
+  "collections": [],
+  "type": "software",
+  "tagline": "A job hunt, run as an agent workflow",
+  "description": "A fork-and-fill framework built on Claude Code: populate a profile, and structured workflows search job portals, score fit, tailor LaTeX CVs and cover letters, prep interviews, and run skill-gap analysis.",
+  "why": "A clean example of the 'coding CLI as application platform' pattern — an agent product delivered as a repo template rather than a SaaS. The Danish portal integrations show how these templates localize.",
+  "useCases": ["Automating a personal job search end to end", "A template for building your own agent workflows on a coding CLI"],
+  "audience": "Job seekers comfortable with Claude Code; template-hunters",
+  "setup": { "difficulty": "moderate", "requirements": "A Claude Code subscription or API access, a LaTeX toolchain for CV output, and a forked repo with your profile filled in" },
+  "license": { "code": "MIT", "weights": null, "verdict": "open", "notes": "The template is MIT, but it drives Claude Code, which is a proprietary, paid tool." },
+  "tally": { "stars": "3.5k", "lastActivity": "Recent, small history", "status": "early", "checked": "2026-07-19" },
+  "links": { "docs": "https://github.com/MadsLorentzen/ai-job-search" },
+  "limitations": "Danish job portals out of the box (adapt for other markets), a dependency on a paid proprietary agent, and scraping that may brush against portal terms. Treat it as a template, not a product.",
+  "related": ["Gemini CLI", "OpenClaw"],
+  "take": "Less interesting as a job tool than as a genre: personal agent workflows, versioned in git, forked like dotfiles.",
+  "added": "2026-07-19",
+  "featured": true
+}

@@ -1,0 +1,21 @@
+{
+  "name": "OLMo 3",
+  "repo": "https://github.com/allenai/OLMo-core",
+  "category": "models-weights",
+  "collections": ["deep-water"],
+  "type": "model",
+  "tagline": "Open source in the strictest sense there is",
+  "description": "Ai2's family of genuinely open models — 7B and 32B, in Base, Instruct, and Think reasoning variants — built on the OLMo-core training stack. Uniquely, Ai2 releases the entire model flow: training data, code, recipes, logs, and every intermediate checkpoint, all Apache-2.0.",
+  "why": "The gold standard. The only frontier-class lineage where you can inspect and reproduce everything from raw data to final reasoning model — not just download weights and take someone's word for the rest.",
+  "useCases": ["Auditable deployments in research, government, and regulated sectors", "LLM training research using real published recipes", "Fine-tuning from any intermediate training stage"],
+  "audience": "Researchers, transparency-minded organizations, ML engineers",
+  "setup": { "difficulty": "easy", "requirements": "Inference via transformers, vLLM, or Ollama — 7B fits a 24GB GPU. The training stack is advanced multi-GPU territory" },
+  "license": { "code": "Apache-2.0", "weights": "Apache-2.0 (including data and intermediate checkpoints)", "verdict": "open" },
+  "tally": { "stars": "1.3k (OLMo-core)", "lastActivity": "v2.5.0 April 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "site": "https://allenai.org/olmo" },
+  "limitations": "Trails the biggest open-weight flagships on raw benchmarks and is primarily English-centric. The training docs assume ML-engineering fluency.",
+  "related": ["SmolLM3", "DeepSeek-V3"],
+  "take": "When someone asks what 'open source AI' should mean, point here and stop arguing.",
+  "added": "2026-07-19",
+  "featured": true
+}

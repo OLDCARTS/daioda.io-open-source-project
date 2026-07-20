@@ -1,0 +1,50 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+import { categories, categoryOrder } from '../../lib/taxonomy';
+
+export async function getStaticPaths() {
+  return categoryOrder.map((id) => ({ params: { id }, props: { id } }));
+}
+const { id } = Astro.props;
+const cat = categories[id];
+const projects = (await getCollection('projects'))
+  .filter((p) => p.data.category === id && p.data.featured)
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+const others = categoryOrder.filter((c) => c !== id);
+---
+<Base title={cat.name} description={cat.blurb} path={`categories/${id}`}>
+  <section class="wrap cat-hero" style={`--hue:${cat.hue}`}>
+    <p class="eyebrow" style="color:hsl(var(--hue) 52% var(--cat-text-l))">Category</p>
+    <h1>{cat.name}</h1>
+    <p class="cat-lede">{cat.blurb}</p>
+    <p class="mono cat-n">{projects.length} verified project{projects.length === 1 ? '' : 's'}</p>
+  </section>
+  <section class="wrap">
+    <div class="card-grid">
+      {projects.map((p) => <ProjectCard project={p} />)}
+    </div>
+  </section>
+  <section class="wrap cat-nav">
+    <p class="eyebrow">Keep exploring</p>
+    <div class="cat-nav-row">
+      {others.map((c) => (
+        <a href={`/categories/${c}`} class="cat-nav-link" style={`--hue:${categories[c].hue}`}>{categories[c].name}</a>
+      ))}
+    </div>
+  </section>
+  <style>
+    .cat-hero { padding-top: 3.5rem; }
+    .cat-hero h1 { border-left: 4px solid hsl(var(--hue) 60% 58%); padding-left: 1rem; margin-left: -1rem; }
+    .cat-lede { color: var(--ink-dim); font-size: 1.15rem; max-width: 56ch; }
+    .cat-n { color: var(--ink-faint); font-size: 0.78rem; margin-top: 0.5rem; }
+    .card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; margin-top: 1.5rem; }
+    .cat-nav { margin-top: 4rem; }
+    .cat-nav-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+    .cat-nav-link { padding: 0.5rem 1rem; border: 1px solid var(--line); border-radius: 100px; color: var(--ink-dim); font-size: 0.9rem; transition: all 0.2s; }
+    .cat-nav-link:hover { border-color: hsl(var(--hue) 55% 55%); color: hsl(var(--hue) 55% 68%); }
+    @media (max-width: 1000px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .card-grid { grid-template-columns: 1fr; } }
+  </style>
+</Base>

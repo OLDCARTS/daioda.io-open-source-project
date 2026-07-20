@@ -1,0 +1,21 @@
+{
+  "name": "Codebase Memory MCP",
+  "repo": "https://github.com/DeusData/codebase-memory-mcp",
+  "category": "agents-coding",
+  "collections": [],
+  "type": "software",
+  "tagline": "A knowledge graph of your codebase, in one static binary",
+  "description": "An MCP server that indexes a repository into a persistent knowledge graph: tree-sitter parsing across 158 languages, deeper type resolution for 12, sub-millisecond graph queries, dead-code detection, and architecture analysis — shipped as a single zero-dependency binary.",
+  "why": "Attacks the sorest point in agentic coding — context efficiency — with a local-first design that claims ~99% token savings over raw file reads, backed by an arXiv preprint and unusually serious supply-chain hygiene (SLSA L3, Sigstore-signed releases).",
+  "useCases": ["Giving Claude Code or any MCP client structural memory of a large repo", "Impact analysis and dead-code detection", "Fast code navigation for agents without API calls"],
+  "audience": "Developers running MCP-capable agents on medium-to-large codebases",
+  "setup": { "difficulty": "easy", "requirements": "Download one binary, register it as an MCP server in your client config" },
+  "license": { "code": "MIT", "weights": null, "verdict": "open" },
+  "tally": { "stars": "32.7k", "lastActivity": "Active, live CI", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://deusdata.github.io/codebase-memory-mcp/" },
+  "limitations": "Semantic resolution covers 12 languages (the rest are syntax-only), and the graph is only as fresh as your last re-index. Binary-first distribution — verify provenance via the provided attestations.",
+  "related": ["OpenWiki", "Gemini CLI"],
+  "take": "If your agent burns most of its budget re-reading files, this is the cure — and its release engineering should embarrass much bigger projects.",
+  "added": "2026-07-19",
+  "featured": true
+}

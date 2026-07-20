@@ -1,0 +1,21 @@
+{
+  "name": "Kokoro",
+  "repo": "https://github.com/hexgrad/kokoro",
+  "category": "audio-voice",
+  "collections": ["night-shift", "first-light"],
+  "type": "model",
+  "tagline": "82 million parameters that sound like a thousand times more",
+  "description": "A text-to-speech model that punches absurdly above its weight: natural speech in 9 languages with multiple voices, voice blending, and speed control — small enough to run in real time on a CPU, a phone, or a browser tab.",
+  "why": "The efficiency outlier of open TTS. At ~82M parameters it remains the default for edge, embedded, and browser deployment, with ONNX, WASM, and Rust ports everywhere you look.",
+  "useCases": ["On-device and offline TTS", "Screen readers and accessibility tools", "Low-cost narration at scale"],
+  "audience": "App developers, edge engineers, anyone without a GPU",
+  "setup": { "difficulty": "trivial", "requirements": "pip install kokoro (plus espeak-ng); real-time on CPU, under 1GB of memory" },
+  "license": { "code": "Apache-2.0", "weights": "Apache-2.0", "verdict": "open" },
+  "tally": { "stars": "7k+; among HF's most-downloaded TTS", "lastActivity": "v1.0 stable; ecosystem very active", "status": "stable", "checked": "2026-07-19" },
+  "links": { "docs": "https://huggingface.co/hexgrad/Kokoro-82M" },
+  "limitations": "No zero-shot cloning — you get a fixed voice set — and less emotional range than the big models. Core development has slowed into maintenance.",
+  "related": ["Chatterbox", "llamafile"],
+  "take": "Proof that 'small and finished' is a feature. Some models are infrastructure; this one is a brick you build with.",
+  "added": "2026-07-19",
+  "featured": true
+}

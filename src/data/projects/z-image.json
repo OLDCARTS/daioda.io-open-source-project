@@ -1,0 +1,21 @@
+{
+  "name": "Z-Image",
+  "repo": "https://github.com/Tongyi-MAI/Z-Image",
+  "category": "generative-media",
+  "collections": [],
+  "type": "model",
+  "tagline": "Frontier image quality at 6B parameters",
+  "description": "An efficient 6B single-stream diffusion transformer family. Z-Image-Turbo generates photorealistic images in 8 steps with sub-second latency on datacenter GPUs and fits in 16GB of consumer VRAM; variants cover text-to-image, instruction editing, and bilingual text rendering.",
+  "why": "The lesser-known speed champion — ranked #1 open-source on the Artificial Analysis leaderboard at a fraction of competitors' size, proving frontier quality no longer requires 20B+ parameters or an H100.",
+  "useCases": ["Real-time and interactive generation", "Local generation on 16GB cards", "High-throughput serving"],
+  "audience": "Developers needing fast inference; hobbyists on consumer GPUs",
+  "setup": { "difficulty": "easy", "requirements": "Diffusers with PyTorch native backends, or ComfyUI; 16GB VRAM for Turbo, CPU offload for less" },
+  "license": { "code": "Apache-2.0", "weights": "Apache-2.0 (Turbo, Edit, and base checkpoints)", "verdict": "open" },
+  "tally": { "stars": "11.6k", "lastActivity": "Base checkpoint released Jan 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://tongyi-mai.github.io/Z-Image-blog/" },
+  "limitations": "Turbo trades output diversity for speed and isn't fine-tunable; the base model wants ~50 steps for best quality.",
+  "related": ["Qwen-Image", "FLUX.2"],
+  "take": "Efficiency is the quiet frontier. The most interesting race in image models is now about doing more with less.",
+  "added": "2026-07-19",
+  "featured": true
+}

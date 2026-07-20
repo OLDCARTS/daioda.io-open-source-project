@@ -1,0 +1,21 @@
+{
+  "name": "Open WebUI",
+  "repo": "https://github.com/open-webui/open-webui",
+  "category": "local-private-ai",
+  "collections": ["fine-print"],
+  "type": "software",
+  "tagline": "It was open source. Then the license changed.",
+  "description": "A feature-rich self-hosted web interface for LLMs — chat, RAG, multi-user, pipelines, tool calling — working with Ollama and any OpenAI-compatible API, designed to run fully offline.",
+  "why": "The highest-profile relicensing in local AI. It moved from permissive terms to a custom license that forbids removing the 'Open WebUI' branding unless you have 50 or fewer users in a rolling 30-day window (or written permission). That branding-protection clause is a use restriction OSI licenses don't allow.",
+  "useCases": ["A self-hosted ChatGPT-style front end", "Team AI portals over local or API models"],
+  "audience": "Self-hosters, homelabs, small internal deployments",
+  "setup": { "difficulty": "easy", "requirements": "A single Docker container or pip install; an LLM backend" },
+  "license": { "code": "Open WebUI License (custom, BSD-3-based + branding clause)", "weights": null, "verdict": "not-open", "notes": "Fine for small deployments; rebranding or white-labeling above 50 users requires an enterprise license." },
+  "tally": { "stars": "144k", "lastActivity": "v0.10.2 July 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://docs.openwebui.com" },
+  "limitations": "You may not alter or remove the branding above the user threshold — a material-breach clause that takes it outside the open-source definition.",
+  "related": ["Jan", "Khoj"],
+  "take": "A cautionary tale about depending on a license that can change under you. Still great software — for a fully open equivalent, look at Jan.",
+  "added": "2026-07-19",
+  "featured": false
+}

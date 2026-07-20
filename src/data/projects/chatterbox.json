@@ -1,0 +1,21 @@
+{
+  "name": "Chatterbox",
+  "repo": "https://github.com/resemble-ai/chatterbox",
+  "category": "audio-voice",
+  "collections": ["first-light"],
+  "type": "model",
+  "tagline": "ElevenLabs-tier speech, MIT-licensed",
+  "description": "A production-grade open TTS family: a 500M English model with unique emotion-exaggeration control, a 23-language multilingual variant with zero-shot voice cloning, and a 350M low-latency Turbo model with paralinguistic tags like [laugh]. Consistently benchmarks at or above closed competitors in blind listening tests.",
+  "why": "A commercial voice-AI company giving away its crown jewels under MIT — including cloning — with built-in Perth audio watermarking as a responsible-AI hedge. The most-starred open TTS of the current cycle.",
+  "useCases": ["Voice agents and narration", "Dubbing across 23 languages", "Game dialogue and consented voice cloning"],
+  "audience": "Developers shipping voice features, indie game devs, accessibility builders",
+  "setup": { "difficulty": "easy", "requirements": "pip install chatterbox-tts; a CUDA GPU is recommended but modest cards work, and Turbo is lighter" },
+  "license": { "code": "MIT", "weights": "MIT", "verdict": "open" },
+  "tally": { "stars": "24.5k", "lastActivity": "Turbo added Dec 2025; multilingual maintained", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://resemble-ai.github.io/chatterbox_demopage/" },
+  "limitations": "Clone only consented voices. Reference-clip language should match the target to avoid accent bleed, and all output carries Resemble's watermark — a feature, but know it's there.",
+  "related": ["Kokoro", "HeartMuLa"],
+  "take": "The open-weights voice race ended faster than anyone expected. This is what winning it looks like.",
+  "added": "2026-07-19",
+  "featured": true
+}

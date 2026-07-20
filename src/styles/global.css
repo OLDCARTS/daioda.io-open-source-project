@@ -1,0 +1,203 @@
+/* DAIODA — global design system
+   Night shift → daybreak. Dark theme primary. */
+
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/instrument-sans';
+@import '@fontsource/ibm-plex-mono/400.css';
+@import '@fontsource/ibm-plex-mono/500.css';
+
+:root {
+  /* Night → dawn palette */
+  --night: #0A0E23;
+  --harbor: #141B3C;
+  --harbor-2: #1C2450;
+  --violet: #4A3A78;
+  --ember: #E8734A;
+  --gold: #F5C55A;
+  --paper: #FAF6EE;
+
+  /* verdicts */
+  --open: #3FBF7F;
+  --amber: #E8A93D;
+  --slate: #8B93A7;
+  /* verdict text colors, theme-adaptive for contrast on tinted badges */
+  --v-open: #52CE92;
+  --v-amber: #F2BB55;
+  --v-slate: #A6ADC2;
+  --v-violet: #A594D8;
+
+  /* semantic (dark default) */
+  --bg: var(--night);
+  --bg-raised: var(--harbor);
+  --bg-raised-2: var(--harbor-2);
+  --ink: #EDEBFF;
+  --ink-dim: #B6BBD8;
+  --ink-faint: #9BA0C6;
+  --line: rgba(146, 155, 200, 0.16);
+  --line-strong: rgba(146, 155, 200, 0.32);
+  --accent: var(--gold);
+  --accent-warm: var(--ember);
+  /* gold used for small "data" text — needs contrast in both themes */
+  --gold-ink: #F5C55A;
+  /* wordmark letter colors, theme-adaptive */
+  --wm-ai: var(--gold);
+  --wm-o: #F0865C;
+  /* lightness for category-hued label TEXT — dark theme */
+  --cat-text-l: 70%;
+
+  --font-display: 'Fraunces Variable', Georgia, serif;
+  --font-text: 'Instrument Sans Variable', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --maxw: 1200px;
+  --radius: 14px;
+  --radius-sm: 9px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-theme='day'] {
+  --bg: var(--paper);
+  --bg-raised: #FFFFFF;
+  --bg-raised-2: #F3EEE2;
+  --ink: #1A1F3A;
+  --ink-dim: #454C6E;
+  --ink-faint: #5A6084;
+  --line: rgba(40, 46, 92, 0.14);
+  --line-strong: rgba(40, 46, 92, 0.26);
+  --accent: #855009;
+  --accent-warm: #A83C18;
+  --gold-ink: #8A5A10;
+  --wm-ai: #6E4600;
+  --wm-o: #A83C18;
+  --cat-text-l: 28%;
+  --v-open: #146237;
+  --v-amber: #7C5109;
+  --v-slate: #4F5573;
+  --v-violet: #4E3F86;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background 0.5s var(--ease), color 0.4s var(--ease);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 560;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.4em;
+  font-optical-sizing: auto;
+}
+h1 { font-size: clamp(2.4rem, 6vw, 4.6rem); }
+h2 { font-size: clamp(1.7rem, 3.4vw, 2.7rem); }
+h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+
+a { color: inherit; text-decoration: none; }
+
+p { margin: 0 0 1rem; }
+
+.mono { font-family: var(--font-mono); }
+
+.wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: clamp(1.1rem, 4vw, 2.5rem); }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* Skip link */
+.skip {
+  position: absolute; left: -999px; top: 0; z-index: 100;
+  background: var(--accent); color: var(--night);
+  padding: 0.6rem 1rem; border-radius: 0 0 var(--radius-sm) 0;
+  font-weight: 600;
+}
+.skip:focus { left: 0; }
+
+:focus-visible {
+  outline: 2.5px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Verdict badges */
+.badge {
+  display: inline-flex; align-items: center; gap: 0.4em;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.28em 0.62em;
+  border-radius: 100px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.badge-open { color: var(--v-open); border-color: color-mix(in srgb, var(--open) 42%, transparent); background: color-mix(in srgb, var(--open) 10%, transparent); }
+.badge-partial { color: var(--v-amber); border-color: color-mix(in srgb, var(--amber) 42%, transparent); background: color-mix(in srgb, var(--amber) 10%, transparent); }
+.badge-not-open { color: var(--v-slate); border-color: color-mix(in srgb, var(--slate) 42%, transparent); background: color-mix(in srgb, var(--slate) 12%, transparent); }
+.badge-unclear { color: var(--v-slate); border-color: color-mix(in srgb, var(--slate) 42%, transparent); background: color-mix(in srgb, var(--slate) 12%, transparent); }
+.badge-model { color: var(--v-violet); border-color: color-mix(in srgb, var(--v-violet) 45%, transparent); background: color-mix(in srgb, var(--v-violet) 14%, transparent); }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5em;
+  font-family: var(--font-text); font-weight: 600; font-size: 0.95rem;
+  padding: 0.7em 1.3em; border-radius: 100px;
+  border: 1px solid var(--line-strong);
+  background: transparent; color: var(--ink);
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+}
+.btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+.btn-primary {
+  background: linear-gradient(100deg, var(--ember), var(--gold));
+  color: #1A1128; border-color: transparent;
+  box-shadow: 0 6px 24px -10px var(--ember);
+}
+.btn-primary:hover { color: #1A1128; filter: brightness(1.06); transform: translateY(-2px); }
+
+/* Cards */
+.card {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), background 0.3s var(--ease);
+}
+.card:hover { border-color: var(--line-strong); transform: translateY(-3px); }
+
+hr { border: none; border-top: 1px solid var(--line); margin: 2.5rem 0; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Reveal on scroll */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+}

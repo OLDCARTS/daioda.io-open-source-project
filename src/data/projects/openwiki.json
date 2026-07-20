@@ -1,0 +1,21 @@
+{
+  "name": "OpenWiki",
+  "repo": "https://github.com/langchain-ai/openwiki",
+  "category": "agents-coding",
+  "collections": [],
+  "type": "software",
+  "tagline": "Documentation that keeps itself current for agents",
+  "description": "A CLI from LangChain that writes and continuously maintains agent-facing documentation. Two modes: a living wiki of your repository, and a personal knowledge wiki fed by connectors like Git, Notion, Gmail, and web search.",
+  "why": "Tackles agent context from the documentation side: instead of a knowledge graph, generate prose docs that agents (and new teammates) can read — and keep them fresh automatically. Pairs naturally, or competitively, with graph-based approaches.",
+  "useCases": ["Self-updating codebase wikis for agents and onboarding", "Personal knowledge aggregation across sources"],
+  "audience": "Engineering teams adopting agentic coding; LangChain ecosystem users",
+  "setup": { "difficulty": "easy", "requirements": "CLI install, an LLM API key, repo access; optional connector credentials" },
+  "license": { "code": "MIT", "weights": null, "verdict": "open" },
+  "tally": { "stars": "12.2k", "lastActivity": "v0.2.0 July 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://github.com/langchain-ai/openwiki" },
+  "limitations": "Every refresh costs LLM tokens, generated docs can drift or hallucinate and deserve review, and connector mode ingests personal data — scope those credentials carefully. Young 0.x surface.",
+  "related": ["Codebase Memory MCP", "LangChain"],
+  "take": "The llms.txt idea grown into a system: docs as the interface between your codebase and its new robot readers.",
+  "added": "2026-07-19",
+  "featured": true
+}

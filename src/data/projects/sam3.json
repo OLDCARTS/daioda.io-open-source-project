@@ -1,0 +1,21 @@
+{
+  "name": "SAM 3",
+  "repo": "https://github.com/facebookresearch/sam3",
+  "category": "computer-vision",
+  "collections": ["deep-water"],
+  "type": "model",
+  "tagline": "Segment anything — now including things you name",
+  "description": "Meta's unified 848M-parameter foundation model for promptable segmentation in images and video: a DETR-based detector fused with the SAM 2 tracker, so one model detects, segments, and tracks from text prompts, points, boxes, or masks — with open-vocabulary concepts trained over ~270k unique terms.",
+  "why": "The first SAM generation to do open-vocabulary segmentation from free text plus unified image-and-video tracking in one model. It anchors the entire segmentation ecosystem — but its weights sit under Meta's custom gated license, not an OSI one.",
+  "useCases": ["Video object tracking", "Open-vocabulary detection and segmentation", "Dataset auto-labeling", "Robotics perception"],
+  "audience": "CV researchers, ML engineers, annotation teams",
+  "setup": { "difficulty": "moderate", "requirements": "Python 3.12+, PyTorch 2.7+, CUDA GPU; checkpoint download requires Hugging Face approval" },
+  "license": { "code": "Apache-2.0", "weights": "SAM License (Meta custom): commercial use permitted, acceptable-use restrictions, gated download", "verdict": "partial" },
+  "tally": { "stars": "9.4k", "lastActivity": "SAM 3.1 March 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://github.com/facebookresearch/sam3" },
+  "limitations": "Non-OSI gated weights with use restrictions, and heavy GPU needs for real-time video.",
+  "related": ["RF-DETR", "supervision"],
+  "take": "Technically indispensable, legally 'read the license first.' Both things are true, and this site exists to say so in the same breath.",
+  "added": "2026-07-19",
+  "featured": true
+}

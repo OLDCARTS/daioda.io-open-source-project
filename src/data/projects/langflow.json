@@ -1,0 +1,21 @@
+{
+  "name": "Langflow",
+  "repo": "https://github.com/langflow-ai/langflow",
+  "category": "agents-coding",
+  "collections": ["first-light"],
+  "type": "software",
+  "tagline": "Drag-and-drop agent building, genuinely MIT",
+  "description": "A visual canvas for composing LLMs, vector stores, tools, and APIs into agents and workflows, each servable as an API. Python-extensible, with MCP support on both the client and server side.",
+  "why": "The leading visual agent builder that is actually MIT-licensed — a meaningful contrast with Dify and n8n, whose licenses carry conditions. Acquired into DataStax/IBM and still permissive.",
+  "useCases": ["Rapid agent and RAG prototyping", "Low-code internal AI tools", "Teaching how LLM pipelines fit together"],
+  "audience": "Mixed technical and semi-technical teams; solution engineers",
+  "setup": { "difficulty": "easy", "requirements": "pip install or Docker; a desktop app is available; provider API keys" },
+  "license": { "code": "MIT", "weights": null, "verdict": "open" },
+  "tally": { "stars": "149k", "lastActivity": "Continuous", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "site": "https://www.langflow.org" },
+  "limitations": "A history of serious CVEs (including a 2025 pre-auth RCE) means you patch promptly and never expose an unauthenticated instance to the internet. Big flows get unwieldy.",
+  "related": ["LangChain", "RAGFlow"],
+  "take": "The visual builder to reach for when the license fine print on the alternatives gives you pause.",
+  "added": "2026-07-19",
+  "featured": true
+}

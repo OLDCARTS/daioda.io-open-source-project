@@ -1,0 +1,21 @@
+{
+  "name": "mistral.rs",
+  "repo": "https://github.com/EricLBuehler/mistral.rs",
+  "category": "local-private-ai",
+  "collections": ["night-shift"],
+  "type": "software",
+  "tagline": "Multimodal inference in one Rust binary",
+  "description": "A fast, flexible inference engine in Rust that — despite the name — runs many model families across text, vision, and speech. Quantization (GGUF, GPTQ, and in-situ), LoRA and X-LoRA adapters, paged attention, Rust and Python APIs, and an OpenAI-compatible server with MCP support.",
+  "why": "A lesser-known gem: one binary covering territory that usually requires a tower of Python dependencies. In-situ quantization — quantize any Hugging Face model at load time — is a standout trick, and it embeds cleanly into Rust applications.",
+  "useCases": ["Embedding local inference directly in Rust apps", "A self-hosted multimodal OpenAI-compatible server", "Quantized models on CPU or GPU without Python"],
+  "audience": "Rust developers, performance-minded self-hosters",
+  "setup": { "difficulty": "moderate", "requirements": "cargo install or prebuilt binaries; feature flags for CUDA, Metal, or MKL; CPU-only works" },
+  "license": { "code": "MIT", "weights": null, "verdict": "open" },
+  "tally": { "stars": "7.2k", "lastActivity": "May 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://ericlbuehler.github.io/mistral.rs/" },
+  "limitations": "A smaller community than llama.cpp or vLLM, a fast-moving API, and momentum that leans on one lead maintainer.",
+  "related": ["llamafile", "Ollama"],
+  "take": "The engine you discover when Python dependency hell finally wins. Deserves several times its stars.",
+  "added": "2026-07-19",
+  "featured": true
+}

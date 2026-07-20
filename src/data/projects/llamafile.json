@@ -1,0 +1,21 @@
+{
+  "name": "llamafile",
+  "repo": "https://github.com/Mozilla-Ocho/llamafile",
+  "category": "local-private-ai",
+  "collections": ["night-shift"],
+  "type": "software",
+  "tagline": "A whole chatbot in one portable file",
+  "description": "Packages an LLM's weights and the llama.cpp engine into a single cross-platform executable using Cosmopolitan Libc. One downloaded file runs the same model on macOS, Linux, Windows, and the BSDs — no install, no runtime, no dependencies. A sibling, whisperfile, does the same for speech-to-text.",
+  "why": "The most radical answer to AI distribution anyone has shipped: a model as a file you can archive, air-gap, or hand someone on a USB stick. Revived with fresh releases under Mozilla.ai after a quiet spell.",
+  "useCases": ["Offline and air-gapped LLM chat", "Distributing a model plus runtime as one artifact", "An embedded OpenAI-compatible local server"],
+  "audience": "Developers, sysadmins, privacy-focused tinkerers, digital preservationists",
+  "setup": { "difficulty": "trivial", "requirements": "Download one file, chmod +x, run. Any modern CPU; GPU optional" },
+  "license": { "code": "Apache-2.0", "weights": null, "verdict": "open", "notes": "The tool is Apache-2.0; bundled model weights keep their own licenses." },
+  "tally": { "stars": "25.4k", "lastActivity": "v0.10.4 July 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://github.com/Mozilla-Ocho/llamafile" },
+  "limitations": "Windows caps executables at 4GB, so larger models need external weights. Feature-wise it trails upstream llama.cpp and has fewer knobs than dedicated servers.",
+  "related": ["Ollama", "mistral.rs"],
+  "take": "Fifty years from now, when someone wants to run 2020s AI, this is the format that will still boot.",
+  "added": "2026-07-19",
+  "featured": true
+}

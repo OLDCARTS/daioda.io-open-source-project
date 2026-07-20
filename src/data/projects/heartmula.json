@@ -1,0 +1,21 @@
+{
+  "name": "HeartMuLa",
+  "repo": "https://github.com/HeartMuLa/heartlib",
+  "category": "audio-voice",
+  "collections": [],
+  "type": "model",
+  "tagline": "The Stable Diffusion moment for music",
+  "description": "A family of open music foundation models: a multilingual lyrics-and-tags-conditioned song generator (3B open, 7B internal), the HeartCodec 12.5Hz music codec, a lyrics transcriber, and a CLAP-style audio-text aligner. Generates full songs with vocals at roughly real-time speed.",
+  "why": "Music generation has been dominated by closed products like Suno and Udio. A genuinely Apache-2.0 release — code and weights, commercial use included, relicensed explicitly in January 2026 — is the moment the open music ecosystem has been waiting for.",
+  "useCases": ["Full-song generation from lyrics and style tags", "Music-AI research and fine-tuning on custom catalogs", "Lyrics transcription"],
+  "audience": "Music-tech developers, generative-audio researchers, indie creators",
+  "setup": { "difficulty": "moderate", "requirements": "A CUDA GPU (the 3B model fits prosumer cards), PyTorch, and tens of GB for weights from HF or ModelScope" },
+  "license": { "code": "Apache-2.0", "weights": "Apache-2.0 (relicensed 2026-01-20)", "verdict": "open", "notes": "The official repo is HeartMuLa/heartlib — beware lookalike mirrors and unofficial sites." },
+  "tally": { "stars": "3.8k", "lastActivity": "Model releases through Feb 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "site": "https://heartmula.github.io/", "paper": "https://arxiv.org/abs/2601.10547" },
+  "limitations": "Not yet optimized for streaming, no reference-audio conditioning, and the 7B 'Suno-comparable' variant remains unreleased. Industry-wide training-data copyright questions are unresolved here too.",
+  "related": ["Chatterbox", "Kokoro"],
+  "take": "Watch what indie musicians do with this in a year. Open weights change who gets to experiment.",
+  "added": "2026-07-19",
+  "featured": true
+}

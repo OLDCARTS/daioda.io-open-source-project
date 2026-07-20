@@ -1,0 +1,163 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+const projects = await getCollection('projects');
+const open = projects.filter((p) => p.data.license.verdict === 'open').length;
+const partial = projects.filter((p) => p.data.license.verdict === 'partial').length;
+const notOpen = projects.filter((p) => p.data.license.verdict === 'not-open').length;
+---
+<Base title="About the Experiment" description="DAIODA is an autonomous experiment: a digest of open-source AI, designed, researched, built, and maintained end-to-end by Fable 5. Here's what that means and what was learned." path="about">
+  <article class="prose-page">
+    <div class="wrap">
+      <header class="pp-head">
+        <p class="eyebrow">About the experiment</p>
+        <h1>A website that built itself.</h1>
+        <p class="pp-lede">
+          DAIODA is a working demonstration. Every decision behind it — the concept, the research,
+          the editorial voice, the visual system, the code, and the ongoing upkeep — was made
+          autonomously by <strong>Fable 5</strong>, Anthropic's model, operating as designer,
+          developer, researcher, and editor at once. This page is the honest account of what that
+          did and didn't involve.
+        </p>
+      </header>
+
+      <section class="pp-section">
+        <h2>The purpose</h2>
+        <p>
+          The open-source AI world moves faster than any single person can track, and the word
+          "open source" has been stretched until it means almost nothing. A free tier gets called
+          open source. A downloadable model gets called open source. A public GitHub repo with an
+          all-rights-reserved license gets called open source. DAIODA exists to cut through that —
+          to be a curated, genuinely verified digest where the licensing claim is the product, not
+          an afterthought.
+        </p>
+        <p>
+          It's also a test of a bigger question: can a model take a one-paragraph brief and carry a
+          complete digital product from concept to a live, maintained website — with real editorial
+          judgment, real design taste, and real technical rigor — without a human doing the work at
+          each step? This site is the answer, published in full so you can judge it yourself.
+        </p>
+      </section>
+
+      <section class="pp-section">
+        <h2>What Fable 5 did autonomously</h2>
+        <div class="did-grid">
+          <div class="did"><span class="did-n mono">01</span><h3>Research</h3><p>Ran parallel research agents across GitHub, project docs, and primary sources to find and vet candidate projects — well beyond the initial seed list.</p></div>
+          <div class="did"><span class="did-n mono">02</span><h3>Verification</h3><p>Read each project's actual license from its repository, separated code licenses from weights licenses, and recorded activity and status.</p></div>
+          <div class="did"><span class="did-n mono">03</span><h3>Editorial</h3><p>Designed a taxonomy and editorial framework, then wrote original context and a takeaway for every entry — no copied repo descriptions.</p></div>
+          <div class="did"><span class="did-n mono">04</span><h3>Design</h3><p>Invented the concept, the palette, the typography, and the generative daybreak system, including a hand-written WebGL shader.</p></div>
+          <div class="did"><span class="did-n mono">05</span><h3>Engineering</h3><p>Built the whole site — content model, components, search and filtering, RSS, sitemap, accessibility, and performance work.</p></div>
+          <div class="did"><span class="did-n mono">06</span><h3>Iteration</h3><p>Ran multiple structured review passes across design, UX, accessibility, performance, and content integrity, fixing issues each time.</p></div>
+        </div>
+      </section>
+
+      <section class="pp-section">
+        <h2>What a human provided</h2>
+        <p>
+          The human role was deliberately thin, and worth naming precisely so the experiment isn't
+          oversold. A person — the owner of the <span class="mono">daioda.io</span> domain — supplied:
+        </p>
+        <ul class="clean-list">
+          <li>The original brief: build a beautiful, useful, continuously-updated digest of open-source AI projects.</li>
+          <li>The domain name and its backstory — the <em>Data / AI / In / Out</em> wordplay, and a fondness for the rhythm of the old dockworkers' tally song that shapes this site's language and motion.</li>
+          <li>A starting NotebookLM notebook of candidate projects, used as one input among many rather than the whole catalog.</li>
+          <li>Account access for deployment — GitHub, hosting, and the domain — provided separately, with the minimum permissions needed.</li>
+          <li>A few high-level choices when asked, such as how large the launch catalog should be.</li>
+        </ul>
+        <p>
+          Everything else — every project decision, every sentence, every color and curve — came from the model.
+        </p>
+      </section>
+
+      <section class="pp-section">
+        <h2>By the numbers, at launch</h2>
+        <div class="num-row">
+          <div class="num"><span class="num-v mono">{open}</span><span class="num-l">verified-open projects</span></div>
+          <div class="num"><span class="num-v mono">{partial}</span><span class="num-l">open code, restricted weights</span></div>
+          <div class="num"><span class="num-v mono">{notOpen}</span><span class="num-l">famous repos, not open source</span></div>
+          <div class="num"><span class="num-v mono">10</span><span class="num-l">categories across the taxonomy</span></div>
+        </div>
+      </section>
+
+      <section class="pp-section">
+        <h2>What was learned</h2>
+        <p>
+          A few things surfaced that are worth recording. First, <strong>licensing is messier than
+          the discourse admits</strong>. Several of the most-starred "open source AI" repositories on
+          GitHub are not open source under any standard definition — n8n is fair-code, Dify adds
+          conditions to Apache, Open WebUI protects its branding, and Claude Code reserves all rights
+          outright. Reading the actual license, every time, changed the catalog materially.
+        </p>
+        <p>
+          Second, <strong>the code-versus-weights distinction is where most confusion lives</strong>.
+          A model can have an MIT codebase and non-commercial weights; treating those as one thing
+          misleads people who are trying to ship. Splitting them into two verdicts turned out to be
+          one of the most useful decisions here.
+        </p>
+        <p>
+          Third, <strong>taste is a real constraint, not a decoration</strong>. The temptation in a
+          project like this is a generic dark dashboard with a grid of logos. Committing to a specific
+          idea — a night-shift harbor at daybreak, a tally that doubles as the credibility feature —
+          made a thousand small decisions easier and the result less forgettable.
+        </p>
+      </section>
+
+      <section class="pp-section">
+        <h2>Limitations, honestly</h2>
+        <p>
+          This is an experiment, and it has edges worth stating plainly. Star counts and activity
+          snapshots are point-in-time and drift the moment they're recorded. License reading is done
+          carefully but is not legal advice — for anything commercial, confirm against the current
+          license yourself. The catalog is a curated slice, not a census; excellent projects are
+          missing simply because a launch has to end somewhere. And a model curating open-source AI
+          is itself a thing to keep an eye on: the <a href="/methodology">methodology</a> page
+          describes the guardrails, including that nothing is described as open source without a
+          license actually read from the source.
+        </p>
+      </section>
+
+      <section class="pp-section">
+        <h2>How it evolves</h2>
+        <p>
+          DAIODA is not meant to be static. New projects come ashore on a weekly cadence — the
+          <a href="/collections/daybreak">Daybreak</a> edition — with the same verification applied to
+          each. Abandoned projects get re-tallied and flagged, corrections are welcomed, and the
+          editorial standards are public and revisable. The <a href="/guide">build guide</a> documents
+          the entire system in enough detail for someone else to reproduce it. If this experiment
+          works, it keeps working — quietly, every week, at daybreak.
+        </p>
+      </section>
+
+      <div class="pp-cta">
+        <a href="/guide" class="btn btn-primary">Read the build guide →</a>
+        <a href="/methodology" class="btn">See the methodology</a>
+      </div>
+    </div>
+  </article>
+  <style>
+    .prose-page { padding-top: 3rem; }
+    .pp-head { max-width: 62ch; }
+    .pp-lede { font-size: 1.28rem; color: var(--ink-dim); line-height: 1.55; }
+    .pp-lede strong { color: var(--ink); }
+    .pp-section { max-width: 68ch; margin-top: 3.2rem; }
+    .pp-section h2 { font-size: 1.9rem; margin-bottom: 0.8rem; }
+    .pp-section p { color: var(--ink-dim); font-size: 1.08rem; line-height: 1.65; }
+    .pp-section strong { color: var(--ink); }
+    .pp-section em { color: var(--ink); font-style: italic; }
+    .pp-section a { color: var(--accent); border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
+    .clean-list { list-style: none; padding: 0; margin: 1.2rem 0; }
+    .clean-list li { position: relative; padding: 0.6rem 0 0.6rem 1.6rem; border-bottom: 1px solid var(--line); color: var(--ink-dim); }
+    .clean-list li::before { content: '›'; position: absolute; left: 0.3rem; color: var(--gold); font-weight: 700; }
+    .did-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 1.5rem; }
+    .did { padding: 1.3rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-raised); }
+    .did-n { color: var(--gold-ink); font-size: 0.8rem; }
+    .did h3 { font-size: 1.15rem; margin: 0.4rem 0 0.4rem; }
+    .did p { font-size: 0.9rem !important; margin: 0; }
+    .num-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-top: 1.5rem; }
+    .num { padding: 1.3rem 0; border-top: 2px solid var(--line-strong); }
+    .num-v { display: block; font-size: 2.6rem; color: var(--gold-ink); line-height: 1; }
+    .num-l { font-size: 0.85rem; color: var(--ink-dim); }
+    .pp-cta { display: flex; gap: 0.8rem; margin-top: 3.5rem; flex-wrap: wrap; }
+    @media (max-width: 820px) { .did-grid { grid-template-columns: 1fr; } .num-row { grid-template-columns: 1fr 1fr; } }
+  </style>
+</Base>

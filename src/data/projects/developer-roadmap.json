@@ -1,0 +1,21 @@
+{
+  "name": "developer-roadmap",
+  "repo": "https://github.com/nilbuild/developer-roadmap",
+  "category": "experimental",
+  "collections": ["fine-print"],
+  "type": "content",
+  "tagline": "360k stars, personal-use only",
+  "description": "Interactive career roadmaps and guides for developers — frontend, backend, DevOps, AI, and dozens more — powering roadmap.sh, plus the roadmap content itself.",
+  "why": "One of GitHub's most-starred repositories ever, and a common example of 'famous but not open source.' Its custom license permits personal use only: you can't republish the content in blogs or newsletters without consent, and commercial reuse is prohibited. (And despite appearances it isn't a fork — the author renamed his account from kamranahmedse to nilbuild.)",
+  "useCases": ["Learning paths and career planning", "A curriculum reference"],
+  "audience": "Developers at all levels; educators",
+  "setup": { "difficulty": "trivial", "requirements": "Just read it at roadmap.sh; Node and Astro to run the site locally" },
+  "license": { "code": "Custom personal-use-only license (not OSI)", "weights": null, "verdict": "not-open", "notes": "Content sharing is limited to links; no republication or commercial reuse." },
+  "tally": { "stars": "360k", "lastActivity": "Active", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "site": "https://roadmap.sh" },
+  "limitations": "The content, not just the site code, is under a restrictive license — treat it as a resource to link to, not to reuse.",
+  "related": ["System Design 101", "nanochat"],
+  "take": "A reminder that a star count is a popularity metric, not a license. Wonderful to learn from; not yours to redistribute.",
+  "added": "2026-07-19",
+  "featured": false
+}

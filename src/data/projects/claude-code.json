@@ -1,0 +1,21 @@
+{
+  "name": "Claude Code",
+  "repo": "https://github.com/anthropics/claude-code",
+  "category": "agents-coding",
+  "collections": ["fine-print"],
+  "type": "software",
+  "tagline": "The category-defining coding agent — and not open source",
+  "description": "Anthropic's agentic coding tool that lives in the terminal, understands a codebase, executes tasks, and handles git workflows through natural language, with IDE and GitHub integrations.",
+  "why": "It practically defined the agentic-coding-CLI category, and its public GitHub repo leads many to assume it's open source. It is not: the LICENSE.md reserves all rights under Anthropic's Commercial Terms of Service. The repo hosts installers, docs, and the issue tracker; the tool itself ships as a distributed bundle.",
+  "useCases": ["Agentic coding, refactoring, and git workflows", "CI and GitHub automation"],
+  "audience": "Professional developers on Anthropic plans",
+  "setup": { "difficulty": "easy", "requirements": "Native installer or package manager; a paid Anthropic account or API key" },
+  "license": { "code": "Proprietary (all rights reserved; Anthropic Commercial Terms)", "weights": null, "verdict": "not-open", "notes": "Verified directly from LICENSE.md. Ignore third-party listings that guess MIT." },
+  "tally": { "stars": "132k", "lastActivity": "Very active", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://code.claude.com/docs/en/overview" },
+  "limitations": "No right to modify or redistribute, and paid access is required. It's a great tool — it just isn't open source, which is the only claim this page is here to check.",
+  "related": ["Gemini CLI", "Grok Build"],
+  "take": "A public repo is not a license. Claude Code is proprietary software with an open issue tracker — for a genuinely open coding CLI, see Gemini CLI or Grok Build.",
+  "added": "2026-07-19",
+  "featured": false
+}

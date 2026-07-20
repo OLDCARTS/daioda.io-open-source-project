@@ -1,0 +1,21 @@
+{
+  "name": "n8n",
+  "repo": "https://github.com/n8n-io/n8n",
+  "category": "agents-coding",
+  "collections": ["fine-print"],
+  "type": "software",
+  "tagline": "The most-starred repo here that isn't open source",
+  "description": "A fair-code workflow automation platform combining visual node-based building with custom code, 400+ integrations, and native AI and agent capabilities, self-hostable or cloud.",
+  "why": "Enormously popular and constantly described as open source — but n8n itself uses the term 'fair-code', not open source. The Sustainable Use License limits use to your own internal business, non-commercial, or personal purposes, and forbids hosting n8n as a commercial service.",
+  "useCases": ["Internal automation and AI agent workflows", "Webhook-driven SaaS integrations"],
+  "audience": "Ops and dev teams automating internal processes",
+  "setup": { "difficulty": "easy", "requirements": "npx or Docker one-liner; production wants Postgres and more" },
+  "license": { "code": "Sustainable Use License + n8n Enterprise License (fair-code, not OSI)", "weights": null, "verdict": "not-open", "notes": "Free to self-host internally, but not open source: you can't offer it as a commercial service, and enterprise features are gated." },
+  "tally": { "stars": "188k", "lastActivity": "Very active", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "site": "https://n8n.io" },
+  "limitations": "The license restricts commercial hosting and redistribution — fine for internal use, disqualifying for the open-source label.",
+  "related": ["Langflow", "OpenEvolve"],
+  "take": "Excellent software, and genuinely generous terms for most users. Just not open source — for an MIT visual builder, see Langflow.",
+  "added": "2026-07-19",
+  "featured": false
+}

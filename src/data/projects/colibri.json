@@ -1,0 +1,21 @@
+{
+  "name": "Colibri",
+  "repo": "https://github.com/JustVugg/colibri",
+  "category": "local-private-ai",
+  "collections": ["night-shift", "deep-water"],
+  "type": "software",
+  "tagline": "A 744B-parameter model on a 25GB laptop, in pure C",
+  "description": "A pure-C inference engine that runs GLM-5.2 — a 744-billion-parameter mixture-of-experts model — on roughly 25GB of RAM by treating VRAM, RAM, and disk as one memory hierarchy and streaming expert weights from storage on demand. Implements MLA attention, speculative decoding, grammar-forced output, and optional CUDA/Metal.",
+  "why": "A radical answer to 'frontier models need datacenters': correctness-first systems hacking in the llama.cpp spirit that makes a datacenter-class MoE technically runnable on consumer hardware — even at 0.05 tokens/second when cold.",
+  "useCases": ["Research and education on MoE offloading", "Batch or overnight generation where latency is irrelevant", "Proving a point about what consumer hardware can do"],
+  "audience": "Systems programmers, local-inference enthusiasts, patient people",
+  "setup": { "difficulty": "advanced", "requirements": "~25GB RAM minimum, a large fast NVMe drive holding hundreds of GB of expert weights, and a C toolchain" },
+  "license": { "code": "Apache-2.0", "weights": null, "verdict": "open", "notes": "The engine is Apache-2.0; GLM-5.2 weights carry their own license." },
+  "tally": { "stars": "14.8k", "lastActivity": "Active", "status": "experimental", "checked": "2026-07-19" },
+  "links": { "docs": "https://github.com/JustVugg/colibri" },
+  "limitations": "Interactive use is impractical at cold-decode speeds, it currently targets one model family, and it is experimental through and through.",
+  "related": ["exo", "llamafile"],
+  "take": "Nobody needs this. That's not the point. The point is that the wall between consumer and datacenter hardware is made of engineering, not physics.",
+  "added": "2026-07-19",
+  "featured": true
+}

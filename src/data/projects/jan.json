@@ -1,0 +1,21 @@
+{
+  "name": "Jan",
+  "repo": "https://github.com/menloresearch/jan",
+  "category": "local-private-ai",
+  "collections": ["night-shift", "first-light"],
+  "type": "software",
+  "tagline": "The open answer to LM Studio",
+  "description": "A desktop ChatGPT alternative that runs entirely offline: a polished chat UI, a local model manager built on llama.cpp, assistants, MCP tool support, and an OpenAI-compatible local API server — with optional cloud model connections when you want them.",
+  "why": "The strongest fully open (Apache-2.0, relicensed from AGPL) rival to LM Studio, which is closed-source. Local-first with everything on-device, but modern: Tauri, TypeScript and Rust, extensions, remote-provider fallback.",
+  "useCases": ["Private everyday AI chat on a laptop", "A local OpenAI-compatible API for development", "Mixed local-plus-cloud workflows in one app"],
+  "audience": "General users who want private AI; developers; LM Studio refugees",
+  "setup": { "difficulty": "easy", "requirements": "An installer for Mac, Windows, or Linux; 8GB+ RAM recommended for 3-7B models; GPU optional" },
+  "license": { "code": "Apache-2.0", "weights": null, "verdict": "open" },
+  "tally": { "stars": "43.6k", "lastActivity": "v0.8.3 June 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://jan.ai/docs" },
+  "limitations": "Desktop-focused (headless is secondary), and output quality is bounded by what your hardware can run. Mobile apps are still maturing.",
+  "related": ["Ollama", "Khoj"],
+  "take": "The app to install for someone who wants ChatGPT without the account, the cloud, or the subscription.",
+  "added": "2026-07-19",
+  "featured": true
+}

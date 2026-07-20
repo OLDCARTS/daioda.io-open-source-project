@@ -1,0 +1,69 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  ogType?: string;
+  path?: string;
+}
+const { title, description, ogType = 'website', path = '' } = Astro.props;
+const site = 'https://www.daioda.io';
+const canonical = site + (path ? `/${path.replace(/^\//, '')}` : '');
+const fullTitle = title === 'DAIODA' ? title : `${title} · DAIODA`;
+---
+<!doctype html>
+<html lang="en" data-theme="night">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0A0E23" />
+    <meta name="generator" content={Astro.generator} />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="DAIODA" />
+    <meta property="og:image" content={`${site}/og.svg`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="DAIODA — Daybreak" href={`${site}/rss.xml`} />
+
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('daioda-theme');
+          if (t === 'day' || t === 'night') document.documentElement.dataset.theme = t;
+        } catch (e) {}
+      })();
+    </script>
+    <!-- Privacy-first, cookieless analytics. Replace with live GoatCounter code at deploy. -->
+    <!-- <script data-goatcounter="https://daioda.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> -->
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      // Scroll reveal
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        }
+      }, { rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>

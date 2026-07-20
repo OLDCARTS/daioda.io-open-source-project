@@ -1,0 +1,185 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Methodology & Editorial Standards" description="How DAIODA decides what counts as open source, how licenses are verified, how activity is judged, and how corrections and maintainer updates work." path="methodology">
+  <article class="prose-page">
+    <div class="wrap">
+      <header class="pp-head">
+        <p class="eyebrow">Methodology &amp; editorial standards</p>
+        <h1>How the tally is kept.</h1>
+        <p class="pp-lede">
+          DAIODA's only real asset is trust: that when a project is called open source here, it
+          actually is. This page documents exactly how that determination is made, how projects are
+          chosen, how activity is judged, and how you can push back when we get something wrong.
+        </p>
+      </header>
+
+      <nav class="toc" aria-label="On this page">
+        <a href="#definition">What counts as open source</a>
+        <a href="#selection">How projects are selected</a>
+        <a href="#licenses">How licenses are verified</a>
+        <a href="#activity">How activity is evaluated</a>
+        <a href="#cadence">Publishing cadence</a>
+        <a href="#corrections">Corrections &amp; maintainer requests</a>
+      </nav>
+
+      <section class="pp-section" id="definition">
+        <h2>What counts as open source</h2>
+        <p>
+          DAIODA uses the <strong>Open Source Definition</strong> as its standard: an open-source
+          license grants the freedom to use, study, modify, and redistribute the software, with no
+          restriction on field of use, persons, or commercial activity. In practice, that means
+          OSI-approved licenses — MIT, Apache-2.0, the BSD family, the GPL/LGPL/AGPL family, MPL,
+          and their peers.
+        </p>
+        <p>Concretely, a project earns each verdict as follows:</p>
+        <div class="verdict-cards">
+          <div class="vc">
+            <span class="badge badge-open">Open ✓</span>
+            <p>The code ships under an OSI-approved license, confirmed by reading the license in the repository. For tools, this is the whole story. For models, the weights must <em>also</em> be under an open license.</p>
+          </div>
+          <div class="vc">
+            <span class="badge badge-partial">Open code / restricted weights</span>
+            <p>The software is open source, but the model weights ship under a custom, non-commercial, or otherwise restricted license. Featured — because the code genuinely is open — with the weights terms shown plainly.</p>
+          </div>
+          <div class="vc">
+            <span class="badge badge-not-open">Not open source</span>
+            <p>The license restricts use in ways the Open Source Definition forbids — fair-code, "source available," field-of-use conditions, branding locks, or all-rights-reserved. Collected in <a href="/fine-print">The Fine Print</a>, never in the main catalog.</p>
+          </div>
+        </div>
+        <p class="callout">
+          A free tier, a public demo, a downloadable model, a published paper, or an open API does
+          <strong>not</strong> make a project open source. Only the license does.
+        </p>
+      </section>
+
+      <section class="pp-section" id="selection">
+        <h2>How projects are selected</h2>
+        <p>
+          Candidates come from primary sources — GitHub and GitLab, official project sites and docs,
+          research papers, maintainer announcements, and foundation repositories — plus community
+          signal and the occasional tip. The initial launch catalog drew on a seed list and then
+          expanded well beyond it through independent research.
+        </p>
+        <p>A project has to clear a few bars to be featured:</p>
+        <ul class="clean-list">
+          <li><strong>Genuinely open</strong>, per the definition above (or clearly labeled as partial or fine-print if not).</li>
+          <li><strong>Useful, notable, or unusual</strong> — it earns its place either by being genuinely good or by being genuinely interesting.</li>
+          <li><strong>Real, not vaporware</strong> — an existing repository with actual code or weights, not just an announcement.</li>
+          <li><strong>Not a near-duplicate</strong> — when several projects do the same thing, we feature the strongest and cite the rest as alternatives rather than listing all of them.</li>
+        </ul>
+        <p>
+          Curation is deliberately opinionated. This is a digest, not a database dump; leaving good
+          projects out is a feature, and every entry carries an editorial takeaway rather than a
+          neutral restatement of its README.
+        </p>
+      </section>
+
+      <section class="pp-section" id="licenses">
+        <h2>How licenses are verified</h2>
+        <p>The license verdict is the single most important field on this site, so it gets the most rigor:</p>
+        <ol class="num-steps">
+          <li><strong>Read the license from the source.</strong> The determination comes from the actual LICENSE file in the repository, not from GitHub's auto-detected label, a third-party listing, or a blog post — those are frequently wrong.</li>
+          <li><strong>Separate code from weights.</strong> For models, the code license and the weights license are recorded independently, because they routinely differ (MIT code, non-commercial weights is common).</li>
+          <li><strong>Check for added conditions.</strong> "Apache-2.0 with additional conditions," "Sustainable Use," "Community License," and branding clauses are flagged — these are the disguises that turn an open-looking repo into something that isn't.</li>
+          <li><strong>Note commercial restrictions and dependencies.</strong> Where commercial use is limited, or a key dependency carries a stricter license, it's called out in the entry.</li>
+          <li><strong>When in doubt, downgrade.</strong> Unclear licensing is treated as not-verified rather than given the benefit of the doubt.</li>
+        </ol>
+        <p class="callout">
+          License reading here is careful, but it is not legal advice. For anything commercial,
+          confirm against the project's current license yourself — licenses change, sometimes
+          without a version bump.
+        </p>
+      </section>
+
+      <section class="pp-section" id="activity">
+        <h2>How activity is evaluated</h2>
+        <p>
+          Every entry carries a <strong>Tally</strong>: stars, last meaningful activity, project
+          status, and the date the tally was checked. Status is assigned by judgment, not a formula:
+        </p>
+        <ul class="clean-list">
+          <li><strong>Maintained</strong> — active commits and releases within a recent window.</li>
+          <li><strong>Stable</strong> — mature and cared for, but intentionally slow-moving (a finished small model, a release repo).</li>
+          <li><strong>Experimental / Early</strong> — promising but young, pre-1.0, or still proving itself.</li>
+          <li><strong>Static</strong> — essentially complete or dormant, kept for reference.</li>
+        </ul>
+        <p>
+          Star counts and dates are point-in-time snapshots and drift constantly — treat them as
+          rough indicators, not live figures. Abandoned or archived projects are re-tallied and their
+          status updated (or they're moved out of the featured catalog) rather than left to quietly rot.
+        </p>
+      </section>
+
+      <section class="pp-section" id="cadence">
+        <h2>Publishing cadence</h2>
+        <p>
+          New projects come ashore weekly, in the <a href="/collections/daybreak">Daybreak</a>
+          edition. The workflow behind each edition is: discover candidates from primary sources,
+          verify open-source status by reading licenses, filter duplicates and low-quality entries,
+          write original editorial context, and review before publishing. Automated tooling helps with
+          discovery and with re-checking activity; the license verdict and the editorial judgment stay
+          under human-style review, never auto-published as unverified claims. The full pipeline is
+          documented in the <a href="/guide">build guide</a>.
+        </p>
+      </section>
+
+      <section class="pp-section" id="corrections">
+        <h2>Corrections &amp; maintainer requests</h2>
+        <p>
+          The tally only stays honest if it's easy to challenge. Two paths:
+        </p>
+        <div class="corr-grid">
+          <div class="corr card">
+            <h3>Spotted an error?</h3>
+            <p>A broken link, a stale status, a star count that's wildly off, or — most importantly — a license verdict you think is wrong. Open an issue on the project repository (linked from the footer once the source is public) with the project name and what needs fixing. License corrections jump the queue.</p>
+          </div>
+          <div class="corr card">
+            <h3>Maintain a featured project?</h3>
+            <p>If you maintain a project listed here and something is out of date — a relicense, a new release, a status change, or a description you'd word differently — say so and it'll be updated. If your project is in The Fine Print and you've since adopted an OSI license, tell us; nothing would make the tally happier than moving you into the main catalog.</p>
+          </div>
+        </div>
+        <p>
+          Corrections are applied transparently, and material changes to a verdict are noted in the
+          project's tally so the record stays legible.
+        </p>
+      </section>
+
+      <div class="pp-cta">
+        <a href="/fine-print" class="btn btn-primary">See The Fine Print →</a>
+        <a href="/guide" class="btn">Read the build guide</a>
+      </div>
+    </div>
+  </article>
+  <style>
+    .prose-page { padding-top: 3rem; }
+    .pp-head { max-width: 62ch; }
+    .pp-lede { font-size: 1.28rem; color: var(--ink-dim); line-height: 1.55; }
+    .toc { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2.5rem; padding: 1.2rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-raised); }
+    .toc a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-dim); padding: 0.35rem 0.75rem; border-radius: 100px; border: 1px solid var(--line); transition: all 0.2s; }
+    .toc a:hover { color: var(--accent); border-color: var(--line-strong); }
+    .pp-section { max-width: 70ch; margin-top: 3.5rem; scroll-margin-top: 90px; }
+    .pp-section h2 { font-size: 1.9rem; margin-bottom: 0.8rem; }
+    .pp-section p { color: var(--ink-dim); font-size: 1.08rem; line-height: 1.65; }
+    .pp-section strong { color: var(--ink); }
+    .pp-section em { color: var(--ink); font-style: italic; }
+    .pp-section a { color: var(--accent); border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
+    .verdict-cards { display: flex; flex-direction: column; gap: 1rem; margin: 1.5rem 0; }
+    .vc { padding: 1.2rem 1.4rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-raised); }
+    .vc .badge { margin-bottom: 0.7rem; }
+    .vc p { margin: 0; font-size: 1rem; }
+    .callout { padding: 1.1rem 1.4rem; border-left: 3px solid var(--gold); background: color-mix(in srgb, var(--gold) 8%, var(--bg-raised)); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 1.5rem 0; }
+    .clean-list { list-style: none; padding: 0; margin: 1.2rem 0; }
+    .clean-list li { position: relative; padding: 0.6rem 0 0.6rem 1.6rem; border-bottom: 1px solid var(--line); color: var(--ink-dim); }
+    .clean-list li::before { content: '›'; position: absolute; left: 0.3rem; color: var(--gold); font-weight: 700; }
+    .num-steps { padding-left: 0; margin: 1.2rem 0; list-style: none; counter-reset: s; }
+    .num-steps li { position: relative; padding: 0.8rem 0 0.8rem 2.6rem; border-bottom: 1px solid var(--line); color: var(--ink-dim); counter-increment: s; }
+    .num-steps li::before { content: counter(s); position: absolute; left: 0; top: 0.8rem; width: 1.7rem; height: 1.7rem; display: grid; place-items: center; font-family: var(--font-mono); font-size: 0.8rem; color: var(--night); background: var(--gold); border-radius: 50%; }
+    .corr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 1.5rem 0; }
+    .corr { padding: 1.4rem; }
+    .corr h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+    .corr p { font-size: 0.96rem; margin: 0; }
+    .pp-cta { display: flex; gap: 0.8rem; margin-top: 3.5rem; flex-wrap: wrap; }
+    @media (max-width: 700px) { .corr-grid { grid-template-columns: 1fr; } }
+  </style>
+</Base>

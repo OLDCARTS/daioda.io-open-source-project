@@ -1,0 +1,21 @@
+{
+  "name": "Dify",
+  "repo": "https://github.com/langgenius/dify",
+  "category": "agents-coding",
+  "collections": ["fine-print"],
+  "type": "software",
+  "tagline": "'Apache 2.0' — with conditions that break the promise",
+  "description": "A production-oriented platform for agentic workflows and LLM apps: a visual workflow editor, RAG pipeline, agent framework, model management, and observability in one self-hostable package.",
+  "why": "Hugely popular and routinely labeled 'Apache 2.0' — but it's Apache 2.0 with additional conditions, and those conditions (no multi-tenant operation without authorization; no removing the Dify logo or copyright) impose field-of-use restrictions that fail the Open Source Definition.",
+  "useCases": ["A self-hosted LLM app platform", "Internal copilots and RAG workflows"],
+  "audience": "Teams wanting an all-in-one self-hosted LLMOps platform",
+  "setup": { "difficulty": "moderate", "requirements": "Docker Compose multi-service stack; ~4GB+ RAM; provider keys" },
+  "license": { "code": "Apache-2.0 with additional conditions (source-available, not OSI)", "weights": null, "verdict": "not-open", "notes": "Describe it as source-available or open-core — never plain 'Apache 2.0'." },
+  "tally": { "stars": "142k", "lastActivity": "Very active", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "site": "https://dify.ai" },
+  "limitations": "The multi-tenant and branding conditions are exactly the kind of use restrictions the open-source definition rules out.",
+  "related": ["Langflow", "RAGFlow"],
+  "take": "The most common licensing sleight-of-hand in the space: real Apache text, plus a clause that quietly removes the freedoms. Read past the badge.",
+  "added": "2026-07-19",
+  "featured": false
+}

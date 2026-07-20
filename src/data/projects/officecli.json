@@ -1,0 +1,21 @@
+{
+  "name": "OfficeCLI",
+  "repo": "https://github.com/iOfficeAI/OfficeCLI",
+  "category": "agents-coding",
+  "collections": [],
+  "type": "software",
+  "tagline": "An Office suite built for agents, not humans",
+  "description": "A from-scratch document engine in a single self-contained binary: reads, edits, and creates .docx, .xlsx, and .pptx, renders to HTML or PNG, evaluates Excel formulas, and runs template merges — no Microsoft Office installation anywhere.",
+  "why": "Inverts the Office-automation stack. Instead of scripting Word through COM or fighting format libraries, agents get a headless, deterministic document engine that behaves like a tool, because it is one.",
+  "useCases": ["Letting coding agents produce real Office documents headlessly", "Server-side document generation and rendering", "Template-merge pipelines"],
+  "audience": "Agent builders, automation engineers, document-pipeline developers",
+  "setup": { "difficulty": "easy", "requirements": "Download one cross-platform binary (.NET-based); invoke from a shell or agent tool call" },
+  "license": { "code": "Apache-2.0", "weights": null, "verdict": "open" },
+  "tally": { "stars": "7.3k", "lastActivity": "111 releases; v1.0.115 June 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "site": "https://officecli.ai" },
+  "limitations": "Format fidelity against real Office has edge cases; complex layouts and macros are out of scope. Validate output before it goes anywhere business-critical.",
+  "related": ["Gemini CLI", "OpenClaw"],
+  "take": "Agent-native tooling is becoming its own software category. This is what it looks like when someone rebuilds a 40-year-old product assuming the user is a machine.",
+  "added": "2026-07-19",
+  "featured": true
+}

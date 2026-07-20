@@ -1,0 +1,21 @@
+{
+  "name": "RAGFlow",
+  "repo": "https://github.com/infiniflow/ragflow",
+  "category": "retrieval-knowledge",
+  "collections": [],
+  "type": "software",
+  "tagline": "RAG that takes documents seriously",
+  "description": "An open RAG engine centered on deep document understanding — layout-aware parsing of PDFs, tables, and scans — fused with agent capabilities to build a context layer for LLMs, with citation-grounded answers.",
+  "why": "Genuinely Apache-2.0, which is rare among the big RAG platforms, and differentiated by serious parsing quality rather than another vector-store wrapper. Messy real-world documents are exactly where most RAG stacks fall over.",
+  "useCases": ["Enterprise document Q&A over messy PDFs", "Knowledge-base assistants with citations", "Agentic workflows grounded in documents"],
+  "audience": "Teams with heavy document corpora; RAG engineers",
+  "setup": { "difficulty": "moderate", "requirements": "Docker Compose; 16GB+ RAM recommended; LLM API keys or local models" },
+  "license": { "code": "Apache-2.0", "weights": null, "verdict": "open" },
+  "tally": { "stars": "81k", "lastActivity": "Continuous", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "site": "https://ragflow.io" },
+  "limitations": "Resource-hungry, with many moving parts — search engine, object store, Redis — in the full pipeline.",
+  "related": ["LightRAG", "Firecrawl"],
+  "take": "The unglamorous truth of RAG is that parsing beats prompting. This project is built on that truth.",
+  "added": "2026-07-19",
+  "featured": true
+}

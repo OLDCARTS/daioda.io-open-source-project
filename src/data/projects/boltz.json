@@ -1,0 +1,21 @@
+{
+  "name": "Boltz",
+  "repo": "https://github.com/jwohlwend/boltz",
+  "category": "science-data",
+  "collections": ["deep-water"],
+  "type": "model",
+  "tagline": "AlphaFold3-class prediction, MIT-licensed",
+  "description": "A family of open biomolecular interaction models. Boltz-1 was the first fully open-source structure predictor to approach AlphaFold3 accuracy; Boltz-2 jointly predicts complex structure and binding affinity, claimed to be the first deep-learning model approaching physics-based FEP accuracy while running roughly 1000x faster.",
+  "why": "A fully MIT-licensed alternative — code and weights — to the restrictively licensed AlphaFold3, with commercial use explicitly permitted. Boltz-2's affinity prediction targets the expensive front end of drug discovery, making it a landmark open release for biology and pharma.",
+  "useCases": ["Protein and complex structure prediction", "Binding-affinity screening", "Drug-discovery research"],
+  "audience": "Computational biologists, drug-discovery researchers, bioinformaticians",
+  "setup": { "difficulty": "moderate", "requirements": "Python, pip install boltz[cuda]; an NVIDIA GPU is recommended, CPU works but is much slower" },
+  "license": { "code": "MIT", "weights": "MIT", "verdict": "open" },
+  "tally": { "stars": "4k", "lastActivity": "v2.2.1 Sept 2025", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://boltz.bio/boltz2" },
+  "limitations": "Some Boltz-2 training and eval code was still landing at last release, affinity numbers are estimates rather than lab measurements, and large complexes are memory-hungry.",
+  "related": ["MatterGen", "Aurora"],
+  "take": "The most consequential open release on this list for people who don't care about AI at all — they care about drugs, and this changes their cost curve.",
+  "added": "2026-07-19",
+  "featured": true
+}

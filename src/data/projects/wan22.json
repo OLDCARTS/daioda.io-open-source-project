@@ -1,0 +1,21 @@
+{
+  "name": "Wan 2.2",
+  "repo": "https://github.com/Wan-Video/Wan2.2",
+  "category": "generative-media",
+  "collections": ["deep-water"],
+  "type": "model",
+  "tagline": "The fully open flagship of video generation",
+  "description": "Alibaba's open video suite built on a mixture-of-experts diffusion architecture: 27B text-to-video and image-to-video models, a 5B dense variant with a high-compression VAE for consumer GPUs, plus speech-to-video and character-animation variants.",
+  "why": "The strongest fully Apache-licensed video family in mid-2026 — photorealistic humans, an unusually broad task spread, and a 5B variant that genuinely runs 720p24 on a single RTX 4090. Its successor (Wan 2.5+) went API-only, making this the open high-water mark.",
+  "useCases": ["Text- and image-to-video up to 1080p", "Character animation and replacement", "LoRA fine-tuning for style"],
+  "audience": "Video artists, researchers, studios needing commercially safe open weights",
+  "setup": { "difficulty": "advanced", "requirements": "The 5B variant wants a 24GB GPU; the 14B-class variants want 80GB+ or multi-GPU; quantized community builds exist" },
+  "license": { "code": "Apache-2.0", "weights": "Apache-2.0 (all variants)", "verdict": "open" },
+  "tally": { "stars": "15.7k", "lastActivity": "Active ecosystem through 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://github.com/Wan-Video/Wan2.2" },
+  "limitations": "Clips are seconds-scale, the big variants effectively need datacenter hardware, and the 5B takes minutes per clip unoptimized.",
+  "related": ["LTX-2", "ComfyUI"],
+  "take": "When the next version goes closed, the last open one becomes infrastructure. Expect this checkpoint to be built on for years.",
+  "added": "2026-07-19",
+  "featured": true
+}

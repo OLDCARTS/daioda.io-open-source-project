@@ -1,0 +1,21 @@
+{
+  "name": "SmolLM3",
+  "repo": "https://github.com/huggingface/smollm",
+  "category": "models-weights",
+  "collections": ["first-light"],
+  "type": "model",
+  "tagline": "A 3B model with its blueprints published",
+  "description": "Hugging Face's fully open 3-billion-parameter model with a toggleable extended-thinking mode, 64k context natively (128k+ via YaRN), six languages, and tool calling — trained on 11T tokens with the complete recipe, configs, and data mix published.",
+  "why": "Arguably the best-documented small model in existence: not just open weights but open engineering — the nanotron, datatrove, and TRL recipes are all public, making it a reference for anyone studying modern LLM training at accessible scale.",
+  "useCases": ["On-device assistants and agents with tool calling", "A fine-tuning base for domain-specific small models", "Studying a full modern training pipeline end to end"],
+  "audience": "Edge and on-device developers, researchers, fine-tuners",
+  "setup": { "difficulty": "easy", "requirements": "Runs in transformers, llama.cpp, vLLM, or Ollama; ~6GB in bf16, ~3GB quantized" },
+  "license": { "code": "Apache-2.0", "weights": "Apache-2.0", "verdict": "open" },
+  "tally": { "stars": "3.8k repo; heavily downloaded on HF", "lastActivity": "May 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://huggingface.co/HuggingFaceTB/SmolLM3-3B" },
+  "limitations": "A 3B-class reasoning ceiling, strongest in its six core languages, and long context beyond 64k depends on extrapolation quality.",
+  "related": ["OLMo 3", "nanochat"],
+  "take": "Small models are where open source wins outright — and this one ships with its homework attached.",
+  "added": "2026-07-19",
+  "featured": true
+}

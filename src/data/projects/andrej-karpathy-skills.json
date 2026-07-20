@@ -1,0 +1,21 @@
+{
+  "name": "andrej-karpathy-skills",
+  "repo": "https://github.com/multica-ai/andrej-karpathy-skills",
+  "category": "agents-coding",
+  "collections": [],
+  "type": "content",
+  "tagline": "One markdown file, six figures of stars",
+  "description": "A single CLAUDE.md distilling Andrej Karpathy's public observations on LLM coding failure modes into four rules — think before coding, simplicity first, surgical changes, goal-driven execution — installable as a plugin or dropped into any project.",
+  "why": "Possibly the highest star-to-content ratio on GitHub: one markdown file, 150k+ stars. A cultural datapoint about prompts becoming artifacts. Note carefully: it is not authored by or affiliated with Karpathy, despite the name.",
+  "useCases": ["Steering Claude Code or Cursor behavior", "A template for writing your own CLAUDE.md"],
+  "audience": "AI-assisted-coding practitioners",
+  "setup": { "difficulty": "trivial", "requirements": "Copy one file, or install as a plugin; requires Claude Code or Cursor" },
+  "license": { "code": "MIT", "weights": null, "verdict": "open", "notes": "A content repository, not software — what you are starring is a prompt." },
+  "tally": { "stars": "154k+", "lastActivity": "Created Jan 2026; essentially complete", "status": "static", "checked": "2026-07-19" },
+  "links": { "docs": "https://github.com/multica-ai/andrej-karpathy-skills" },
+  "limitations": "The implied endorsement is absent — Karpathy has no connection to this repo. The advice itself is sensible but generic.",
+  "related": ["Hallmark", "nanochat"],
+  "take": "Included less as a recommendation than as an exhibit: the moment prompt files started accumulating stars like frameworks.",
+  "added": "2026-07-19",
+  "featured": true
+}

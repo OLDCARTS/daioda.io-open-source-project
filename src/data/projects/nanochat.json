@@ -1,0 +1,21 @@
+{
+  "name": "nanochat",
+  "repo": "https://github.com/karpathy/nanochat",
+  "category": "models-weights",
+  "collections": ["deep-water"],
+  "type": "software",
+  "tagline": "The best ChatGPT $100 can buy",
+  "description": "Karpathy's minimal, hackable, full-stack LLM pipeline: tokenizer, pretraining, finetuning, evaluation, inference, and a chat UI, training a GPT-2-class conversational model on one 8xH100 node in about 90 minutes for $50-100.",
+  "why": "Demystifies the entire stack in readable code — and the community 'time-to-GPT-2' speedrun leaderboard turned reproducible pretraining into a sport, with the record around 1.65 hours.",
+  "useCases": ["Learning LLM training end to end", "Research baselines and ablation studies", "Teaching the full stack in one codebase"],
+  "audience": "Students, researchers, and engineers who want to understand rather than just use",
+  "setup": { "difficulty": "moderate", "requirements": "One script — but you rent an 8xH100 node (~$24/hour) and bring $50-100 of cloud budget" },
+  "license": { "code": "MIT", "weights": null, "verdict": "open" },
+  "tally": { "stars": "56.1k", "lastActivity": "Active; live speedrun leaderboard", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://github.com/karpathy/nanochat" },
+  "limitations": "The resulting models are deliberately small and, in Karpathy's words, kindergarten-level. This is a school, not a factory.",
+  "related": ["SmolLM3", "OLMo 3"],
+  "take": "The most valuable output isn't the model — it's the mental model. Everyone who trains one stops being afraid of the stack.",
+  "added": "2026-07-19",
+  "featured": true
+}

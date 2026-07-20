@@ -1,0 +1,21 @@
+{
+  "name": "Krita AI Diffusion",
+  "repo": "https://github.com/Acly/krita-ai-diffusion",
+  "category": "generative-media",
+  "collections": ["night-shift"],
+  "type": "software",
+  "tagline": "AI as a brush, not a slot machine",
+  "description": "A plugin that embeds generative AI into a real digital-painting workflow: selection-based inpainting, live painting where the AI reinterprets your canvas as you draw, ControlNet guidance from scribbles and poses, regional prompts via layers, and 4K upscaling — all on a local ComfyUI backend.",
+  "why": "The best answer to what AI-assisted art should feel like: open diffusion models inside a professional FOSS painting app, where the artist keeps layer-level control and nothing leaves the machine.",
+  "useCases": ["Illustration with generative fill", "Concept-art iteration", "Sketch-to-render live painting"],
+  "audience": "Illustrators, concept artists, Krita users",
+  "setup": { "difficulty": "easy", "requirements": "Krita 5.2+; the plugin auto-installs a managed ComfyUI backend; 6GB VRAM minimum locally, cloud option for weak hardware" },
+  "license": { "code": "GPL-3.0", "weights": null, "verdict": "open", "notes": "Some models it can drive (e.g. FLUX.2 dev) carry non-commercial weight licenses — the plugin is open regardless." },
+  "tally": { "stars": "10.2k", "lastActivity": "v1.51.0 May 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://docs.interstice.cloud" },
+  "limitations": "Local quality depends on what fits in your VRAM, and CPU mode is impractical.",
+  "related": ["ComfyUI", "Qwen-Image"],
+  "take": "A preview of how creative software absorbs these models: not as a button that makes art, but as another tool that listens.",
+  "added": "2026-07-19",
+  "featured": true
+}

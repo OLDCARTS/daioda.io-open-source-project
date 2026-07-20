@@ -1,0 +1,21 @@
+{
+  "name": "RuView",
+  "repo": "https://github.com/ruvnet/RuView",
+  "category": "experimental",
+  "collections": [],
+  "type": "software",
+  "tagline": "Your WiFi router as a motion sensor",
+  "description": "A WiFi-sensing platform that turns Channel State Information from cheap ESP32 nodes into presence detection, activity recognition, and claimed vital-sign monitoring — no cameras, no wearables. Integrates with Home Assistant, Apple Home, Google Home, and Alexa, with hardware starting around $8.",
+  "why": "Camera-free ambient sensing is a genuinely hot privacy-versus-surveillance frontier, and this makes it accessible on $8 hardware. It's also a case study in reading extraordinary claims critically.",
+  "useCases": ["Smart-home presence automation", "Elder-care monitoring experiments", "WiFi-sensing research"],
+  "audience": "Home Assistant tinkerers, IoT researchers, privacy-conscious builders",
+  "setup": { "difficulty": "advanced", "requirements": "ESP32 hardware ($8-140), a host machine, and per-room calibration" },
+  "license": { "code": "MIT", "weights": null, "verdict": "open" },
+  "tally": { "stars": "81k", "lastActivity": "Active", "status": "experimental", "checked": "2026-07-19" },
+  "links": { "docs": "https://github.com/ruvnet/RuView" },
+  "limitations": "Accuracy is highly environment-dependent, the through-wall vital-sign claims are not independently validated, and monitoring people without consent raises real ethical issues. We feature it with those caveats front and center.",
+  "related": ["OpenEvolve", "Khoj"],
+  "take": "Delightful and unsettling in equal measure. Included because it's genuinely novel — and flagged because novelty isn't the same as validation.",
+  "added": "2026-07-19",
+  "featured": true
+}

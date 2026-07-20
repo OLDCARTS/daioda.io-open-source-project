@@ -1,0 +1,21 @@
+{
+  "name": "Firecrawl",
+  "repo": "https://github.com/firecrawl/firecrawl",
+  "category": "retrieval-knowledge",
+  "collections": [],
+  "type": "software",
+  "tagline": "The web, translated for machines",
+  "description": "An engine to search, scrape, crawl, and interact with the web for AI use: converts URLs — including JavaScript-heavy pages — into clean markdown or structured JSON, handles site crawling and batch scraping, and offers an autonomous agent mode for data gathering.",
+  "why": "The de facto web layer for agents and RAG pipelines. Its AGPL core is genuine OSI open source with a deliberate open-core twist: self-host under copyleft, or pay for the cloud.",
+  "useCases": ["Feeding clean web content to RAG pipelines", "Site crawling and structured extraction for agents", "Search-and-scrape as an agent tool"],
+  "audience": "AI engineers, data teams, agent builders",
+  "setup": { "difficulty": "moderate", "requirements": "Cloud: an API key. Self-host: a Docker Compose stack with Redis and headless browser workers" },
+  "license": { "code": "AGPL-3.0 (core); MIT SDKs", "weights": null, "verdict": "open", "notes": "AGPL copyleft obligations apply if you modify and serve it. Some cloud anti-bot features aren't in the OSS repo." },
+  "tally": { "stars": "153k", "lastActivity": "v2.11.0 June 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://docs.firecrawl.dev", "site": "https://firecrawl.dev" },
+  "limitations": "Self-hosted lags cloud on stealth features, scraping carries its own legal and terms-of-service weather, and agent mode consumes LLM credits.",
+  "related": ["RAGFlow", "LightRAG"],
+  "take": "Every agent needs eyes on the web; most teams stopped building their own the day this got good.",
+  "added": "2026-07-19",
+  "featured": true
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Hallmark",
+  "repo": "https://github.com/Nutlope/hallmark",
+  "category": "agents-coding",
+  "collections": [],
+  "type": "content",
+  "tagline": "Taste, encoded as an agent skill",
+  "description": "A design skill for Claude Code, Cursor, and Codex that pushes back on generic AI output: 22 themes across four genres, four verbs (build, audit, redesign, study), a 65-gate quality checklist, and per-project memory to stop repetitive design choices. Pure HTML/CSS/JS, no build step.",
+  "why": "From Hassan El Mghari (Nutlope), a prolific open-source AI builder — an early, concrete attempt to make agent-generated interfaces not look agent-generated. 'Taste as code' is either a beautiful idea or a category error, and watching which is half the fun.",
+  "useCases": ["Better front-end output from coding agents", "Auditing an existing UI for genericness"],
+  "audience": "Developers shipping front-ends through AI coding agents",
+  "setup": { "difficulty": "trivial", "requirements": "Install as a skill in Claude Code, Cursor, or Codex" },
+  "license": { "code": "MIT", "weights": null, "verdict": "open", "notes": "A skill/ruleset package rather than a conventional library." },
+  "tally": { "stars": "<100", "lastActivity": "Active, early days", "status": "experimental", "checked": "2026-07-19" },
+  "links": { "docs": "https://github.com/Nutlope/hallmark" },
+  "limitations": "Brand new, tiny, and opinionated — its aesthetics are its author's. Whether encoded taste survives contact with a thousand different projects is an open question.",
+  "related": ["andrej-karpathy-skills", "Gemini CLI"],
+  "take": "The smallest project in this catalog and one of the most provocative: a bet that design judgment can be versioned.",
+  "added": "2026-07-19",
+  "featured": true
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Ollama",
+  "repo": "https://github.com/ollama/ollama",
+  "category": "local-private-ai",
+  "collections": ["night-shift", "first-light"],
+  "type": "software",
+  "tagline": "The one-liner that made local AI normal",
+  "description": "A local LLM runner that packages weights, configuration, and a REST API behind a Docker-like pull-and-run workflow. Runs the current generation of open-weight models — Kimi, GLM, DeepSeek, gpt-oss, Qwen, Gemma — on macOS, Linux, and Windows.",
+  "why": "The de facto front door to local inference. Its model library and single-command UX turned 'run an LLM on your laptop' from a weekend project into a one-liner, and a whole ecosystem of UIs and tools builds against its API.",
+  "useCases": ["Local, offline inference for chat and coding", "Privacy-sensitive prototyping without cloud APIs", "A backend for local AI interfaces"],
+  "audience": "Everyone from first-time tinkerers to teams avoiding cloud calls",
+  "setup": { "difficulty": "easy", "requirements": "One installer or shell command; RAM scales with model size (a 7B model wants ~8GB)" },
+  "license": { "code": "MIT", "weights": null, "verdict": "open", "notes": "Ollama itself is MIT; each model you pull carries its own weights license." },
+  "tally": { "stars": "175k", "lastActivity": "v0.31.1 June 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "site": "https://ollama.com" },
+  "limitations": "Inference only, and quantized GGUF models trade some quality for size. Big models still need big hardware, no matter how friendly the CLI.",
+  "related": ["Jan", "llamafile"],
+  "take": "If you recommend one tool to someone who has never run a model locally, it's still this one.",
+  "added": "2026-07-19",
+  "featured": true
+}

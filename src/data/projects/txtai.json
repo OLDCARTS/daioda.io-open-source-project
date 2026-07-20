@@ -1,0 +1,21 @@
+{
+  "name": "txtai",
+  "repo": "https://github.com/neuml/txtai",
+  "category": "retrieval-knowledge",
+  "collections": ["night-shift"],
+  "type": "software",
+  "tagline": "An entire AI search stack in one pip install",
+  "description": "An all-in-one embeddings database combining vector search, graph networks, and relational storage with SQLite-grade simplicity. On top of its semantic index it layers pipelines, workflows, agents, and RAG — all runnable fully locally and exposable as a FastAPI service.",
+  "why": "A quietly excellent alternative to running a separate vector database plus an orchestration framework: one install gives you embeddings, hybrid SQL-plus-semantic queries, graph traversal, and LLM workflows with no external services.",
+  "useCases": ["Embedded semantic search inside Python apps", "Fully local RAG with zero cloud dependencies", "Lightweight knowledge graphs over your content"],
+  "audience": "Python developers, data engineers, self-hosters allergic to heavy infra",
+  "setup": { "difficulty": "trivial", "requirements": "pip install txtai; works CPU-only; models via transformers or llama.cpp" },
+  "license": { "code": "Apache-2.0", "weights": null, "verdict": "open" },
+  "tally": { "stars": "12.5k", "lastActivity": "v9.9.0 May 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://neuml.github.io/txtai/" },
+  "limitations": "Single-node by design — no distributed clustering — with a practical ceiling in the tens of millions of vectors.",
+  "related": ["LightRAG", "Khoj"],
+  "take": "Most projects don't need a vector database; they need this. Years of steady releases and zero drama — the good kind of boring.",
+  "added": "2026-07-19",
+  "featured": true
+}

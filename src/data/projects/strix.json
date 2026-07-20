@@ -1,0 +1,21 @@
+{
+  "name": "Strix",
+  "repo": "https://github.com/usestrix/strix",
+  "category": "agents-coding",
+  "collections": ["deep-water"],
+  "type": "software",
+  "tagline": "Pentesting agents that prove their findings",
+  "description": "Autonomous penetration-testing agents that behave like attackers: they run code against your application, validate findings with working proof-of-concept exploits rather than static analysis, cover source review and web assessment, classify against OWASP, and can propose patches.",
+  "why": "The leading open entry in offensive-security agents. Exploit validation sharply cuts the false-positive noise that makes scanners exhausting — and the project is a live case study in the ethics of shipping attack-capable agents under Apache-2.0.",
+  "useCases": ["Continuous pentesting of your own applications in CI", "Pre-release security assessment", "Patch suggestion with reproduced evidence"],
+  "audience": "Security engineers, AppSec teams, and dev teams without a pentester on staff",
+  "setup": { "difficulty": "moderate", "requirements": "Python via pipx or Docker; an LLM API key (runs are token-hungry); a Docker sandbox for target execution" },
+  "license": { "code": "Apache-2.0", "weights": null, "verdict": "open" },
+  "tally": { "stars": "39k", "lastActivity": "v1.0.4 June 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://docs.strix.ai", "site": "https://strix.ai" },
+  "limitations": "Only point it at systems you are authorized to test — it generates real exploits. Findings still need expert triage, and serious runs cost serious tokens. The cloud platform is the commercial layer.",
+  "related": ["Bumblebee", "Vibe-Trading"],
+  "take": "Red-teaming is being automated whether defenders are ready or not. Better to know what these agents can do to your app before someone else's does.",
+  "added": "2026-07-19",
+  "featured": true
+}

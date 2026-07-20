@@ -1,0 +1,21 @@
+{
+  "name": "LeRobot",
+  "repo": "https://github.com/huggingface/lerobot",
+  "category": "robotics",
+  "collections": ["deep-water"],
+  "type": "software",
+  "tagline": "Robot learning, democratized",
+  "description": "Hugging Face's end-to-end PyTorch library for real-world robotics: standardized datasets, hardware interfaces, and imitation- and reinforcement-learning policies for physical robots. Bundles vision-language-action models and a hardware-agnostic interface for teleoperation, data collection, training, and deployment.",
+  "why": "The central open hub for robot learning — pairing cheap open-hardware arms with state-of-the-art policies and a shared dataset format, and putting manipulation research within reach of people outside the big labs. Its own SmolVLA is a compact, fully Apache-licensed policy.",
+  "useCases": ["Robot manipulation and imitation learning", "Teleoperation and dataset collection", "Low-cost robotics education"],
+  "audience": "Robotics researchers, ML engineers, educators, makers",
+  "setup": { "difficulty": "advanced", "requirements": "Python and PyTorch, pip install lerobot, a GPU for training, and supported robot hardware for real-world use" },
+  "license": { "code": "Apache-2.0", "weights": "Varies by policy; SmolVLA is Apache-2.0, some integrated models carry their own terms", "verdict": "open" },
+  "tally": { "stars": "25.2k", "lastActivity": "v0.5.1 April 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://huggingface.co/docs/lerobot/index" },
+  "limitations": "Hardware support is targeted rather than universal, and real-robot work needs physical hardware and calibration. Some integrated third-party policies carry separate terms.",
+  "related": ["openpi", "supervision"],
+  "take": "The Hugging Face playbook applied to atoms: shared datasets, shared weights, shared format. Robotics needed exactly this.",
+  "added": "2026-07-19",
+  "featured": true
+}

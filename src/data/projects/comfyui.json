@@ -1,0 +1,21 @@
+{
+  "name": "ComfyUI",
+  "repo": "https://github.com/comfyanonymous/ComfyUI",
+  "category": "generative-media",
+  "collections": ["night-shift"],
+  "type": "software",
+  "tagline": "The connective tissue of open generative media",
+  "description": "A node-graph GUI, API, and backend for running generative models locally. In 2026 it is the universal front end for open media: image (FLUX.2, Z-Image, Qwen-Image), video (Wan 2.2, LTX-2), audio, and 3D, composed into reusable visual workflows shareable as JSON.",
+  "why": "Nearly every new open model ships with ComfyUI support within days, making it both a power tool and a de facto packaging format for generative pipelines. If open generative AI has a center of gravity, this is it.",
+  "useCases": ["Local image, video, and audio pipelines", "Production VFX prototyping", "An API backend for generative apps"],
+  "audience": "Power users, technical artists, studios, developers",
+  "setup": { "difficulty": "moderate", "requirements": "One-click desktop builds exist; NVIDIA, AMD ROCm, Intel Arc, or Apple Silicon; 6GB VRAM usable, 16-24GB comfortable" },
+  "license": { "code": "GPL-3.0", "weights": null, "verdict": "open", "notes": "GPL-3.0 matters if you embed it in a product; the models it runs each carry their own weights licenses." },
+  "tally": { "stars": "121k", "lastActivity": "v0.28.0 July 2026; daily commits", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://docs.comfy.org", "site": "https://www.comfy.org" },
+  "limitations": "Complex graphs have a real learning curve, and the custom-node ecosystem varies wildly in quality — treat third-party nodes with supply-chain caution.",
+  "related": ["Krita AI Diffusion", "Wan 2.2"],
+  "take": "Learn the graph once and every new model becomes a weekend, not a migration.",
+  "added": "2026-07-19",
+  "featured": true
+}

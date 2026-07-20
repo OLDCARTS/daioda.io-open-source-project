@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Lost at sea" description="This page isn't in the harbor.">
+  <section class="wrap nf">
+    <p class="eyebrow">404 · dark and stormy</p>
+    <h1>This one drifted off.</h1>
+    <p class="nf-lede">The page you're after isn't in the harbor. It may have been renamed, or it never came ashore. Let's get you back to solid ground.</p>
+    <div class="nf-cta">
+      <a href="/" class="btn btn-primary">Back to home</a>
+      <a href="/projects" class="btn">Browse all projects</a>
+    </div>
+  </section>
+  <style>
+    .nf { padding: 6rem 0 8rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .nf-lede { color: var(--ink-dim); max-width: 46ch; font-size: 1.1rem; }
+    .nf-cta { display: flex; gap: 0.8rem; margin-top: 1.5rem; flex-wrap: wrap; justify-content: center; }
+  </style>
+</Base>

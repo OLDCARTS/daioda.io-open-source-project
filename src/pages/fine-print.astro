@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { categories } from '../lib/taxonomy';
+
+const finePrint = (await getCollection('projects'))
+  .filter((p) => p.data.license.verdict === 'not-open')
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+const partial = (await getCollection('projects'))
+  .filter((p) => p.data.license.verdict === 'partial')
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+---
+<Base title="The Fine Print" description="Famous AI repositories that look open source but aren't — and exactly what their licenses actually allow. A public service from DAIODA." path="fine-print">
+  <section class="wrap fp-hero">
+    <p class="eyebrow">A service, not a shaming</p>
+    <h1>The Fine Print</h1>
+    <p class="fp-lede">
+      Some of the most beloved repositories in AI are not open source — and most coverage never mentions it.
+      A public GitHub repo, a free tier, or a downloadable model does not make something open source. The license does.
+      Here are the projects most often mislabeled, with the exact terms that disqualify them, so you can decide with your eyes open.
+    </p>
+    <p class="fp-disclaimer">
+      None of this is a knock on the software. Much of it is excellent, and generous for most users.
+      The point is precision: if you build a business on a license, read the license.
+    </p>
+  </section>
+
+  <section class="wrap fp-list">
+    <h2 class="fp-group-h">Not open source</h2>
+    {finePrint.map((p) => {
+      const d = p.data;
+      return (
+        <article class="fp-item card reveal">
+          <div class="fp-item-head">
+            <div>
+              <a href={`/projects/${p.id}`} class="fp-name">{d.name}</a>
+              <span class="fp-cat mono">{categories[d.category].short}</span>
+            </div>
+            <span class="badge badge-not-open">Not open source</span>
+          </div>
+          <p class="fp-license mono">{d.license.code}</p>
+          <p class="fp-why">{d.why}</p>
+          <div class="fp-foot">
+            <span class="mono fp-stars">★ {d.tally.stars}</span>
+            <a href={`/projects/${p.id}`} class="fp-more">Full analysis →</a>
+          </div>
+        </article>
+      );
+    })}
+  </section>
+
+  <section class="wrap fp-list">
+    <h2 class="fp-group-h">Open code, restricted weights</h2>
+    <p class="fp-group-note">These are genuinely open on the software side, but the model weights ship under custom or non-commercial terms. Featured in the catalog with an amber badge — listed here so the distinction is easy to find.</p>
+    <div class="fp-partial-grid">
+      {partial.map((p) => {
+        const d = p.data;
+        return (
+          <a href={`/projects/${p.id}`} class="fp-partial card reveal">
+            <div class="fp-partial-head">
+              <span class="fp-name-sm">{d.name}</span>
+              <span class="badge badge-partial">Weights</span>
+            </div>
+            <p class="fp-partial-lic mono">{d.license.weights}</p>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+
+  <section class="wrap fp-cta reveal">
+    <div class="card fp-cta-inner">
+      <p>Think we've mislabeled something, or missed a repo people keep calling open source? The tally stays honest through corrections.</p>
+      <a href="/methodology#corrections" class="btn">How verification works →</a>
+    </div>
+  </section>
+
+  <style>
+    .fp-hero { padding-top: 3.5rem; }
+    .fp-lede { font-size: 1.2rem; color: var(--ink-dim); max-width: 62ch; line-height: 1.55; }
+    .fp-disclaimer { color: var(--ink-faint); font-size: 0.95rem; max-width: 60ch; margin-top: 1rem; padding-left: 1rem; border-left: 2px solid var(--line-strong); }
+    .fp-list { margin-top: 3.5rem; }
+    .fp-group-h { font-size: 1.6rem; margin-bottom: 0.4rem; }
+    .fp-group-note { color: var(--ink-dim); max-width: 62ch; margin-bottom: 1.5rem; }
+    .fp-item { padding: 1.6rem; margin-bottom: 1.1rem; }
+    .fp-item-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.5rem; }
+    .fp-name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 560; color: var(--ink); }
+    .fp-name:hover { color: var(--accent); }
+    .fp-cat { font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); margin-left: 0.7rem; }
+    .fp-license { font-size: 0.78rem; color: var(--v-slate); margin: 0 0 0.8rem; }
+    .fp-why { color: var(--ink-dim); font-size: 1rem; max-width: 72ch; margin: 0; }
+    .fp-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 0.9rem; border-top: 1px solid var(--line); }
+    .fp-stars { font-size: 0.76rem; color: var(--gold-ink); }
+    .fp-more { font-family: var(--font-mono); font-size: 0.76rem; color: var(--accent); }
+    .fp-partial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .fp-partial { padding: 1.2rem; display: flex; flex-direction: column; gap: 0.6rem; }
+    .fp-partial-head { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; }
+    .fp-name-sm { font-family: var(--font-display); font-size: 1.2rem; font-weight: 560; }
+    .fp-partial-lic { font-size: 0.72rem; color: var(--ink-dim); line-height: 1.4; margin: 0; }
+    .fp-cta { margin-top: 3.5rem; }
+    .fp-cta-inner { padding: 2rem; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .fp-cta-inner p { color: var(--ink-dim); margin: 0; max-width: 54ch; }
+    @media (max-width: 800px) { .fp-partial-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 500px) { .fp-partial-grid { grid-template-columns: 1fr; } }
+  </style>
+</Base>

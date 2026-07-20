@@ -1,0 +1,21 @@
+{
+  "name": "LightRAG",
+  "repo": "https://github.com/HKUDS/LightRAG",
+  "category": "retrieval-knowledge",
+  "collections": [],
+  "type": "software",
+  "tagline": "GraphRAG without the GraphRAG bill",
+  "description": "A graph-augmented RAG framework from HKU's data-science lab: extracts entity-relationship knowledge graphs from documents and combines dual-level retrieval with vector search. Ships as a Python library plus a server with an interactive graph visualizer, supporting many storage backends and LLM providers.",
+  "why": "The practical GraphRAG — Microsoft-style relational reasoning at a fraction of the indexing cost, under MIT, with incremental graph updates instead of full re-indexing. One of the fastest-growing RAG projects of the past two years, from the same lab as Vibe-Trading.",
+  "useCases": ["Q&A over interconnected document collections", "Building queryable knowledge graphs from text", "Multi-hop questions plain vector RAG fails at"],
+  "audience": "RAG builders, knowledge-management engineers, researchers",
+  "setup": { "difficulty": "easy", "requirements": "pip install lightrag-hku or Docker; an LLM (32B+ recommended for extraction quality) and embedding model" },
+  "license": { "code": "MIT", "weights": null, "verdict": "open" },
+  "tally": { "stars": "36.1k", "lastActivity": "v1.5.0 June 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://github.com/HKUDS/LightRAG" },
+  "limitations": "Graph quality depends on the extraction LLM and adds token cost at index time; the codebase moves fast with occasional breaking changes.",
+  "related": ["RAGFlow", "txtai"],
+  "take": "The version of graph-RAG you can actually afford to run on your whole corpus — which is the only version that matters.",
+  "added": "2026-07-19",
+  "featured": true
+}

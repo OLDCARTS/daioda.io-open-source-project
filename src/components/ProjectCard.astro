@@ -1,0 +1,45 @@
+---
+import { categories, verdictClass, verdictLabel } from '../lib/taxonomy';
+interface Props { project: any; }
+const { project } = Astro.props;
+const d = project.data;
+const cat = categories[d.category];
+const shortVerdict = d.license.verdict === 'open' ? `Open · ${d.license.code.split(' ')[0]}`
+  : d.license.verdict === 'partial' ? 'Restricted weights'
+  : d.license.verdict === 'not-open' ? 'Not open source'
+  : 'Unverified';
+---
+<a href={`/projects/${project.id}`} class="pcard card reveal" style={`--hue:${cat.hue}`} data-name={d.name.toLowerCase()} data-cat={d.category} data-verdict={d.license.verdict}>
+  <div class="pc-top">
+    <span class="pc-cat">{cat.short}</span>
+    <span class={verdictClass(d.license.verdict)}>{shortVerdict}</span>
+  </div>
+  <h3 class="pc-name">{d.name}</h3>
+  <p class="pc-tag">{d.tagline}</p>
+  <div class="pc-foot">
+    <span class="mono pc-stars" title="GitHub stars">★ {d.tally.stars}</span>
+    <span class="mono pc-status">{d.tally.status}</span>
+  </div>
+</a>
+<style>
+  .pcard {
+    display: flex; flex-direction: column; gap: 0.55rem;
+    padding: 1.4rem 1.4rem 1.2rem;
+    position: relative; overflow: hidden;
+    min-height: 100%;
+  }
+  .pcard::before {
+    content: ''; position: absolute; inset: 0 0 auto 0; height: 3px;
+    background: linear-gradient(90deg, hsl(var(--hue) 70% 62%), transparent 80%);
+    opacity: 0.55; transition: opacity 0.3s;
+  }
+  .pcard:hover::before { opacity: 1; }
+  .pcard:hover { border-color: hsl(var(--hue) 55% 55% / 0.5); }
+  .pc-top { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+  .pc-cat { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: hsl(var(--hue) 52% var(--cat-text-l)); }
+  .pc-name { font-size: 1.32rem; margin: 0.15rem 0 0; }
+  .pc-tag { color: var(--ink-dim); font-size: 0.94rem; line-height: 1.45; margin: 0; flex: 1; }
+  .pc-foot { display: flex; justify-content: space-between; align-items: center; gap: 0.6rem; margin-top: 0.5rem; padding-top: 0.7rem; border-top: 1px solid var(--line); }
+  .pc-stars { font-size: 0.78rem; color: var(--gold-ink); }
+  .pc-status { font-size: 0.72rem; color: var(--ink-faint); text-transform: capitalize; }
+</style>

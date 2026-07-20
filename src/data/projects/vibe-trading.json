@@ -1,0 +1,21 @@
+{
+  "name": "Vibe-Trading",
+  "repo": "https://github.com/HKUDS/Vibe-Trading",
+  "category": "agents-coding",
+  "collections": ["deep-water"],
+  "type": "software",
+  "tagline": "Conversational quant research, with kill switches",
+  "description": "From HKU's data-science lab: natural-language quantitative research that turns a hypothesis into a signal engine and backtest. Ships 50+ MCP tools, an 'Alpha Zoo' of 452 prebuilt factors, 18 free data providers, connectors to 10 brokers, and delivery to 16 chat channels — with mandate gates, kill switches, and audit ledgers built in.",
+  "why": "Makes institutional-style factor research conversational, using strict point-in-time data to avoid lookahead bias. And because it wires agents to live broker accounts, its safety rails are as editorially interesting as its features.",
+  "useCases": ["Natural-language backtesting and factor research", "Automated research digests to Telegram or Slack", "Paper-trading agent experiments"],
+  "audience": "Quant-curious developers, retail algo traders, researchers",
+  "setup": { "difficulty": "advanced", "requirements": "Python 3.11+, Docker, an LLM API key; broker and data credentials for live use" },
+  "license": { "code": "MIT", "weights": null, "verdict": "open" },
+  "tally": { "stars": "24.3k", "lastActivity": "Daily commits; v0.1.11 July 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://vibetrading.wiki/" },
+  "limitations": "An LLM agent with write access to a real brokerage account deserves maximum caution: paper-trade first, keep mandates and kill switches on, and remember backtests are not future returns. Nothing here is financial advice, and the regulatory obligations are yours.",
+  "related": ["Strix", "OpenEvolve"],
+  "take": "The most instructive part isn't the alpha factory — it's watching a serious lab design guardrails for agents that touch money.",
+  "added": "2026-07-19",
+  "featured": true
+}

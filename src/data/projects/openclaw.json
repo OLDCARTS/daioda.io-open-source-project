@@ -1,0 +1,21 @@
+{
+  "name": "OpenClaw",
+  "repo": "https://github.com/openclaw/openclaw",
+  "category": "agents-coding",
+  "collections": ["night-shift"],
+  "type": "software",
+  "tagline": "The personal AI assistant you actually own",
+  "description": "A self-hosted assistant that runs on your own devices, with a local gateway bridging AI models to the places you already talk: WhatsApp, Telegram, Slack, Discord, Signal, iMessage. Voice, a live canvas UI, multi-agent routing, and companion apps for macOS, iOS, and Android.",
+  "why": "One of the fastest-growing repositories in GitHub history, and the poster child for the personal-agent movement: full assistant infrastructure — channels, memory, device control — under MIT, rather than a hosted subscription.",
+  "useCases": ["An always-on personal assistant reachable from your existing chat apps", "Home automation and cross-device orchestration", "A self-hosted alternative to hosted assistant products"],
+  "audience": "Tinkerers, self-hosters, and developers who want an assistant they can open up",
+  "setup": { "difficulty": "moderate", "requirements": "A Node-based gateway on an always-on machine (Mac, Linux, or VPS), API keys or local models, and per-channel credentials" },
+  "license": { "code": "MIT", "weights": null, "verdict": "open" },
+  "tally": { "stars": "383k", "lastActivity": "Daily commits", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://docs.openclaw.ai", "site": "https://openclaw.ai" },
+  "limitations": "The attack surface is broad: an internet-reachable gateway wired to your messaging accounts and shell is a prompt-injection target. Run it least-privilege, review channel and tool permissions, and expect fast-moving docs.",
+  "related": ["Khoj", "Gemini CLI"],
+  "take": "The clearest signal yet that the assistant wars will be fought partly on your own hardware. Extraordinary momentum — bring your own security discipline.",
+  "added": "2026-07-19",
+  "featured": true
+}

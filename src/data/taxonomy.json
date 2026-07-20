@@ -1,0 +1,86 @@
+{
+  "categories": {
+    "agents-coding": {
+      "name": "Agents & Coding",
+      "short": "Agents",
+      "blurb": "Autonomous agents, coding CLIs, and the tooling that lets software write software.",
+      "hue": 28
+    },
+    "local-private-ai": {
+      "name": "Local & Private AI",
+      "short": "Local AI",
+      "blurb": "Run it on your own machine. No cloud, no telemetry, no one reading over your shoulder.",
+      "hue": 226
+    },
+    "models-weights": {
+      "name": "Models & Weights",
+      "short": "Models",
+      "blurb": "Language models whose weights you can actually download, inspect, and fine-tune.",
+      "hue": 262
+    },
+    "generative-media": {
+      "name": "Generative Media",
+      "short": "Media",
+      "blurb": "Open image and video generation — the models and the tools that drive them.",
+      "hue": 322
+    },
+    "audio-voice": {
+      "name": "Audio & Voice",
+      "short": "Audio",
+      "blurb": "Speech synthesis, music generation, and everything the open ecosystem can make you hear.",
+      "hue": 168
+    },
+    "retrieval-knowledge": {
+      "name": "Retrieval & Knowledge",
+      "short": "Knowledge",
+      "blurb": "RAG engines, embeddings databases, and knowledge graphs that ground models in your data.",
+      "hue": 196
+    },
+    "computer-vision": {
+      "name": "Computer Vision",
+      "short": "Vision",
+      "blurb": "Detection, segmentation, and tracking — the open eyes of the stack.",
+      "hue": 86
+    },
+    "robotics": {
+      "name": "Robotics & Embodied AI",
+      "short": "Robotics",
+      "blurb": "Open policies, datasets, and toolkits for AI that moves things in the physical world.",
+      "hue": 12
+    },
+    "science-data": {
+      "name": "Science & Data",
+      "short": "Science",
+      "blurb": "Foundation models for molecules, weather, and materials — plus the data tools around them.",
+      "hue": 142
+    },
+    "experimental": {
+      "name": "Experimental & Unusual",
+      "short": "Experimental",
+      "blurb": "The strange, the surprising, and the not-quite-categorizable edge of open-source AI.",
+      "hue": 52
+    }
+  },
+  "collections": {
+    "daybreak": {
+      "name": "Daybreak",
+      "blurb": "The newest arrivals — projects added in the latest weekly edition."
+    },
+    "night-shift": {
+      "name": "Night Shift",
+      "blurb": "Fully offline, local-first tools. These keep working when the internet doesn't."
+    },
+    "first-light": {
+      "name": "First Light",
+      "blurb": "Beginner-friendly. Install one thing, get a result, feel the pull."
+    },
+    "deep-water": {
+      "name": "Deep Water",
+      "blurb": "Research-grade and resource-hungry. Rewarding, if you know what you're sailing into."
+    },
+    "fine-print": {
+      "name": "The Fine Print",
+      "blurb": "Famous repos that look open source but aren't — and exactly what their licenses actually allow."
+    }
+  }
+}

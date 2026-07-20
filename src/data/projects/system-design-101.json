@@ -1,0 +1,21 @@
+{
+  "name": "System Design 101",
+  "repo": "https://github.com/ByteByteGoHq/system-design-101",
+  "category": "experimental",
+  "collections": ["fine-print"],
+  "type": "content",
+  "tagline": "Beautiful, popular, and among the most restrictive here",
+  "description": "Visual explainers of system-design concepts — APIs, databases, caching, distributed patterns — with real-world case studies, aimed at interview prep, from the ByteByteGo newsletter team.",
+  "why": "Gorgeous and widely shared, but licensed CC BY-NC-ND: no commercial use and no derivatives. Despite the open-repo optics it's among the most restrictive licenses in this catalog, and it doubles as marketing for a paid newsletter.",
+  "useCases": ["Interview preparation", "A visual reference for architecture concepts"],
+  "audience": "Engineers prepping interviews; juniors building mental models",
+  "setup": { "difficulty": "trivial", "requirements": "Read it in a browser" },
+  "license": { "code": "CC BY-NC-ND-4.0 (not OSI; no commercial use, no derivatives)", "weights": null, "verdict": "not-open" },
+  "tally": { "stars": "82.6k", "lastActivity": "Largely static", "status": "static", "checked": "2026-07-19" },
+  "links": { "site": "https://bytebytego.com" },
+  "limitations": "You can't remix, translate, or reuse it commercially without permission, and the depth is intentionally introductory.",
+  "related": ["developer-roadmap"],
+  "take": "No-derivatives is the license clause most people never read. Here it means you may look, but you may not build on it.",
+  "added": "2026-07-19",
+  "featured": false
+}

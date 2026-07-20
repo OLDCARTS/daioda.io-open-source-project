@@ -1,0 +1,125 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Credits & Attribution" description="The tools, libraries, fonts, and data sources behind DAIODA — and a clear statement of Fable 5's role in the experiment." path="credits">
+  <article class="prose-page">
+    <div class="wrap">
+      <header class="pp-head">
+        <p class="eyebrow">Credits &amp; attribution</p>
+        <h1>Standing on open shoulders.</h1>
+        <p class="pp-lede">
+          A site about open source ought to be scrupulous about its own dependencies. Here's
+          everything DAIODA is built with, the sources its content draws on, and an honest
+          statement of who — and what — made it.
+        </p>
+      </header>
+
+      <section class="pp-section">
+        <h2>Fable 5's role</h2>
+        <p>
+          DAIODA was designed, researched, written, engineered, and is maintained autonomously by
+          <strong>Fable 5</strong>, Anthropic's model. That includes the concept and editorial
+          framework, the research and license verification, every word of copy, the visual system and
+          WebGL shader, the full codebase, and the ongoing weekly updates. The human contribution was
+          the brief, the domain, a seed list, deployment access, and a few high-level choices — set out
+          in full on the <a href="/about">about</a> page. Fable 5 receives clear credit for its role,
+          which is the point of the experiment.
+        </p>
+      </section>
+
+      <section class="pp-section">
+        <h2>Software &amp; libraries</h2>
+        <table class="credit">
+          <tbody>
+            <tr><th><a href="https://astro.build" rel="noopener" target="_blank">Astro</a></th><td>Static site framework — MIT</td></tr>
+            <tr><th><a href="https://github.com/colinhacks/zod" rel="noopener" target="_blank">Zod</a></th><td>Schema validation for the content model — MIT</td></tr>
+            <tr><th>@astrojs/rss &amp; @astrojs/sitemap</th><td>Feed and sitemap generation — MIT</td></tr>
+            <tr><th><a href="https://webgl.org" rel="noopener" target="_blank">WebGL</a></th><td>The daybreak hero shader — a web standard, no library</td></tr>
+            <tr><th><a href="https://goatcounter.com" rel="noopener" target="_blank">GoatCounter</a></th><td>Privacy-first, cookieless analytics — EUPL / open source</td></tr>
+            <tr><th><a href="https://www.netlify.com" rel="noopener" target="_blank">Netlify</a></th><td>Static hosting, CDN, and TLS</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="pp-section">
+        <h2>Typography</h2>
+        <p>All three typefaces are open source (SIL Open Font License) and self-hosted via <a href="https://fontsource.org" rel="noopener" target="_blank">Fontsource</a>:</p>
+        <table class="credit">
+          <tbody>
+            <tr><th><a href="https://github.com/undercasetype/Fraunces" rel="noopener" target="_blank">Fraunces</a></th><td>Display &amp; wordmark — Undercase Type, SIL OFL</td></tr>
+            <tr><th>Instrument Sans</th><td>Body &amp; UI — Rodrigo Fuenzalida &amp; Jordan Egstad, SIL OFL</td></tr>
+            <tr><th>IBM Plex Mono</th><td>Data, tallies &amp; licenses — IBM, SIL OFL</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="pp-section">
+        <h2>Visual assets</h2>
+        <p>
+          Every visual on the site is generated in code — the WebGL daybreak, the CSS gradients and
+          motion, and the hand-authored SVG favicon and social image. No third-party photographs,
+          illustrations, or animations are used, so there are no external image licenses to track.
+          Nothing imitates a living artist's style or a specific copyrighted design.
+        </p>
+      </section>
+
+      <section class="pp-section">
+        <h2>Data sources</h2>
+        <p>
+          Project information is drawn from primary sources: each project's own GitHub or GitLab
+          repository, its official documentation and website, its license file, its release history,
+          and — where relevant — its research paper. Every featured project links directly to its
+          repository so you can verify the tally yourself. The catalog's initial seed came from a
+          shared NotebookLM notebook and was expanded through independent research. Star counts,
+          release dates, and status are point-in-time snapshots.
+        </p>
+      </section>
+
+      <section class="pp-section">
+        <h2>The featured projects</h2>
+        <p>
+          Above all, credit belongs to the maintainers of the projects in this catalog — the people
+          who write, license, and give away the open-source AI that makes any of this worth writing
+          about. DAIODA is, in the end, a long thank-you note to them. If you maintain a listed
+          project and want anything corrected or updated, the <a href="/methodology#corrections">methodology</a>
+          page explains how.
+        </p>
+      </section>
+
+      <section class="pp-section">
+        <h2>The name</h2>
+        <p>
+          <strong>DAIODA</strong> comes from <em>Data / AI / In / Out</em>, and from the phonetic
+          rhythm of "Day-O." The site's daybreak motif and its counted, call-and-response cadence are
+          an original, transformative nod to the tradition of dockworkers' tally songs — a structural
+          homage only. DAIODA is not affiliated with, endorsed by, or connected to any recording,
+          performer, or rights holder, and reproduces no lyrics, music, or protected artwork.
+        </p>
+      </section>
+
+      <div class="pp-cta">
+        <a href="/about" class="btn btn-primary">About the experiment →</a>
+        <a href="/projects" class="btn">Browse the catalog</a>
+      </div>
+    </div>
+  </article>
+  <style>
+    .prose-page { padding-top: 3rem; }
+    .pp-head { max-width: 62ch; }
+    .pp-lede { font-size: 1.28rem; color: var(--ink-dim); line-height: 1.55; }
+    .pp-lede strong { color: var(--ink); }
+    .pp-section { max-width: 70ch; margin-top: 3.2rem; }
+    .pp-section h2 { font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .pp-section p { color: var(--ink-dim); font-size: 1.06rem; line-height: 1.65; }
+    .pp-section strong { color: var(--ink); }
+    .pp-section em { color: var(--ink); font-style: italic; }
+    .pp-section a { color: var(--accent); }
+    .pp-section p a { border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
+    .credit { width: 100%; border-collapse: collapse; margin: 1.2rem 0; }
+    .credit th, .credit td { text-align: left; padding: 0.7rem 1rem; border-bottom: 1px solid var(--line); font-size: 0.98rem; vertical-align: top; }
+    .credit th { width: 34%; font-weight: 600; }
+    .credit td { color: var(--ink-dim); }
+    .pp-cta { display: flex; gap: 0.8rem; margin-top: 3.5rem; flex-wrap: wrap; }
+    @media (max-width: 620px) { .credit th { width: 42%; } }
+  </style>
+</Base>

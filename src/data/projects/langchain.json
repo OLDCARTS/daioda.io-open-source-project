@@ -1,0 +1,21 @@
+{
+  "name": "LangChain",
+  "repo": "https://github.com/langchain-ai/langchain",
+  "category": "agents-coding",
+  "collections": [],
+  "type": "software",
+  "tagline": "The agent framework that outlived the hype cycle",
+  "description": "The original LLM application framework, now consolidated around durable agent runtimes: abstractions for tools, retrieval, memory, and multi-step agents across every major model provider, in Python and JavaScript.",
+  "why": "Still the most-adopted way to build agents, and its 1.x consolidation around LangGraph marks the ecosystem's real shift — from prompt chains to long-running, stateful agent systems.",
+  "useCases": ["Provider-agnostic agent and RAG applications", "Tool-using agents with durable state", "Standardizing LLM plumbing across a team"],
+  "audience": "Application developers; enterprises standardizing an agent stack",
+  "setup": { "difficulty": "easy", "requirements": "Python 3.9+ or Node; API keys for your model providers. Easy to install, sizeable API surface to master." },
+  "license": { "code": "MIT", "weights": null, "verdict": "open", "notes": "The framework is MIT; LangSmith, the hosted observability product, is proprietary SaaS." },
+  "tally": { "stars": "137k", "lastActivity": "Continuous", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://docs.langchain.com/langchain/" },
+  "limitations": "Abstraction-heavy by design, with a history of API churn between major versions. Learn the primitives before adopting the whole tower.",
+  "related": ["Langflow", "RAGFlow"],
+  "take": "Not the newest thing in the room anymore — which is exactly why it's safe to build on.",
+  "added": "2026-07-19",
+  "featured": true
+}

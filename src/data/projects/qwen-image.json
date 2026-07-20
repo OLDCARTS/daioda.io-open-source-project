@@ -1,0 +1,21 @@
+{
+  "name": "Qwen-Image",
+  "repo": "https://github.com/QwenLM/Qwen-Image",
+  "category": "generative-media",
+  "collections": [],
+  "type": "model",
+  "tagline": "The open image model that can actually spell",
+  "description": "A 20B image foundation model spanning text-to-image and precise instruction-based editing. Its signature strengths: complex text rendering — long passages, real typography, Chinese included — and identity-preserving edits. The 2.0 release added native 2K output and multi-image composition.",
+  "why": "Ranked the strongest open image model at release and fully Apache-2.0 including weights — the clearest no-asterisks frontier image model of 2026, and the best open choice when the image needs legible words in it.",
+  "useCases": ["Poster and design generation with real text", "Instruction-based photo editing", "Multilingual creative assets and LoRA fine-tuning"],
+  "audience": "Designers, developers shipping image features commercially, fine-tuners",
+  "setup": { "difficulty": "moderate", "requirements": "Diffusers pipeline or ComfyUI; heavy at full precision, but FP8 and offloading bring it down to ~4GB VRAM at reduced speed" },
+  "license": { "code": "Apache-2.0", "weights": "Apache-2.0", "verdict": "open" },
+  "tally": { "stars": "7.9k", "lastActivity": "2.0 launched Feb 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://github.com/QwenLM/Qwen-Image" },
+  "limitations": "A 20B model is heavy at full precision, and editing stability benefits from prompt rewriting.",
+  "related": ["Z-Image", "FLUX.2"],
+  "take": "Typography was the tell that gave AI images away. That tell is gone, and the model that killed it is free.",
+  "added": "2026-07-19",
+  "featured": true
+}

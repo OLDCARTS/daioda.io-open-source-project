@@ -1,0 +1,21 @@
+{
+  "name": "Gemini CLI",
+  "repo": "https://github.com/google-gemini/gemini-cli",
+  "category": "agents-coding",
+  "collections": ["first-light"],
+  "type": "software",
+  "tagline": "Google's open terminal agent with a generous free tier",
+  "description": "Brings Gemini into the shell: query and edit large codebases, generate apps from PDFs or sketches, and automate ops tasks. Ships built-in file, shell, and web tools, MCP server support, and GitHub workflow integration.",
+  "why": "Of the big-lab coding CLIs, this is the fully open one — Apache-2.0, real TypeScript source, external contributions accepted — with a free tier (60 requests/minute via a Google account) that makes agentic coding costless to try.",
+  "useCases": ["Terminal-based agentic coding and codebase Q&A", "Ops automation with MCP extensions", "Free-tier experimentation with agent workflows"],
+  "audience": "Developers at any budget; Google Cloud and Vertex users",
+  "setup": { "difficulty": "easy", "requirements": "Node.js 20+ via npm or Homebrew; Google login or API key" },
+  "license": { "code": "Apache-2.0", "weights": null, "verdict": "open" },
+  "tally": { "stars": "105k", "lastActivity": "Weekly releases; v0.43.0 May 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://geminicli.com" },
+  "limitations": "Works best with Gemini models only. On the consumer free tier, data may be used for training — check your auth mode. Standard prompt-injection cautions for web and MCP tools.",
+  "related": ["Grok Build", "OpenClaw"],
+  "take": "The cleanest open-source counterpoint to proprietary coding agents, and the easiest way to feel what agentic coding is without spending a cent.",
+  "added": "2026-07-19",
+  "featured": true
+}

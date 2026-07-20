@@ -1,0 +1,21 @@
+{
+  "name": "RF-DETR",
+  "repo": "https://github.com/roboflow/rf-detr",
+  "category": "computer-vision",
+  "collections": [],
+  "type": "model",
+  "tagline": "Real-time detection without the AGPL question",
+  "description": "Roboflow's real-time transformer architecture for detection and instance segmentation, built on a DINOv2 backbone and reported state-of-the-art on COCO and RF100-VL. Six detection sizes from Nano to 2XLarge, optimized for fine-tuning on custom datasets. Accepted at ICLR 2026.",
+  "why": "A genuinely permissive, high-accuracy real-time detector — the strong Apache-2.0 alternative to the AGPL-licensed YOLO ecosystem for commercial use, with edge-friendly latency (2-17ms on a T4).",
+  "useCases": ["Real-time detection on custom datasets", "Instance segmentation", "Edge and embedded vision"],
+  "audience": "CV engineers, product teams needing commercial-friendly detectors",
+  "setup": { "difficulty": "easy", "requirements": "Python 3.10+, pip install rfdetr; a T4-class GPU or better for real-time" },
+  "license": { "code": "Apache-2.0 (core + Nano-Large models)", "weights": "Apache-2.0 for base sizes; XL/2XL and rfdetr_plus under Roboflow's custom PML 1.0", "verdict": "open", "notes": "Stick to the base sizes for a clean Apache story; the largest variants carry a custom non-OSI license." },
+  "tally": { "stars": "6.7k", "lastActivity": "v1.6.5 April 2026", "status": "maintained", "checked": "2026-07-19" },
+  "links": { "docs": "https://rfdetr.roboflow.com/latest/" },
+  "limitations": "Segmentation is instance-level only, and published latency figures assume TensorRT with FP16.",
+  "related": ["supervision", "SAM 3"],
+  "take": "The detector to reach for when legal asks 'what's our YOLO exposure?' and you'd rather not have that meeting.",
+  "added": "2026-07-19",
+  "featured": true
+}

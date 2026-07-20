@@ -1,0 +1,21 @@
+{
+  "name": "Hermes Agent",
+  "repo": "https://github.com/NousResearch/hermes-agent",
+  "category": "agents-coding",
+  "collections": ["daybreak"],
+  "type": "software",
+  "tagline": "The agent that writes down what it learns",
+  "description": "Nous Research's self-improving, model-agnostic agent runtime. After a session it evaluates what worked and distills it into reusable skill files, layered over a four-part memory system (session, persistent, skills, user modeling), six execution backends from local to Docker to Modal, and frontends spanning CLI, Telegram, Discord, Slack, WhatsApp, and Signal.",
+  "why": "Launched February 2026 and near 100k stars within months — the most credible open attempt at an agent that genuinely improves with use. Plain MIT, no enterprise tier, no license asterisks, from a lab with a long open-weights track record.",
+  "useCases": ["A personal assistant that lives in your messaging apps", "Self-hosted automation that accumulates skills instead of resetting", "Research on skill compilation and agent self-improvement"],
+  "audience": "Tinkerers, agent builders, self-hosters",
+  "setup": { "difficulty": "moderate", "requirements": "Python plus an LLM API key from any major provider; Docker recommended for sandboxed execution. Messaging integrations each need their own tokens" },
+  "license": { "code": "MIT", "weights": null, "verdict": "open" },
+  "tally": { "stars": "~100k", "lastActivity": "v0.18.2; commits daily (July 2026)", "status": "maintained", "checked": "2026-07-20" },
+  "links": { "site": "https://hermes-agent.nousresearch.com" },
+  "limitations": "Rapid v0.x releases with no API-stability promise, self-improvement works best on capable (usually paid) models, and an agent with shell access plus your messaging accounts deserves careful sandboxing.",
+  "related": ["OpenClaw", "Claude Code"],
+  "take": "OpenClaw proved everyone wants a personal agent. Hermes is the bet that the one that remembers you wins.",
+  "added": "2026-07-20",
+  "featured": true
+}

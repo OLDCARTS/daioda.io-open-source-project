@@ -19,7 +19,7 @@ The guiding principle is *ship as little JavaScript as possible*: static HTML by
 ## Local development
 
 ```bash
-# prerequisites: Node 20+
+# prerequisites: Node 22+
 npm install      # install dependencies
 npm run dev      # dev server with hot reload  → http://localhost:4321
 npm run build    # static build → dist/

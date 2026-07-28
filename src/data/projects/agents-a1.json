@@ -1,0 +1,21 @@
+{
+  "name": "Agents-A1",
+  "repo": "https://github.com/InternScience/Agents-A1",
+  "category": "agents-coding",
+  "collections": ["daybreak"],
+  "type": "model",
+  "tagline": "35B of agent, distilled from a room full of teachers",
+  "description": "Shanghai AI Lab's 35B-total MoE agentic model (with a 4B sibling), trained via multi-teacher, multi-domain on-policy distillation across long-horizon search, engineering, and scientific research. 262K context, native tool calling, vision-language input, and llama.cpp/Ollama builds for local use.",
+  "why": "The strongest small open agent model of the summer — state-of-the-art on SEAL-0 (56.4) and GAIA (96.0), claiming parity with trillion-parameter systems from a model that fits on a single node, under plain Apache-2.0 with no rider.",
+  "useCases": ["Self-hosted deep-research and search agents", "Tool-calling backends at modest hardware cost", "Distillation and agent-training research"],
+  "audience": "Agent builders without frontier budgets; researchers",
+  "setup": { "difficulty": "easy", "requirements": "Single node via vLLM or SGLang; GGUF quants for llama.cpp, Ollama, and LM Studio; the 4B variant reaches laptops" },
+  "license": { "code": "Apache-2.0", "weights": "Apache-2.0", "verdict": "open" },
+  "tally": { "stars": "Young repo; 8+ HF repos incl. 4B and GGUF variants", "lastActivity": "Released June 30, 2026", "status": "early", "checked": "2026-07-27" },
+  "links": { "site": "https://internscience.github.io/Agents-A1/", "paper": "https://arxiv.org/abs/2606.30616" },
+  "limitations": "The parity-with-flagships claims are self-reported and independent evaluation is still sparse; gains concentrate in search and science domains rather than general chat.",
+  "related": ["Hermes Agent", "SmolLM3"],
+  "take": "The agent race's counter-thesis in one release: maybe you don't need a trillion parameters, just better teachers.",
+  "added": "2026-07-27",
+  "featured": false
+}

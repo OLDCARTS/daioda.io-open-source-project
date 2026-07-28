@@ -1,0 +1,21 @@
+{
+  "name": "Hy3",
+  "repo": "https://github.com/Tencent-Hunyuan/Hy3",
+  "category": "models-weights",
+  "collections": ["daybreak"],
+  "type": "model",
+  "tagline": "Tencent finally drops the community license — mind which checkpoint you grab",
+  "description": "Tencent Hunyuan's 295B-total / 21B-active MoE reasoner (192 experts, top-8, plus a 3.8B multi-token-prediction layer) with 256K context — released under plain Apache-2.0, a first for the Hunyuan line. Official 1-bit and 4-bit GGUF builds put a flagship-scale model on a single GPU via llama.cpp.",
+  "why": "GLM-5.2-class results at less than half the total parameters — 78.0 SWE-Bench Verified, 90.4 GPQA-Diamond — and Tencent's switch from its restrictive community license to Apache-2.0 is a genuine licensing policy shift worth rewarding with attention.",
+  "useCases": ["Cost-efficient reasoning and agent backends", "Near-frontier local inference on a single big GPU via official GGUFs", "Fine-tuning without license anxiety"],
+  "audience": "Teams priced out of trillion-parameter hosting; local-AI enthusiasts",
+  "setup": { "difficulty": "moderate", "requirements": "FP8/BF16 want a multi-GPU node; the official 1-bit/4-bit GGUFs with MTP run on one GPU under llama.cpp" },
+  "license": { "code": "Apache-2.0", "weights": "Apache-2.0 (official Hy3 release)", "verdict": "open", "notes": "The earlier Hy3-preview repo still carries the Tencent Hunyuan Community License — void in the EU/UK/South Korea, 100M-MAU commercial cap, and a no-training-on-outputs clause. Only the official Hy3 checkpoints are Apache. Check which one you're pulling." },
+  "tally": { "stars": "Release repo weeks old; official GGUF builds already shipped", "lastActivity": "Released July 6, 2026; 1-bit/4-bit GGUFs mid-July", "status": "early", "checked": "2026-07-27" },
+  "links": { "site": "https://hy.tencent.com/research/hy3" },
+  "limitations": "Coding trails GLM-5.2 in head-to-heads, the release lineage is brand new with little independent evaluation, and the aggressive 1-bit quantizations cost real quality.",
+  "related": ["GLM-5.2", "DeepSeek-V3"],
+  "take": "Every Hunyuan release used to come with a map of where you couldn't use it. This one just comes with weights.",
+  "added": "2026-07-27",
+  "featured": true
+}

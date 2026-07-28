@@ -1,0 +1,21 @@
+{
+  "name": "Inkling",
+  "repo": "https://huggingface.co/thinkingmachines/Inkling",
+  "category": "models-weights",
+  "collections": ["daybreak", "deep-water"],
+  "type": "model",
+  "tagline": "Apache on the tin, terms in the drawer",
+  "description": "Thinking Machines Lab's first open-weights model: a 975B-total / 41B-active sparse MoE (6 of 256 experts plus 2 shared) that takes text, images, and audio in, with a 1M-token context, trained on 45T tokens. Day-0 support landed in transformers, vLLM, SGLang, and llama.cpp, with an NVFP4 checkpoint alongside BF16.",
+  "why": "The most-watched debut of 2026 — Mira Murati's lab shipping trillion-scale weights with frontier-class scores (77.6% SWE-Bench Verified, 46.0% HLE with tools). But the Apache-2.0 label comes with a separately binding Model Acceptable Use Policy, which is exactly the kind of rider this site exists to flag.",
+  "useCases": ["Self-hosted frontier-class assistants and agents", "Multimodal apps that need voice and vision in one model", "1M-token document and codebase work"],
+  "audience": "Well-resourced labs, inference providers, researchers",
+  "setup": { "difficulty": "advanced", "requirements": "~2TB VRAM for BF16, ~600GB for the NVFP4 build; community 1-bit GGUFs squeeze it far smaller at a real quality cost" },
+  "license": { "code": "Apache-2.0 (reference code; Tinker cookbook)", "weights": "Apache-2.0 tag + binding Model Acceptable Use Policy", "verdict": "partial", "notes": "The Hugging Face license tag reads Apache-2.0, but Thinking Machines' Model AUP states that by accessing, downloading, or using the model you agree to be bound by its use restrictions. A binding use-restriction rider fails OSD #6, so per house policy this is partial, not open — downgraded rather than rounded up. Flagged for review." },
+  "tally": { "stars": "1.6k HF likes; ~35k HF downloads/mo", "lastActivity": "Released July 15, 2026", "status": "early", "checked": "2026-07-27" },
+  "links": { "site": "https://thinkingmachines.ai/inkling/", "docs": "https://thinkingmachines.ai/model-card/inkling/" },
+  "limitations": "The hardware appetite is enormous, the AUP restricts fields of use, and this is a v1 with no stability track record — the card itself warns against unvalidated high-stakes deployment.",
+  "related": ["OLMo 3", "DeepSeek-V3"],
+  "take": "The year's biggest debut is also its best license quiz. Read past the tag before you build on it.",
+  "added": "2026-07-27",
+  "featured": true
+}

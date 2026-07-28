@@ -1,0 +1,21 @@
+{
+  "name": "Leanstral 1.5",
+  "repo": "https://huggingface.co/mistralai/Leanstral-1.5-119B-A6B",
+  "category": "experimental",
+  "collections": ["daybreak"],
+  "type": "model",
+  "tagline": "Most models tell you they're right. This one hands you a proof.",
+  "description": "Mistral's open-weights proof-engineering model for Lean 4 — a 119B-total / 6.5B-active MoE with 256K context that writes and repairs formal proofs and specifications. It saturates miniF2F, solves 587 of 672 PutnamBench problems, and surfaced five previously unknown bugs in real-world software-verification work.",
+  "why": "Formal verification is the rare domain where a model's output can be machine-checked instead of taken on faith — and this one is plain Apache-2.0, both weights and code, from a lab with an inconsistent licensing history that got it right here.",
+  "useCases": ["Proving theorems and formalizing mathematics in Lean 4", "Writing and checking formal specifications for critical software", "Automated proof repair in CI pipelines"],
+  "audience": "Formal-methods engineers, mathematicians, PL researchers",
+  "setup": { "difficulty": "advanced", "requirements": "vLLM ≥0.24 with tensor parallelism for self-hosting; Mistral's free hosted Labs endpoint covers experimentation until Sept 30, 2026" },
+  "license": { "code": "Apache-2.0", "weights": "Apache-2.0", "verdict": "open" },
+  "tally": { "stars": "Early days on HF; free hosted access via Labs API", "lastActivity": "Released June 30, 2026", "status": "early", "checked": "2026-07-27" },
+  "links": { "site": "https://mistral.ai/news/leanstral-1-5/" },
+  "limitations": "A specialist, not an assistant — Lean 4 only. The 119B MoE still wants serious hardware to self-host, and the free hosted endpoint retires September 30, 2026.",
+  "related": ["mistral.rs", "OpenEvolve"],
+  "take": "The quiet counterexample to 'you can't trust model output': here the compiler is the fact-checker, and it never gets tired.",
+  "added": "2026-07-27",
+  "featured": true
+}

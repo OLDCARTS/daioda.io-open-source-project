@@ -1,0 +1,21 @@
+{
+  "name": "GLM-5.2",
+  "repo": "https://github.com/zai-org/GLM-5",
+  "category": "models-weights",
+  "collections": ["daybreak"],
+  "type": "model",
+  "tagline": "A million tokens of context under plain MIT",
+  "description": "Z.ai's 753B-total / ~40B-active MoE flagship with a 1M-token context window and IndexShare attention that cuts per-token FLOPs 2.9× at full length. Ships in BF16 and FP8 on Hugging Face with day-0 vLLM and SGLang support, plus llama.cpp, Ollama, and LM Studio quantizations.",
+  "why": "The long-horizon workhorse of this summer's open-weights wave — MIT weights with no rider, no territory clause, no MAU cap. Already the engine behind community projects like Colibri, which streams its experts off disk to run it in ~25GB of RAM.",
+  "useCases": ["Whole-repository coding agents with 1M-token context", "Long-document analysis and sustained agentic sessions", "Self-hosted frontier-class assistant backends"],
+  "audience": "Infra-rich teams; determined locals via community quantizations",
+  "setup": { "difficulty": "advanced", "requirements": "Multi-GPU node for BF16/FP8; community GGUF routes (see Colibri) trade latency for ~25GB-RAM consumer setups" },
+  "license": { "code": "Apache-2.0 (zai-org/GLM-5 family repo)", "weights": "MIT", "verdict": "open", "notes": "Weights carry a plain MIT tag on Hugging Face. At check time the GLM-5 GitHub repo documented GLM-5/5.1 only — the 5.2 release lives on Hugging Face, so verify the license of the exact checkpoint you pull." },
+  "tally": { "stars": "3.3k (GLM-5 repo); ~142k HF downloads/mo", "lastActivity": "GLM-5.2 released June 13, 2026", "status": "maintained", "checked": "2026-07-27" },
+  "links": { "site": "https://z.ai" },
+  "limitations": "MoE inference at this scale is hardware-hungry, several hosts cap context well below 1M, and Z.ai's launch benchmark suite was thin — independent verification is still filling in.",
+  "related": ["Colibri", "Hy3"],
+  "take": "Colibri proved people will stream experts off a hard drive to run this model. A clean MIT license is why they bother.",
+  "added": "2026-07-27",
+  "featured": false
+}

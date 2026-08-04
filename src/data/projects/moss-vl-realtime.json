@@ -1,0 +1,21 @@
+{
+  "name": "MOSS-VL-Realtime",
+  "repo": "https://huggingface.co/OpenMOSS-Team/MOSS-VL-Realtime",
+  "category": "computer-vision",
+  "collections": ["daybreak"],
+  "type": "model",
+  "tagline": "A vision model that knows when to shut up",
+  "description": "OpenMOSS's 11B streaming vision-language model watches live video and generates text in parallel — you can interrupt with a question at any moment mid-stream. Cross-attention with XRoPE position embeddings unifies spatial-temporal reasoning across 256K context, and when the frames don't support an answer it emits a silence token instead of guessing.",
+  "why": "Most VLMs answer after the video ends; this one answers during it, and the trained-in ability to deliberately stay silent when evidence is thin is a small design decision with big implications for robots, monitoring, and assistants that watch the world in real time. Apache-2.0 on both the weights and the MOSS-VL codebase.",
+  "useCases": ["Live camera-feed assistants that answer mid-stream", "Robotics and monitoring pipelines needing streaming perception", "Research on proactive vs. silent multimodal behavior"],
+  "audience": "Vision researchers, robotics teams, realtime-app builders",
+  "setup": { "difficulty": "moderate", "requirements": "11B in BF16 fits a single 24–48GB GPU; streaming inference runs through the MOSS-VL project stack" },
+  "license": { "code": "Apache-2.0 (OpenMOSS/MOSS-VL repo)", "weights": "Apache-2.0", "verdict": "open", "notes": "Verified on both ends: the GitHub codebase carries Apache-2.0 and the model repo is tagged the same, with no acceptable-use rider anywhere in the card. Clean." },
+  "tally": { "stars": "MOSS-VL repo ~274 GitHub stars; Realtime checkpoint days old with a live HF demo Space", "lastActivity": "Realtime model released late July 2026; family shipping since April", "status": "early", "checked": "2026-08-03" },
+  "links": { "docs": "https://github.com/OpenMOSS/MOSS-VL" },
+  "limitations": "The comprehensive technical report is still 'upcoming' and benchmark tables are sparse at check time — capability claims currently rest on the demo and the card. Young project, small community so far.",
+  "related": ["SAM 3", "Agents-A1"],
+  "take": "Every demo reel shows a model that always has an answer. The interesting one is the model trained to say nothing until it's sure.",
+  "added": "2026-08-03",
+  "featured": false
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Kimi K3",
+  "repo": "https://huggingface.co/moonshotai/Kimi-K3",
+  "category": "models-weights",
+  "collections": ["daybreak", "deep-water", "fine-print"],
+  "type": "model",
+  "tagline": "The world's first open 3T-class model — with a license that isn't quite either",
+  "description": "Moonshot AI's 2.8T-total / 104B-active MoE (896 experts, top-16, 93 layers mixing KDA and gated MLA) with a 1M-token context, shipped natively in MXFP4 via quantization-aware training — a 1.56TB download. Multimodal in, agentic by design, with day-0 hosting across seven OpenRouter providers.",
+  "why": "The most-downloaded debut of the summer and the top-scoring open-weights model on the Artificial Analysis index — 88.3 Terminal-Bench 2.1, 93.5 GPQA-Diamond, 91.2 BrowseComp. But 'open weight' is Moonshot's phrase, not ours: the bespoke Kimi K3 License hangs real conditions on it, and this site exists to read those before you build.",
+  "useCases": ["Long-horizon coding and research agents with 1M-token context", "Self-hosted frontier-class inference for teams under the license thresholds", "Fine-tuning and quantization research at trillion scale"],
+  "audience": "Infra-rich labs and inference providers — after a license read",
+  "setup": { "difficulty": "advanced", "requirements": "~1.4TB resident memory at native MXFP4; realistically a multi-node cluster or a hosted provider" },
+  "license": { "code": "Kimi K3 License (bespoke; per model card, code and weights share it)", "weights": "Kimi K3 License — HF tag 'other'", "verdict": "partial", "notes": "LICENSE read directly by the editor (2026-08-04). Download, self-hosting, fine-tuning, and quantization are permitted, and small-scale commercial use is too. But any use in a product or service exceeding $20M USD requires a separate license agreement with Moonshot AI — broader than the MaaS-only carve-out early write-ups described — and products over $20M monthly revenue or 100M MAU must display 'Kimi K3' prominently. Scale-triggered obligations fail OSD #6/#8, so per house policy: partial — same shelf as LTX-2 and DeepSeek-V3. K2's Modified MIT was attribution-only; K3 tightens, not loosens." },
+  "tally": { "stars": "9.3k HF likes; ~493k HF downloads/mo", "lastActivity": "Weights released July 27, 2026", "status": "early", "checked": "2026-08-03" },
+  "links": { "site": "https://www.moonshot.ai" },
+  "limitations": "The hardware bill is the largest of any open-weights release ever, the license needs a lawyer once you're successful, and a ~51% hallucination rate on AA-Omniscience says trust-but-verify still applies at 2.8T parameters.",
+  "related": ["GLM-5.2", "Inkling"],
+  "take": "Last week we wrote 'verify the actual LICENSE file before celebrating.' We did. Celebrate the engineering; read clause by clause.",
+  "added": "2026-08-03",
+  "featured": true
+}

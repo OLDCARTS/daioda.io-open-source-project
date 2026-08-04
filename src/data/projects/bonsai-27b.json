@@ -1,0 +1,21 @@
+{
+  "name": "Bonsai 27B",
+  "repo": "https://huggingface.co/collections/prism-ml/bonsai-27b",
+  "category": "local-private-ai",
+  "collections": ["daybreak", "night-shift"],
+  "type": "model",
+  "tagline": "A 27B model pruned down to 3.9GB — small enough to live in your pocket",
+  "description": "PrismML compresses Qwen3.6-27B to extremes: a ternary build ({−1, 0, +1}, 1.71 bits/weight, 5.9GB) keeping 94.6% of FP16 quality across 15 benchmarks, and a 1-bit build (1.125 bits/weight, 3.9GB) keeping 89.5% — running ~11 tok/s on an iPhone 17 Pro Max. Ships as GGUF for llama.cpp and MLX for Apple Silicon, with forked runtimes on GitHub.",
+  "why": "The first credible 27B-class model that fits on a phone moves the local-AI frontier from 'gaming laptop' to 'thing already in your pocket' — fully offline, no telemetry, and Apache-2.0 end to end, inherited cleanly from its Apache base.",
+  "useCases": ["On-device assistants on phones with ~6GB free memory", "Offline laptop inference without a discrete GPU", "Extreme-quantization research with open recipes"],
+  "audience": "Local-AI enthusiasts, mobile developers, quantization researchers",
+  "setup": { "difficulty": "easy", "requirements": "1-bit build needs ~6GB free memory (iOS-capable); ternary wants ~8GB; runs via PrismML's llama.cpp and MLX forks" },
+  "license": { "code": "Apache-2.0 (PrismML runtime forks and demo repo)", "weights": "Apache-2.0", "verdict": "open", "notes": "Weights repos are tagged Apache-2.0, consistent with the Apache-2.0 Qwen3.6-27B base they derive from; the modified llama.cpp/MLX runtimes are forks of Apache/MIT projects. No riders found in the cards." },
+  "tally": { "stars": "~34k HF downloads/mo on the 1-bit MLX build alone", "lastActivity": "Released July 14, 2026", "status": "early", "checked": "2026-08-03" },
+  "links": { "site": "https://prismml.com", "docs": "https://docs.prismml.com/models/bonsai-27b" },
+  "limitations": "The quality retention is uneven — vision tasks drop hardest (to ~60–65% of baseline), the 1-bit build's losses are real in the tails, and you're tied to PrismML's forked runtimes until upstream support lands.",
+  "related": ["Colibri", "SmolLM3"],
+  "take": "Colibri streams a 744B model off a hard drive; Bonsai shrinks a 27B into a phone. Two opposite bets, one thesis: the hardware you own is enough.",
+  "added": "2026-08-03",
+  "featured": true
+}

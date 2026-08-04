@@ -1,0 +1,21 @@
+{
+  "name": "Laguna S 2.1",
+  "repo": "https://huggingface.co/poolside/Laguna-S-2.1",
+  "category": "models-weights",
+  "collections": ["daybreak"],
+  "type": "model",
+  "tagline": "The West's open-weights answer, licensed under Linux Foundation paper",
+  "description": "Poolside's 118B-total / 8B-active MoE coding model with a 1M-token context and switchable thinking modes — pre-trained in under nine weeks on 4,096 H200s. Ships in BF16 plus official FP8, INT4, and NVFP4 builds, an XS sibling, and community GGUFs; a free no-login demo runs at chat.poolside.ai.",
+  "why": "70.2% on Terminal-Bench 2.1 and 40.4% on DeepSWE puts it in the ring with models 10–20× its active size, and it's the rare Western frontier-lab release with weights you can pull today. The OpenMDW-1.1 license is the story: Linux Foundation-backed, MIT-grade in substance — and the same license we already had to make a judgment call on for Cosmos 3.",
+  "useCases": ["Self-hosted agentic coding backends with 1M-token context", "Terminal and repo-scale automation on a single DGX-class box", "Fine-tuning a competitive Western base for code domains"],
+  "audience": "Coding-agent builders; teams wanting non-PRC open weights",
+  "setup": { "difficulty": "moderate", "requirements": "Runs on a single NVIDIA DGX Spark; official INT4/NVFP4 and community GGUF builds bring it toward workstation reach" },
+  "license": { "code": "OpenMDW-1.1 (HF repo materials)", "weights": "OpenMDW-1.1", "verdict": "partial", "notes": "Same call as Cosmos 3, same reasoning: OpenMDW-1.1 grants rights 'without restriction' across copyright, patent, database, and trade-secret law, with attribution-only conditions and a litigation-termination clause — no use restrictions, no output claims. Substantively as open as MIT. But it is not OSI-approved, and our bright line is OSI approval, so we downgrade rather than round up. Flagged for review." },
+  "tally": { "stars": "Six official HF repos at launch (base, FP8, INT4, NVFP4, XS); unsloth GGUFs within days", "lastActivity": "Released July 21, 2026", "status": "early", "checked": "2026-08-03" },
+  "links": { "site": "https://poolside.ai" },
+  "limitations": "Benchmarks concentrate on coding and terminal work rather than general chat, several hosts cap context below 1M, and independent evaluation of the launch numbers is still thin.",
+  "related": ["KAT-Coder-V2.5-Dev", "Qwen3-Coder-Next"],
+  "take": "poolside spent years closed. Its first open drop uses the most open model license on the shelf — the only thing between it and 'open' is OSI's docket.",
+  "added": "2026-08-03",
+  "featured": true
+}

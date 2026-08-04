@@ -1,0 +1,21 @@
+{
+  "name": "KAT-Coder-V2.5-Dev",
+  "repo": "https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev",
+  "category": "agents-coding",
+  "collections": ["daybreak"],
+  "type": "model",
+  "tagline": "3B active parameters doing 69% of SWE-Bench's homework",
+  "description": "Kuaishou's Kwaipilot team fine-tunes Qwen3.6-35B-A3B into a 35B-total / 3B-active agentic coder with 262K context, optional thinking mode, native tool calling, and reasoning traces that persist across turns — built with SFT on 127K agent trajectories plus reinforcement learning.",
+  "why": "69.40 on SWE-Bench Verified from 3B active parameters is the best efficiency ratio we've cataloged, beating peers its size and several models well above it. It's the strongest evidence yet that agentic coding skill distills down to hardware ordinary teams actually have.",
+  "useCases": ["Local coding agents via GGUF builds in Ollama, LM Studio, and Jan", "Cheap self-hosted backends for SWE-agent-style pipelines", "RL-for-agents research on an accessible base"],
+  "audience": "Coding-agent builders on modest hardware; local-AI tinkerers",
+  "setup": { "difficulty": "easy", "requirements": "vLLM/SGLang on one GPU for BF16; community GGUF quants run under llama.cpp, Ollama, LM Studio, and Jan" },
+  "license": { "code": "Apache-2.0 (declared; see notes)", "weights": "Apache-2.0 (declared; see notes)", "verdict": "open", "notes": "Apache-2.0 is declared in the model-card metadata, but the HF repo ships no standalone LICENSE file at check time — the same gap we flagged on Qwen3-Coder-Next, and fittingly the base model here is Qwen. Verdict follows that precedent; we'd like to see the file appear." },
+  "tally": { "stars": "281 HF likes; bartowski, mradermacher, and community quant repos multiplying", "lastActivity": "Released July 23, 2026; technical report on arXiv", "status": "early", "checked": "2026-08-03" },
+  "links": { "paper": "https://arxiv.org/abs/2607.05471" },
+  "limitations": "Tuned hard for agentic coding — general chat is not the point. Launch numbers are self-reported, independent evals are early, and the missing LICENSE file should bother you exactly as much as it bothers us.",
+  "related": ["Qwen3-Coder-Next", "Agents-A1"],
+  "take": "The trillion-parameter arms race gets the headlines. The 3B-active model quietly closing SWE-Bench tickets gets the deployments.",
+  "added": "2026-08-03",
+  "featured": false
+}

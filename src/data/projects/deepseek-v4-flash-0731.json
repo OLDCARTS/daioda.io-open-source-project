@@ -1,0 +1,40 @@
+{
+  "name": "DeepSeek-V4-Flash-0731",
+  "repo": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
+  "category": "models-weights",
+  "collections": ["daybreak", "deep-water"],
+  "type": "model",
+  "tagline": "DeepSeek's agent-tuned frontier MoE goes MIT — LICENSE file and all",
+  "description": "DeepSeek's 284B-total / 13B-active MoE with 256 routed experts per layer, a CSA + HCA hybrid attention stack, a 1M-token context with 384K-token max output, and native FP8 weights — a 167GB download shipping with the DSpark speculative-decoding module and native Responses API support. The 0731 build is a re-post-training pass on the April V4 preview: architecture unchanged, agentic behavior overhauled.",
+  "why": "The agentic jump is the story — 54.4 on DeepSWE against the preview's 12.8, 82.7 on Terminal-Bench 2.1, 76.7 on Cybergym — and it lands under plain MIT with an actual LICENSE file in the repo root. DeepSeek-V3 sits on our Fine Print-adjacent shelf for its Model License riders; V4-Flash walks off it.",
+  "useCases": [
+    "Self-hosted long-horizon coding and tool-use agents with 1M-token context",
+    "Frontier-adjacent inference at commodity API prices or on your own node",
+    "Post-training and speculative-decoding research on an ungated MIT base"
+  ],
+  "audience": "Agent builders and infra teams ready for a 167GB download",
+  "setup": {
+    "difficulty": "advanced",
+    "requirements": "~167GB native FP8; roughly 110GB resident at 3-bit quantization, or a single 4×GB300 node at full precision. Community GGUF quants via unsloth"
+  },
+  "license": {
+    "code": "MIT",
+    "weights": "MIT",
+    "verdict": "open",
+    "notes": "Verified in the HF repo: a standalone LICENSE file (1.08 kB — MIT text) sits in the repo root alongside the weights, and the card is tagged MIT with no acceptable-use rider or scale trigger anywhere. Worth saying plainly: DeepSeek-V3's weights carry the DeepSeek Model License with Attachment A use restrictions (verdict: partial). V4-Flash drops all of it. Checked 2026-08-10."
+  },
+  "tally": {
+    "stars": "unsloth and community quant repos within days; abliterated forks already circulating",
+    "lastActivity": "0731 build released July 31, 2026",
+    "status": "early",
+    "checked": "2026-08-10"
+  },
+  "links": {
+    "site": "https://www.deepseek.com"
+  },
+  "limitations": "The download is 167GB and serving wants FP4/FP8-era infrastructure; the nine agentic benchmark wins are self-published with independent evaluation still early; and 'Flash' means efficiency-tuned — the heavier V4-Pro line remains unreleased.",
+  "related": ["DeepSeek-V3", "GLM-5.2"],
+  "take": "Two batches ago we shelved DeepSeek-V3 for its license riders. V4-Flash answers the only way that counts: an MIT file in the repo root.",
+  "added": "2026-08-10",
+  "featured": true
+}

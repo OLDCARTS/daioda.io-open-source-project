@@ -1,0 +1,40 @@
+{
+  "name": "Kroma",
+  "repo": "https://huggingface.co/lodestones/Kroma",
+  "category": "generative-media",
+  "collections": ["daybreak", "fine-print"],
+  "type": "model",
+  "tagline": "The README says MIT. The repo tag — and the merged base weights — say otherwise",
+  "description": "Lodestones — the community fine-tuner behind the Chroma line — retrains Krea 2 into Kroma, with the Krea 2 Turbo delta merged in as a rank-512 LoRA. v0.2 abandons the v0.1 LoRA-plus-diff packaging for a single full checkpoint: load it in any recent ComfyUI with native Krea 2 support (Qwen3-VL text encoder + VAE), sample at 8–12 steps, CFG 1.0–1.5.",
+  "why": "It's the fastest-moving community checkpoint in the Krea 2 ecosystem, and it's this week's textbook licensing case: the README declares MIT for the fine-tune while explicitly granting no rights to the base weights — which are physically inside the merged checkpoint you download. The file you get is governed by the Krea 2 Community License, and the HF tag says exactly that.",
+  "useCases": [
+    "ComfyUI image workflows on the Krea 2 stack with turbo-speed sampling",
+    "Community fine-tune and LoRA experimentation on a current-gen base",
+    "A case study in how licenses actually propagate through merged checkpoints"
+  ],
+  "audience": "ComfyUI users, fine-tuners — and anyone who ships image models commercially",
+  "setup": {
+    "difficulty": "moderate",
+    "requirements": "Recent ComfyUI with native Krea 2 support, plus the Krea 2 text encoder (Qwen3-VL) and VAE; quantized w4a8 community builds exist for smaller GPUs"
+  },
+  "license": {
+    "code": "MIT (declared in the README for the fine-tune contribution only)",
+    "weights": "Krea 2 Community License — inherited by the merged checkpoint; HF tag: krea-2-community-license",
+    "verdict": "partial",
+    "notes": "Read carefully on 2026-08-10: the README states the fine-tune is MIT but that it 'does not grant any rights to the base weights' — and since v0.2 is a full merged checkpoint, the base weights are in the artifact. There is no LICENSE file in the repo; the metadata tag is krea-2-community-license. That license permits commercial use but binds deployers to Krea's Acceptable Use Policy and requires content-filtering or equivalent review measures — scale-independent field-of-use obligations that fail OSD #6. Per the Inkling precedent: partial. The MIT label is real, but it only covers the delta you can't separate back out."
+  },
+  "tally": {
+    "stars": "234 HF likes; w4a8 quants and LoRA Spaces multiplying on Civitai and HF",
+    "lastActivity": "v0.2 turbo checkpoint uploaded July 31, 2026",
+    "status": "early",
+    "checked": "2026-08-10"
+  },
+  "links": {
+    "docs": "https://github.com/krea-ai/krea-2"
+  },
+  "limitations": "No LICENSE file in the repo means the terms live in a tag and a base-model PDF two hops away; the checkpoint requires the Krea 2 encoder stack regardless; and as a one-maintainer community project, cadence and support are best-effort.",
+  "related": ["ComfyUI", "FLUX.2", "Z-Image"],
+  "take": "A checkpoint is not a diff. Merge restricted weights into your MIT fine-tune and the restriction is what ships — this is why we read tags, not READMEs.",
+  "added": "2026-08-10",
+  "featured": true
+}

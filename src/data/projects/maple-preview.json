@@ -1,0 +1,40 @@
+{
+  "name": "Maple Preview",
+  "repo": "https://huggingface.co/deepgrove/maple-preview",
+  "category": "local-private-ai",
+  "collections": ["daybreak", "night-shift"],
+  "type": "model",
+  "tagline": "A 20B ternary MoE in 5.31GB, doing 218 tok/s on a Mac mini",
+  "description": "Deepgrove's 20B-total / 1B-active mixture-of-experts built on ternary weights from the ground up: 24 layers, 256 experts with 8 active, a 3:1 SWA-512-to-global attention mix, and 131K context — a 5.31GB checkpoint that streams 218 tok/s on an M4 Mac mini through Deepgrove's mlx-lm fork, with a Triton/FlashAttention Transformers path for CUDA.",
+  "why": "Bonsai proved you can crush a trained model down to ternary after the fact; Maple is the other bet — train ternary natively and let the MoE routing pay the quality bill. The card claims reasoning parity with its weight class on LCBv6, AIME 2026, HMMT 2026, and GPQA-D, and the whole thing is MIT with a LICENSE file in the repo.",
+  "useCases": [
+    "Fast local reasoning on Apple Silicon without a discrete GPU",
+    "Offline assistants where a 5GB footprint is the budget",
+    "Research on native ternary training and low-bit MoE routing"
+  ],
+  "audience": "Local-AI tinkerers, Apple Silicon users, quantization researchers",
+  "setup": {
+    "difficulty": "easy",
+    "requirements": "~6GB free memory; Apple Silicon via the mlx-lm-deepgrove fork, or CUDA with Triton and FlashAttention. Community GGUFs are appearing"
+  },
+  "license": {
+    "code": "MIT (Deepgrove's mlx-lm fork and HF repo materials)",
+    "weights": "MIT",
+    "verdict": "open",
+    "notes": "The HF repo is tagged MIT and — unlike too many model repos we check — ships a standalone LICENSE file, linked from the card itself. No acceptable-use policy, no scale triggers, no riders found. Checked 2026-08-10."
+  },
+  "tally": {
+    "stars": "~275 HF likes, ~1.1k downloads in week one",
+    "lastActivity": "Released August 4, 2026",
+    "status": "early",
+    "checked": "2026-08-10"
+  },
+  "links": {
+    "docs": "https://github.com/deepgrove-ai/mlx-lm-deepgrove"
+  },
+  "limitations": "It's a preview with minimal agentic post-training and only small-scale RL, the benchmark claims are the card's own with no independent numbers yet, and Deepgrove is a young outfit — treat the quality story as promising, not proven.",
+  "related": ["Bonsai 27B", "SmolLM3"],
+  "take": "Bonsai compresses a big model into a phone. Maple asks the sharper question: what if it was never big to begin with?",
+  "added": "2026-08-10",
+  "featured": true
+}

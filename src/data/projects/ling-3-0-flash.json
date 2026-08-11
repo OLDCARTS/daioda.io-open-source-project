@@ -1,0 +1,40 @@
+{
+  "name": "Ling-3.0-flash",
+  "repo": "https://huggingface.co/inclusionAI/Ling-3.0-flash",
+  "category": "models-weights",
+  "collections": ["daybreak"],
+  "type": "model",
+  "tagline": "Ant Group's 124B hybrid-linear MoE runs coding agents on a 5.1B activation budget",
+  "description": "inclusionAI's 124B-total / 5.1B-active MoE mixing 35 KDA linear-attention layers with 7 Gated MLA layers (5:1), 512 routed experts with 8 active, and 256K context trained on an 8K→32K→256K schedule. Thinking mode is on by default and switchable per request; official FP8 builds ship alongside, with an inclusionAI vLLM fork and SGLang cookbook for serving.",
+  "why": "56.6 on SWE-Bench Pro and 72.4 on SWE-Bench Multilingual from a 5.1B activation budget is serious agentic-coding efficiency — the same KDA-heavy recipe Kimi K3 bet on, at a fraction of the footprint, under an MIT tag. It extends inclusionAI's steady run of genuinely permissive releases.",
+  "useCases": [
+    "Cheap self-hosted backends for SWE-agent-style coding pipelines",
+    "Long-context multilingual code work within 256K tokens",
+    "Hybrid linear-attention research on an open MIT base"
+  ],
+  "audience": "Coding-agent builders; teams serving high-throughput inference on a budget",
+  "setup": {
+    "difficulty": "advanced",
+    "requirements": "Recommended 4× H20-3e (141GB-class) or a 4-GPU Blackwell node; H100/H800 works at --tp 8. FP8 official; community GGUF and NVFP4 quants bring it lower"
+  },
+  "license": {
+    "code": "MIT (declared; see notes)",
+    "weights": "MIT (declared; see notes)",
+    "verdict": "open",
+    "notes": "The HF repo is tagged MIT, but at check time (2026-08-10) ships no standalone LICENSE file — the same gap we've flagged on Qwen3-Coder-Next and KAT-Coder-V2.5-Dev, and the verdict follows that precedent: open, with the gap on record. inclusionAI's earlier Ling and Ring repos have carried proper MIT files, so we expect this one to appear; we'd still like to see it."
+  },
+  "tally": {
+    "stars": "277 HF likes; ~5.3k downloads/mo plus official FP8 and community GGUF/NVFP4 repos",
+    "lastActivity": "Released August 2, 2026",
+    "status": "early",
+    "checked": "2026-08-10"
+  },
+  "links": {
+    "docs": "https://docs.sglang.io/cookbook/autoregressive/InclusionAI/Ling-3.0-flash"
+  },
+  "limitations": "Serving still wants a multi-GPU node despite the small activation budget, launch benchmarks are self-reported with independent evals early, and the missing LICENSE file should be a five-minute fix we shouldn't have to keep asking for.",
+  "related": ["Kimi K3", "KAT-Coder-V2.5-Dev"],
+  "take": "Kimi K3 made KDA famous at 2.8T parameters. Ling-3.0-flash makes it affordable at 124B — and unlike K3, the license fits in three letters.",
+  "added": "2026-08-10",
+  "featured": false
+}

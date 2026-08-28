@@ -1,0 +1,47 @@
+{
+  "name": "Muse Glimmer 30B",
+  "repo": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+  "category": "local-private-ai",
+  "collections": [
+    "daybreak",
+    "night-shift"
+  ],
+  "type": "model",
+  "tagline": "Meta's return to open weights skips the Llama license entirely — clean Apache-2.0, on-device agents",
+  "description": "Meta's 29.6B dense causal transformer — 27.8B of language model plus a frozen 1.8B ViT-G/14 perception encoder — distilled from its closed Muse Spark and tuned for local, always-on agent workflows: coding agents, tool calls, LLM-as-a-judge. Text-plus-image in, text out, 131K context, shipped as BF16 and two 4-bit quantizations with a DFlash speculative-decoding drafter, official ExecuTorch and GGUF builds, and day-one Ollama support.",
+  "why": "Every prior Meta release of consequence arrived under a Llama Community License with an acceptable-use policy stapled to the grant. Muse Glimmer doesn't: the LICENSE file in the repo root is the standard, unmodified Apache-2.0 text, and the card says all artifacts share it. For the company that defined 'open-ish', shipping a genuinely OSI-approved license is the week's biggest structural news.",
+  "useCases": [
+    "Local always-on coding and tool-calling agents on a single consumer GPU",
+    "On-device multimodal assistants via the official ExecuTorch builds",
+    "LLM-as-a-judge evaluation pipelines that shouldn't leave your network"
+  ],
+  "audience": "Local-agent builders, on-device developers, and Llama-license refugees",
+  "setup": {
+    "difficulty": "moderate",
+    "requirements": "~60GB BF16, or the official 4-bit quants for single-GPU and Mac use; ExecuTorch PTE builds for mobile/edge, Ollama support since 0.32.7"
+  },
+  "license": {
+    "code": "Apache-2.0",
+    "weights": "Apache-2.0",
+    "verdict": "open",
+    "notes": "Read directly on 2026-08-17: the LICENSE file (11.4 kB) is standard, unmodified Apache-2.0 with no appendix and no reference to any policy, and the card states 'all artifacts are released under Apache 2.0.' One flag for the record: the repo also ships a USAGE_POLICY.md (5.23 kB) listing prohibited uses. It is linked from the README but not incorporated into the license, uses 'should not' rather than 'must not' phrasing, and neither LICENSE nor card conditions the grant on it — we read it as non-binding guidance sitting beside a clean Apache grant, not a rider. The card also says the model is 'not intended' for under-18 users; same advisory character. If either ever hardens into a condition, this verdict changes."
+  },
+  "tally": {
+    "stars": "1.63k HF likes, ~293k downloads/mo across the BF16, quantized, GGUF, and ExecuTorch repos",
+    "lastActivity": "Released August 10, 2026",
+    "status": "early",
+    "checked": "2026-08-17"
+  },
+  "links": {
+    "docs": "https://huggingface.co/meta-models/Muse-Glimmer-30B-GGUF"
+  },
+  "limitations": "It's a distillation of a closed parent you can't inspect, the perception encoder is frozen and the training data unreleased, and Meta's own positioning is agentic execution rather than peak reasoning — plus a usage-policy file whose legal weight is deliberately ambiguous.",
+  "related": [
+    "Maple Preview",
+    "SmolLM3",
+    "Jan"
+  ],
+  "take": "For a decade the question was whether Meta would ever drop the Llama license. The answer arrived quietly, in an 11.4 kB file that says Apache and means it.",
+  "added": "2026-08-17",
+  "featured": true
+}

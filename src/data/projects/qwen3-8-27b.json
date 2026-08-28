@@ -1,0 +1,45 @@
+{
+  "name": "Qwen3.8-27B",
+  "repo": "https://huggingface.co/Qwen/Qwen3.8-27B",
+  "category": "models-weights",
+  "collections": [
+    "daybreak"
+  ],
+  "type": "model",
+  "tagline": "Qwen's 27B vision-language dense ships Apache-2.0 — with the LICENSE file its coder cousin still owes us",
+  "description": "The open-weights anchor of the Qwen3.8 generation: a 27B dense vision-language model mixing Gated DeltaNet and Gated Attention across 64 layers, with 262K native context extensible to 1M and image and video input alongside text. It's the consumer-hardware release of the pair announced with the much larger Qwen3.8-Max, shipped on the official Qwen org with FP8 builds and day-one GGUF support across the ecosystem.",
+  "why": "The pre-release license anxiety — Apache or Tongyi Qianwen? — resolved the right way: an Apache-2.0 tag AND a standalone 11.5 kB LICENSE file in the repo root. From the org that left Qwen3-Coder-Next in our missing-LICENSE club, a full Apache text alongside the weights is worth naming. The uptake is immediate: ~267k downloads and five-digit likes within days.",
+  "useCases": [
+    "Local multimodal assistants that read screenshots, documents, and video",
+    "Long-context RAG and document pipelines within 262K native tokens",
+    "Fine-tuning a current-gen dense VLM without license negotiation"
+  ],
+  "audience": "Local-AI users with a serious GPU, VLM fine-tuners, multimodal app builders",
+  "setup": {
+    "difficulty": "moderate",
+    "requirements": "~56GB BF16 across 18 shards; FP8 official and community GGUF quants bring it to single-GPU and high-memory Mac territory"
+  },
+  "license": {
+    "code": "Apache-2.0",
+    "weights": "Apache-2.0",
+    "verdict": "open",
+    "notes": "Verified in the HF repo file list: a standalone LICENSE file (11.5 kB — full Apache-2.0 text) sits in the repo root, and the card is tagged apache-2.0 with no acceptable-use rider or scale trigger found. Called out deliberately: Qwen3-Coder-Next has sat in our catalog since July with an Apache tag and no LICENSE file. This repo does it right; we'd like the coder line to catch up. Checked 2026-08-17."
+  },
+  "tally": {
+    "stars": "~10.4k HF likes and ~267k downloads within days of release — the fastest uptake in this week's batch",
+    "lastActivity": "Released August 14, 2026",
+    "status": "early",
+    "checked": "2026-08-17"
+  },
+  "links": {
+    "docs": "https://github.com/QwenLM"
+  },
+  "limitations": "27B dense wants real hardware before quantization, the 1M extended context relies on scaling tricks beyond the 262K native window, and launch benchmarks are Alibaba's own — the larger Qwen3.8-Max sibling's license was still undisclosed at check time.",
+  "related": [
+    "Qwen3-Coder-Next",
+    "GLM-5.2"
+  ],
+  "take": "Same org, two repos: the coder ships a tag and a promise, this one ships the license. The file is the policy — everything else is a press release.",
+  "added": "2026-08-17",
+  "featured": true
+}

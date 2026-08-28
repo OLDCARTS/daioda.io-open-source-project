@@ -1,0 +1,47 @@
+{
+  "name": "Solar Open 2",
+  "repo": "https://huggingface.co/upstage/Solar-Open2-250B",
+  "category": "models-weights",
+  "collections": [
+    "daybreak",
+    "deep-water",
+    "fine-print"
+  ],
+  "type": "model",
+  "tagline": "Apache-2.0 in every clause but two: name your model 'Solar', and say so in public",
+  "description": "Upstage's sovereign-AI flagship: a 250B-total / 15B-active hybrid-attention MoE trained on ~12T tokens on NVIDIA B200s, with 1M-token context and an agentic-use focus. Korea's biggest open-weights swing to date, positioned to run on as little as two GPUs quantized, with NVFP4 and community GGUF builds circulating.",
+  "why": "It's been on our watch list since July as a 'custom Solar License' curiosity, and the traction — 748 HF likes, ~29k downloads a month — says it's time to read the license. The read is instructive: an Apache-2.0 chassis granting perpetual, royalty-free, commercial-inclusive rights with no MAU caps and no AUP, then two bespoke conditions bolted on — derivative models must be named with a 'Solar' prefix, and public-facing materials must prominently display 'Built with Solar'.",
+  "useCases": [
+    "Self-hosted agentic workloads at frontier-adjacent scale on modest GPU counts",
+    "Korean-language and sovereign-deployment scenarios where provenance matters",
+    "A case study in branding-locked licensing on an otherwise permissive base"
+  ],
+  "audience": "Enterprise self-hosters, sovereign-AI watchers — and anyone naming a fine-tune",
+  "setup": {
+    "difficulty": "advanced",
+    "requirements": "Multi-GPU node for full precision; Upstage claims two-GPU serving quantized, with NVFP4 and community GGUF builds available"
+  },
+  "license": {
+    "code": "Upstage Solar License (HF tag: upstage-solar-license)",
+    "weights": "Upstage Solar License",
+    "verdict": "partial",
+    "notes": "LICENSE file read directly on 2026-08-17. The grant is Apache-2.0-derived and broad: perpetual, worldwide, royalty-free, commercial use included, no user thresholds, no acceptable-use policy, no output restrictions, standard patent-litigation termination. But two mandatory conditions attach to derivatives: the model name must begin with 'Solar', and associated websites, UIs, or documentation must prominently display 'Built with Solar'. Naming-and-promotion obligations on derived works are exactly the branding lock our methodology flags — they burden downstream identity in a way no OSI-approved license does, and the license is not OSI-approved. Kimi K3 precedent (bespoke rider on a permissive base): partial."
+  },
+  "tally": {
+    "stars": "748 HF likes, ~29.3k downloads/mo; NVFP4 and GGUF community builds active",
+    "lastActivity": "Released July 23, 2026",
+    "status": "early",
+    "checked": "2026-08-17"
+  },
+  "links": {
+    "site": "https://www.upstage.ai/blog/en/solar-open-2"
+  },
+  "limitations": "The branding conditions propagate to every derivative regardless of scale, the bespoke license means legal review no standard text would need, and the two-GPU serving claim is Upstage's own quantized best case — plan for more.",
+  "related": [
+    "Kimi K3",
+    "DeepSeek-V3"
+  ],
+  "take": "The friendliest fine print we've read all summer — right up until it names your model for you. Two clauses are all it takes to leave the OSD behind.",
+  "added": "2026-08-17",
+  "featured": false
+}

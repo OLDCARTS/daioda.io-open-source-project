@@ -1,0 +1,45 @@
+{
+  "name": "Nemotron 3.5 Lightning",
+  "repo": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+  "category": "models-weights",
+  "collections": [
+    "daybreak"
+  ],
+  "type": "model",
+  "tagline": "NVIDIA's 293-tok/s execution-tier MoE ships weights, data, AND recipes — under OpenMDW again",
+  "description": "A 30B-total / 3B-active hybrid that interleaves Mamba-2 and mixture-of-experts layers with select attention: 52 layers, 6 of 128 routed experts plus one shared expert per token, 1M-token context. Five checkpoints shipped at once — BF16 reference, NVFP4 deployment, the pre-trained Base, and two speculative-decoding draft variants — alongside the actual pre- and post-training datasets (Nemotron-CC-v2 at 9.1T tokens among them) and training recipes.",
+  "why": "NVIDIA is refreshingly honest about what this is: an execution-tier model for tool calls and validation loops, not a peak-accuracy play — its own table shows Qwen 3.6 35B ahead on 13 of 14 rows while Lightning does 293 output tok/s, third-fastest of 134 models tracked by Artificial Analysis. And the release radius is the real story: weights, data, and recipes together is a level of reproducibility the big permissive-license labs still don't offer.",
+  "useCases": [
+    "High-throughput agent execution loops — tool calls, validation, routing",
+    "1M-token context processing where speed matters more than peak accuracy",
+    "Reproducibility research: retrain or ablate against released data and recipes"
+  ],
+  "audience": "Agent-infra teams optimizing cost per call; open-training researchers",
+  "setup": {
+    "difficulty": "moderate",
+    "requirements": "~60GB BF16 or the NVFP4 build for single-GPU serving; day-one GGUF via ggml-org, unsloth, and bartowski for local use"
+  },
+  "license": {
+    "code": "OpenMDW-1.1 (model materials and recipes)",
+    "weights": "OpenMDW-1.1; released datasets separately marked permissive for model training, most gated behind approval",
+    "verdict": "partial",
+    "notes": "Same call as NVIDIA Cosmos 3 and Laguna S 2.1, same reasoning: OpenMDW-1.1 grants rights 'without restriction' with attribution-only conditions and a litigation-termination clause — substantively MIT-grade, no use restrictions, no output claims. But it is not OSI-approved, and our bright line is OSI approval, so we downgrade rather than round up. This is the third OpenMDW entry in the catalog; the precedent is now well worn. One gap to close by hand: the card states 'use of this model is governed by the OpenMDW-1.1 model license' and the repo is tagged accordingly, but HF rate-limited our file-tree check, so the standalone LICENSE file wants a 30-second browser confirmation. Checked 2026-08-17."
+  },
+  "tally": {
+    "stars": "156 HF likes across the checkpoint family in week one; ggml-org, unsloth, and bartowski GGUF repos live",
+    "lastActivity": "Released August 11, 2026",
+    "status": "early",
+    "checked": "2026-08-17"
+  },
+  "links": {
+    "docs": "https://github.com/NVIDIA-NeMo/Nemotron"
+  },
+  "limitations": "It loses to same-class Qwen on nearly every quality benchmark by NVIDIA's own table — this is a speed play, full stop; most of the released datasets sit behind HF gating and approval; and OpenMDW, however permissive, still isn't the three-letter license your counsel already knows.",
+  "related": [
+    "NVIDIA Cosmos 3",
+    "Laguna S 2.1"
+  ],
+  "take": "The most reproducible release of the week carries the asterisk, while less-forthcoming labs ship clean MIT. Our bright line stays put — but this is the entry that makes it feel expensive.",
+  "added": "2026-08-17",
+  "featured": false
+}

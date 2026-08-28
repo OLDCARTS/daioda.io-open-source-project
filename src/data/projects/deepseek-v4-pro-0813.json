@@ -1,0 +1,46 @@
+{
+  "name": "DeepSeek-V4-Pro-0813",
+  "repo": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813",
+  "category": "models-weights",
+  "collections": [
+    "daybreak",
+    "deep-water"
+  ],
+  "type": "model",
+  "tagline": "The heavyweight V4 finally goes GA — and it keeps Flash's MIT, LICENSE file and all",
+  "description": "DeepSeek's flagship MoE reaches general availability as the 0813 build: the V4-Pro Preview architecture re-post-trained for agentic work, with the DSpark speculative-decoding module attached and a companion DSpark repo alongside. The card doesn't restate parameter counts for the GA build — the Preview's ~1.6T-total / 49B-active figures are the best public reference — and the safetensors shards total roughly 893GB, so 'Pro' means exactly what it says.",
+  "why": "Two weeks ago V4-Flash walked DeepSeek off our fine-print-adjacent shelf; the open question was whether the heavyweight would follow. It does — MIT card tag plus a standalone 1.08 kB LICENSE file in the repo root, the same file Flash shipped. The agentic jump over Preview is the other story: 62.7 on DeepSWE against 12.8, 83.3 on CyberGym, 87.9 on Terminal-Bench 2.1, all self-published.",
+  "useCases": [
+    "Frontier-class self-hosted agents where the API's terms or latency won't do",
+    "Long-horizon coding and terminal work at the top of the open-weights range",
+    "Post-training and speculative-decoding research on an ungated MIT frontier base"
+  ],
+  "audience": "Infra teams with serious multi-node hardware; everyone else via the API",
+  "setup": {
+    "difficulty": "advanced",
+    "requirements": "~893GB of safetensors — plan on a multi-node FP8/FP4 deployment; unsloth and community quant repos are already carving it down"
+  },
+  "license": {
+    "code": "MIT",
+    "weights": "MIT",
+    "verdict": "open",
+    "notes": "Verified in the HF repo: standalone LICENSE file (1.08 kB, MIT text) in the repo root — the same clean setup V4-Flash-0731 established — with the card tagged MIT, the card stating repository and weights share it, and no acceptable-use rider or scale trigger found anywhere. DeepSeek-V3 remains partial in our catalog under the DeepSeek Model License; the V4 line has now dropped those riders twice in a row. Checked 2026-08-17."
+  },
+  "tally": {
+    "stars": "536 HF likes and ~22k downloads in the first days; unsloth mirror and DSpark companion repo live",
+    "lastActivity": "0813 GA build released August 13, 2026",
+    "status": "early",
+    "checked": "2026-08-17"
+  },
+  "links": {
+    "site": "https://www.deepseek.com"
+  },
+  "limitations": "Nearly a terabyte of weights puts self-hosting out of most orgs' reach, the GA card declines to restate parameter counts or context length, and the benchmark table is DeepSeek's own — independent evals were still landing at check time.",
+  "related": [
+    "DeepSeek-V4-Flash-0731",
+    "DeepSeek-V3"
+  ],
+  "take": "Flash was the promise; Pro is the proof. When a lab MITs its flagship — not just the efficient sibling — the license change is policy, not accident.",
+  "added": "2026-08-17",
+  "featured": true
+}

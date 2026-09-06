@@ -1,0 +1,40 @@
+{
+  "name": "Qwen3.8-2.4T-A95B",
+  "repo": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B",
+  "category": "models-weights",
+  "collections": ["daybreak", "deep-water", "fine-print"],
+  "type": "model",
+  "tagline": "Qwen's 2.4T flagship weights land — under a license with a $50M trip-wire the API never mentions",
+  "description": "The open-weights release of the Qwen3.8-Max generation: a 2.4T-total / 95B-active MoE with 92 layers, 512 experts (10 routed plus 1 shared), the Gated DeltaNet–Gated Attention hybrid of its 27B sibling, and 262K native context extensible to about 1M. It is not the API model in a trench coat: this checkpoint is text-only, runs in always-on thinking mode, and ships without the vision input, non-thinking mode, default 1M context, and built-in tools the hosted Qwen3.8-Max offers.",
+  "why": "This resolves our watch-list question from the 27B release — 'will Max's weights actually land, and under what license?' They landed August 12, and the license is the story: not Apache like the 27B, but a bespoke Qwen3.8-Max License. The grant itself is broad, MIT-flavored text — use, modify, sell, host, fine-tune. Then the conditions: past 100M MAU or $20M monthly revenue you must display the model name in your UI, and any model-as-a-service or 'AI work assistant' business over $50M trailing-twelve-month revenue needs a separate paid license from Qwen before commercial use.",
+  "useCases": [
+    "Self-hosted frontier-class inference for orgs comfortably under the thresholds",
+    "Fine-tuning and RL research on a true Max-class base rather than a distillation",
+    "Internal deployments — the license's cleanest lane, since purely internal use avoids the MaaS trigger entirely"
+  ],
+  "audience": "Infra-rich teams under the revenue thresholds — after a license read with counsel",
+  "setup": {
+    "difficulty": "advanced",
+    "requirements": "2.4T parameters in BF16 means a serious multi-node deployment; community quantizations were already appearing at check time"
+  },
+  "license": {
+    "code": "Qwen3.8-Max License (bespoke; HF repo LICENSE)",
+    "weights": "Qwen3.8-Max License",
+    "verdict": "partial",
+    "notes": "LICENSE read directly in the HF repo (3.39 kB) on 2026-08-24. The chassis is permissive — rights to use, copy, modify, sell, deploy, host, and fine-tune 'without restriction' — but two scale-triggered conditions attach: products over 100M MAU or US$20M monthly revenue must prominently display the model name in the UI, and any MaaS or 'AI Work Assistant' business (both defined terms) exceeding US$50M aggregate trailing-twelve-month revenue, affiliates included, must obtain a separate license from Qwen before commercial use. Scale-triggered obligations fail OSD #6/#8 — Kimi K3 precedent applies almost clause for clause, down to the matching $20M/100M branding trigger. Purely internal use is expressly carved out. Per house policy: partial, shelved on Fine Print. The contrast with the Apache-2.0 27B sibling is the point: one generation, two licenses, and the file tells you which model Alibaba considers the crown jewels."
+  },
+  "tally": {
+    "stars": "1.15k HF likes, ~18.1k downloads in the first days — small next to the 27B's ~267k, which is what a 2.4T download bill does",
+    "lastActivity": "Weights released August 12, 2026",
+    "status": "early",
+    "checked": "2026-08-24"
+  },
+  "links": {
+    "docs": "https://github.com/QwenLM"
+  },
+  "limitations": "Text-only with thinking mode you cannot turn off — the API keeps vision, non-thinking, default 1M context, and built-in tools for itself; the hardware bill is Kimi K3-class; and the bespoke license means legal review before any commercial deployment, with a revenue definition that sweeps in affiliates.",
+  "related": ["Qwen3.8-27B", "Kimi K3", "Qwen3-Coder-Next"],
+  "take": "Last week the 27B shipped Apache with a LICENSE file and we praised it. This is the other shoe: the closer a checkpoint sits to the money, the further the license drifts from open. Read the definitions — 'AI Work Assistant' may describe your product.",
+  "added": "2026-08-24",
+  "featured": false
+}

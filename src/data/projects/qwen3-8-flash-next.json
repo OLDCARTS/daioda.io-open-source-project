@@ -1,0 +1,40 @@
+{
+  "name": "Qwen3.8-Flash-Next",
+  "repo": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+  "category": "models-weights",
+  "collections": ["daybreak", "fine-print"],
+  "type": "model",
+  "tagline": "The Qwen4 architecture preview ships open weights — under a license quietly stricter than the 2.4T flagship's",
+  "description": "Alibaba's early look at the Qwen4 architecture, playing the role Qwen3-Next played a generation ago: a 125B-parameter multimodal MoE (plus 51B of N-gram embeddings and a 4B MTP head) activating just 6B per token. Four systematic upgrades — Qwen Sparse Attention on top of Gated DeltaNet, a 4-branch Gated Residual stream, context-keyed N-gram embeddings that can offload to host memory, and a refined Muon optimizer — cut training cost to about a ninth of Qwen3.7-Plus while beating it on coding and office tasks, per Alibaba's own harnesses. 262K native context.",
+  "why": "Architecturally it's the most interesting checkpoint of the week — this is the design the whole Qwen4 family will be built on, released early and in the open on the official org. But the license is the reason it shares a shelf with the fine print: the 3.24 kB LICENSE file says 'qwen-community-1.0', and its MaaS clause has no threshold at all. Where the 2.4T flagship's license triggers at $50M trailing revenue, this one requires any Model-as-a-Service or 'AI Work Assistant' business — any size — to obtain a separate license from Qwen before commercial use. The cheap-to-run preview gets the tighter leash.",
+  "useCases": [
+    "Studying the Qwen4 architecture — QSA, Gated Residual, N-gram embeddings — months before the family ships",
+    "High-efficiency long-context inference at 6B active parameters, 262K native window",
+    "Internal deployments and research — the license's clean lanes; commercial MaaS is not one of them"
+  ],
+  "audience": "Architecture researchers and efficiency hunters — with a license read before anything commercial",
+  "setup": {
+    "difficulty": "advanced",
+    "requirements": "~360GB across 131 safetensors shards (the N-gram table can offload to host RAM); official FP8 build and unsloth GGUFs available"
+  },
+  "license": {
+    "code": "Qwen Community License 1.0 (HF repo LICENSE, 3.24 kB)",
+    "weights": "Qwen Community License 1.0",
+    "verdict": "partial",
+    "notes": "LICENSE read directly in the HF repo on 2026-08-31. MIT-flavored broad grant (use, modify, sell, deploy, host, fine-tune), then two conditions. One: past 100M MAU or US$20M monthly revenue, the model name must be prominently displayed in your UI. Two, quoted verbatim: 'If the licensee or any of its affiliates conducts a Model as a Service or AI Work Assistant business, the licensee shall obtain a separate license from Qwen before Using the Software or its derivative works for any commercial purpose' — no revenue floor, unlike the $50M TTM trigger in the Qwen3.8-Max license. 'AI Work Assistant' means AI-assisted coding or office-productivity products (single-purpose tools and features in non-AI products excluded); internal use without third-party access is expressly permitted. A threshold-free field-of-use condition fails OSD #6 cleanly: partial, fine-print. The GitHub repo (QwenLM/Qwen3.8-Flash-Next) ships only a README and tech report, deferring licensing to the weights repo — which, credit where due, actually contains the file."
+  },
+  "tally": {
+    "stars": "4.45k HF likes and ~158.6k downloads in the first days; official FP8 and unsloth GGUF repos live",
+    "lastActivity": "Released August 26, 2026; mlx-vlm support merged August 27",
+    "status": "early",
+    "checked": "2026-08-31"
+  },
+  "links": {
+    "docs": "https://github.com/QwenLM/Qwen3.8-Flash-Next"
+  },
+  "limitations": "Benchmarks are Alibaba's own — the card even notes its Humanity's Last Exam score was graded by GPT-4o rather than the benchmark's grader; the threshold-free MaaS/work-assistant clause likely costs it the EU AI Act's open-source exemption (Recital 103 disqualifies monetized components); and 'preview of Qwen4' means the family built on this will supersede it within months.",
+  "related": ["Qwen3.8-27B", "Qwen3.8-2.4T-A95B", "Qwen3-Coder-Next"],
+  "take": "Read the family's licenses side by side: Apache for the 27B, a $50M trigger for the 2.4T, and no threshold at all for the architecture preview. The pattern isn't about model size — it's about how badly they think you need it.",
+  "added": "2026-08-31",
+  "featured": false
+}

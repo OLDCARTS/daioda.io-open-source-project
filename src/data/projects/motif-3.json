@@ -1,0 +1,40 @@
+{
+  "name": "Motif 3",
+  "repo": "https://huggingface.co/Motif-Technologies/Motif-3",
+  "category": "models-weights",
+  "collections": ["daybreak", "deep-water"],
+  "type": "model",
+  "tagline": "Korea's 314B sovereign MoE said MIT on the card — and now the file is in the repo to prove it",
+  "description": "Motif Technologies' flagship: a 314B-total / 13.2B-active MoE with 384 routed experts (top-8 plus one shared), 53 layers, 256K native context, and in-house architectural signatures — Grouped Differential Latent Attention and Expert-Specific PolyNorm. The final release landed August 13 alongside Base and NVFP4 variants and a technical report (arXiv 2608.09119), with self-reported agentic numbers that punch far above the active-parameter count: 76.2 SWE-bench Verified, 83.4 GPQA Diamond, 74.9 Terminal-Bench 2.1.",
+  "why": "Two sovereign-AI flagships from Korea in one summer, two opposite license strategies: Upstage bolted branding riders onto Apache, while Motif went plain MIT — no thresholds, no naming clause, no AUP. At 630GB of shards it's a fraction of Kimi K3's bill for benchmark claims in the same conversation. At our first check the MIT promise rested on card metadata alone — no LICENSE file in the tree, earning a nomination to our missing-LICENSE club. By the pre-publish review, the file had appeared: standard, unmodified MIT text. The asterisk this entry was drafted with is gone.",
+  "useCases": [
+    "Self-hosted long-horizon agents where per-token cost matters — 13.2B active is the efficiency play",
+    "Fine-tuning a frontier-adjacent MoE without license negotiation — MIT, file and all",
+    "Architecture research on differential-attention and per-expert normalization at scale"
+  ],
+  "audience": "Infra teams wanting Kimi-class agentic scores at a third of the memory; license-sensitive builders",
+  "setup": {
+    "difficulty": "advanced",
+    "requirements": "155 safetensors shards totaling ~630GB in BF16; the official NVFP4 variant is the realistic single-node path"
+  },
+  "license": {
+    "code": "MIT",
+    "weights": "MIT",
+    "verdict": "open",
+    "notes": "Two-stage verification, for the record. At the 2026-08-24 check the HF card was tagged mit and stated the model is 'released under the MIT License' — but no standalone LICENSE file was visible in the repo tree, so we drafted this entry open-on-declared per the Qwen3-Coder-Next precedent and nominated Motif to the missing-LICENSE club. At the 2026-09-06 pre-publish review the LICENSE file was present and read in full, in-browser: standard, unmodified MIT text, 'Copyright (c) 2026 Motif Technologies Corp.', with no additions, riders, or thresholds — and no acceptable-use rider or scale trigger anywhere on the card either. Verdict open, now on the file rather than the promise. Shortest club membership on record; the door remains open for Qwen3-Coder-Next, KAT-Coder-V2.5-Dev, and Ling-3.0-flash."
+  },
+  "tally": {
+    "stars": "123 HF likes, ~4.3k downloads/mo on the flagship repo — quiet uptake for the benchmark claims; Beta, Base, and NVFP4 variants live",
+    "lastActivity": "Final release August 13, 2026 (Beta preceded it; technical report on arXiv); LICENSE file added to the repo by early September",
+    "status": "early",
+    "checked": "2026-09-06"
+  },
+  "links": {
+    "paper": "https://arxiv.org/abs/2608.09119"
+  },
+  "limitations": "The headline benchmarks are self-reported and independent evals were scarce at check time, and the proprietary attention and normalization schemes mean framework support may lag standard MoEs.",
+  "related": ["Kimi K3", "Solar Open 2", "GLM-5.2"],
+  "take": "This entry was drafted ending 'if the card is telling the truth.' Between draft and publish, the file appeared — and it is. Graduation from the missing-LICENSE club costs exactly one kilobyte; the rest of the members know where the door is.",
+  "added": "2026-08-24",
+  "featured": false
+}

@@ -1,0 +1,41 @@
+{
+  "name": "MiniMax Music 3",
+  "repo": "https://huggingface.co/MiniMaxAI/MiniMax-Music3",
+  "category": "audio-voice",
+  "collections": ["daybreak", "fine-print"],
+  "type": "model",
+  "tagline": "Five-minute songs, open weights — and from the H3 lab, a license with every clause except the territory wall",
+  "description": "MiniMax's open-weights music generator: hand it lyrics with section tags and a music description, get back a complete, structured song — up to five minutes of 32 kHz 16-bit stereo WAV. The stack is a hybrid: an 8B global LLM for long-range musical structure, a 0.6B local LLM for frame-level acoustic detail, a 2.4B flow-matching module, a 123M Flow-VAE decoder, and an eight-layer RVQ tokenizer. Served officially through SGLang-Omni, with a Diffusers pipeline in review and ComfyUI tutorials already documented.",
+  "why": "Our audio shelf needed this entry, and the watch list flagged it as 'reported Apache-compatible — needs a proper read.' The proper read says otherwise: the LICENSE is a bespoke MiniMax-Music3 Community License, not Apache — but it's also a markedly friendlier document than sibling MiniMax H3's. No territory clause: the grant that H3 denies to the US, EU, UK, and Korea, Music 3 extends worldwide. What remains is the familiar fine print — a binding AUP, mandatory 'MiniMax-Music3' UI branding on commercial products, and a $20M yearly revenue trigger for written authorization. Same lab, same month, two very different licenses; that contrast is worth an entry on its own.",
+  "useCases": [
+    "Self-hosted full-song generation — lyrics in, mixed stereo master out, no per-generation API bill",
+    "Music production workflows via ComfyUI and SGLang-Omni, on your own hardware",
+    "A license case study: what the H3 lab writes when it isn't fencing off jurisdictions"
+  ],
+  "audience": "Musicians and toolmakers self-hosting generation; commercial deployers, read the branding clause first",
+  "setup": {
+    "difficulty": "moderate",
+    "requirements": "~11B parameters across four components — a single serious GPU serves it; official SGLang-Omni cookbook, ComfyUI workflows, and community GGUF ports available"
+  },
+  "license": {
+    "code": "MiniMax-Music3 Community License (bespoke; HF repo LICENSE)",
+    "weights": "MiniMax-Music3 Community License",
+    "verdict": "partial",
+    "notes": "LICENSE read directly in the HF repo on 2026-08-31. Broad grant — use, copy, modify, merge, publish, distribute, sublicense — covering weights, parameters, configs, and inference code. Conditions: compliance with the Acceptable Use Policy in Exhibit A (binding, unlike Muse Glimmer's advisory file); 'You shall prominently display MiniMax-Music3 on the user interface' of commercial products — no revenue floor on the branding, unlike Kimi K3's; separate prior written authorization once you or affiliates exceed US$20M aggregate yearly revenue; and 'reasonable and proportionate technical and organizational safeguards' required of anyone serving outputs to third parties. Crucially, NO territorial clause — we looked, given that sibling MiniMax H3's license excludes the US, EU, UK, and Korea outright. Unconditional branding plus AUP plus revenue trigger fails OSD #6/#8/#10: partial, Kimi K3 precedent. Two flags: the README badge wears the Creative Commons logo while linking to this bespoke text — read the file, not the badge — and the card credits the base as a Qwen3-8B fine-tune (Apache-2.0) with Stable Audio and DAC components (MIT), none of which rescues the release terms."
+  },
+  "tally": {
+    "stars": "1.3k HF likes, ~21.7k downloads/mo; 39 HF Spaces including the official demo, ComfyUI and SGLang-Omni integrations active",
+    "lastActivity": "Released August 13, 2026; Diffusers pipeline PR pending at check time",
+    "status": "early",
+    "checked": "2026-08-31"
+  },
+  "links": {
+    "docs": "https://github.com/MiniMax-AI/MiniMax-Music3",
+    "site": "https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model"
+  },
+  "limitations": "The AUP travels with every redistribution and the UI branding applies to any commercial product regardless of size; training data is undisclosed, which in music generation means the copyright provenance question is entirely unanswered; and output caps at five minutes / 9,000 acoustic frames per generation.",
+  "related": ["HeartMuLa", "MiniMax H3", "Kokoro"],
+  "take": "The most interesting thing about this license is who wrote it: the same lab that walled four jurisdictions out of H3 shipped its music model to the whole world. Fine print is a choice, made release by release — which means it can be unmade.",
+  "added": "2026-08-31",
+  "featured": false
+}

@@ -1,0 +1,40 @@
+{
+  "name": "DeepSeek-V4-Flash-Vision-Exp",
+  "repo": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-Vision-Exp",
+  "category": "models-weights",
+  "collections": ["daybreak", "deep-water"],
+  "type": "model",
+  "tagline": "The V4 arc completes in threes: Flash, Pro, and now Vision — all under the same 1.08 kB MIT file",
+  "description": "DeepSeek's first multimodal model in the V4 family: the V4-Flash architecture with native visual modules incorporated and continued training to unlock visual understanding — not a bolted-on vision tower. Ten days as an API-only experiment, then the weights landed August 31 with an unusually complete repo: tokenizer, prompt-encoding reference, and a minimal PyTorch inference implementation covering the vision encoder and aligner, DFlash attention, MoE, Hyper-Connections, and the DSpark speculative-decoding path — draft and target weights in one checkpoint.",
+  "why": "This sat on our watch list as 'API-only, watch for weights' — and the weights came, with the license the V4 line has now made policy: the LICENSE file is the standard, unmodified 1.08 kB MIT text, the card states 'This repository is licensed under the MIT License,' and the weight shards live in the same repo under it. The multimodal jump over text-only Flash is real on DeepSeek's own table — 36.5 vs 26.2 on ApexBench, 35.0 ZeroBench Pass@5 (a point past Opus 4.8) — while text-agent scores hold steady (83.9 Terminal-Bench 2.1). Third MIT release in the V4 family in a month; at this point the clean license is the least surprising thing about a DeepSeek drop.",
+  "useCases": [
+    "Screenshot-driven and UI-reading agent loops, self-hosted — the multimodal benchmarks are the pitch",
+    "Vision-capable coding and terminal agents that keep Flash-class text performance",
+    "Studying a lab-grade multimodal reference implementation — encoder, aligner, and DSpark path in readable PyTorch"
+  ],
+  "audience": "Agent builders who wanted V4-Flash with eyes; infra teams with a four-GPU node",
+  "setup": {
+    "difficulty": "advanced",
+    "requirements": "Reference serving is a 4-GPU node (vLLM recipe targets 4×GB300 with FP8 KV cache; SGLang with --speculative-algorithm DSPARK); the repo's minimal PyTorch implementation covers conversion and single-prompt inference"
+  },
+  "license": {
+    "code": "MIT",
+    "weights": "MIT",
+    "verdict": "open",
+    "notes": "LICENSE read in full, in-browser, on 2026-09-06 (checklist-v2 human verification): standard, unmodified MIT text, 1.08 kB — the same file V4-Flash-0731 and V4-Pro-0813 ship — with no acceptable-use rider, no scale trigger, no territory clause, and no separate model-license or policy file in the tree. The card's License section states 'This repository is licensed under the MIT License,' and the repository bundles tokenizer, reference inference, and the safetensors shards under that single grant. One cosmetic quirk for the record: the copyright line reads 2023, carried forward from DeepSeek's earlier repos — an old date on a clean file, not a condition. Weights landed 2026-08-31 after ten days of API-only availability."
+  },
+  "tally": {
+    "stars": "719 HF likes and ~209k downloads in the first week — for a multi-hundred-GB experimental checkpoint, that's conviction",
+    "lastActivity": "Weights released August 31, 2026 (API preview since August 21); vLLM and SGLang recipes live",
+    "status": "experimental",
+    "checked": "2026-09-06"
+  },
+  "links": {
+    "site": "https://www.deepseek.com"
+  },
+  "limitations": "'Exp' is in the name on purpose — DeepSeek calls it experimental and the model ID may not survive evaluation; the benchmark table is self-reported, evaluated with DeepSeek's own Harness in minimal mode; the card doesn't restate parameter counts or context length (the API lists 1M context and ~384 tokens per image — confirm before you plan around either); and there's no document/OCR mode, so PDFs mean rasterizing first.",
+  "related": ["DeepSeek-V4-Flash-0731", "DeepSeek-V4-Pro-0813", "DeepSeek Harness"],
+  "take": "Flash was the promise, Pro was the proof, and Vision is the habit. When a lab's third straight release in a month ships the same one-kilobyte MIT file, you stop calling it a license choice and start calling it an identity.",
+  "added": "2026-09-06",
+  "featured": true
+}

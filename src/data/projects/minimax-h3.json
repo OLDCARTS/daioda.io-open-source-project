@@ -1,0 +1,47 @@
+{
+  "name": "MiniMax H3",
+  "repo": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+  "category": "generative-media",
+  "collections": [
+    "daybreak",
+    "fine-print"
+  ],
+  "type": "model",
+  "tagline": "The first open-weights omni-modal video model — unless you live in the US, EU, UK, or Korea",
+  "description": "A 33B dense H3-Omni-Transformer that takes text, images, video, and audio in and generates synchronized video with stereo audio out: 768p to 2K, 4–15 seconds at 24 FPS with 32 kHz sound, in FL2VA (first/last-frame) and Ref2VA (multimodal reference) checkpoints. Nothing else with weights on the table does omni-modal in, video-plus-audio out — and the ~4 million downloads a month say the ecosystem noticed, with ComfyUI integration circulating since the August 3 drop.",
+  "why": "This is the sharpest license lesson of the season, which is why it's here despite headlines calling it 'open source.' The 17.6 kB MiniMax H3 Community License grants royalty-free commercial use — but only within an 'Applicable Territory' that expressly excludes the European Union, the United Kingdom, the Republic of Korea, and the United States. If you're reading this from any of those, the license grants you nothing. Around that hole sit an acceptable-use policy, a no-competing-models clause, a $20M revenue authorization trigger, and mandatory 'MiniMax H3' UI branding.",
+  "useCases": [
+    "Licensed-territory production: synchronized video-with-audio generation, self-hosted",
+    "A case study in territorial licensing — the fine print that headline coverage skipped",
+    "Watching where 'open omni-modal video' goes next, because the capability is real"
+  ],
+  "audience": "Builders outside the excluded territories; everyone else, counsel first — this shelf exists for you",
+  "setup": {
+    "difficulty": "advanced",
+    "requirements": "~42.5GB of BF16 weights; reference deployments use 4-GPU SGLang setups, with ComfyUI workflows for the checkpoints"
+  },
+  "license": {
+    "code": "MiniMax H3 Community License Agreement (bespoke)",
+    "weights": "MiniMax H3 Community License Agreement",
+    "verdict": "not-open",
+    "notes": "LICENSE read directly in the HF repo (17.6 kB) on 2026-08-24. The grant is non-exclusive, non-transferable, royalty-free — 'within the Applicable Territory,' and the license defines Excluded Territories as the EU, UK, Republic of Korea, and USA, with a written-application path (api@minimax.io) for use there. On top of the territorial wall: a binding acceptable-use policy with mandatory safeguards, a prohibition on using outputs to improve competing models, separate written authorization above $20M yearly revenue, and required 'MiniMax H3' display on commercial UIs. Editor's judgment call, flagged for review: territorial exclusion fails OSD #5 outright — this license is not merely conditioned but absent for most of our readership, which is why we verdict not-open rather than partial like Kimi K3's scale triggers. The encoder derives from Qwen3-VL-32B (Apache-2.0); that doesn't rescue the release terms. If MiniMax drops the territory clause, this verdict gets revisited same-day. Re-verified 2026-09-06 via a full in-browser read of the license text: the Excluded Territories definition (EU, UK, Republic of Korea, USA) and every condition above stand unchanged; Section V.4 confirms even Outputs may not be used outside the Applicable Territory. Newly on the record from the full text: the licensor is Nanonoble Pte. Ltd., the agreement is governed by Hong Kong law with exclusive Hong Kong jurisdiction, and the 'Powered by MiniMax H3' notice of Section III is merely encouraged — it's Section IV.2's UI display on commercial products that is mandatory, as this entry states."
+  },
+  "tally": {
+    "stars": "4.38k HF likes and ~4.04M downloads/mo — fine-print-shelf traction if we've ever seen it",
+    "lastActivity": "Weights posted August 3, 2026; ComfyUI and hosting integrations active since",
+    "status": "early",
+    "checked": "2026-09-06"
+  },
+  "links": {
+    "site": "https://www.minimax.io"
+  },
+  "limitations": "The license simply does not apply in the US, EU, UK, or Korea without individually requested written authorization; clip length tops out at 15 seconds; and the no-compete and AUP obligations travel with every redistribution, NOTICE files and all.",
+  "related": [
+    "Wan 2.2",
+    "LTX-2",
+    "Kimi K3"
+  ],
+  "take": "Four million downloads a month and four excluded jurisdictions. 'Open weights' has never needed the follow-up question more: open where? Read the territory clause before you read the benchmarks.",
+  "added": "2026-08-24",
+  "featured": false
+}

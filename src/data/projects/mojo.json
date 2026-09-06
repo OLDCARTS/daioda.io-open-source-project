@@ -1,0 +1,41 @@
+{
+  "name": "Mojo",
+  "repo": "https://github.com/modular/modular",
+  "category": "experimental",
+  "collections": ["daybreak"],
+  "type": "software",
+  "tagline": "Four years closed, one week after 1.0: the Mojo compiler goes Apache-2.0, LLVM exceptions and all",
+  "description": "Modular's Python-superset systems language for AI compute — one language from NumPy-flavored high-level code down to hand-tuned GPU kernels — now fully open source. The standard library and kernels had been public since 2024; on August 19, about a week after Mojo 1.0 shipped and following Qualcomm's reported acquisition of Modular, the compiler and tooling followed. The modular monorepo now holds the language, the MAX inference stack, and the docs under one license.",
+  "why": "For four years Mojo was the awkward case in every open-source-AI conversation: a language pitched at the community whose compiler you couldn't read. That's over, and the license is the good kind of boring — the repo's LICENSE is Apache-2.0 with LLVM Exceptions, the same arrangement the LLVM project itself uses, read directly from a clone. The exception only removes obligations (binary redistribution attribution), never adds them, so the open-source verdict survives it comfortably.",
+  "useCases": [
+    "Writing GPU kernels in one portable language instead of CUDA plus three vendor dialects",
+    "Studying a production ML compiler end to end, MLIR passes included",
+    "Self-hosted inference on the MAX stack without a proprietary runtime in the middle"
+  ],
+  "audience": "Systems and kernel engineers, compiler people, and performance-hungry ML infrastructure teams",
+  "setup": {
+    "difficulty": "moderate",
+    "requirements": "pip/uv/conda install of the modular package on Linux or macOS; building the compiler from source is a real MLIR-scale undertaking"
+  },
+  "license": {
+    "code": "Apache-2.0 with LLVM Exceptions (entire modular monorepo)",
+    "weights": null,
+    "verdict": "open",
+    "notes": "LICENSE read directly from a fresh clone on 2026-08-24 and re-verified from another fresh clone on 2026-08-31: the 13.2 kB file states the repository is licensed under Apache License v2.0 with LLVM Exceptions and carries the full standard text, unchanged between reads. Editor's note on the exception, since our bright line is OSI approval: the base Apache-2.0 is OSI-approved, and the LLVM exception grants additional permissions (it waives Section 4's attribution requirements when redistributing compiled binaries) rather than imposing any restriction — this is the license the OSI-blessed LLVM ecosystem has shipped under for years, so unlike OpenMDW we do not read it as a downgrade. One governance caveat lives in the notes rather than the verdict: Modular is not yet accepting outside contributions to the compiler and tools (planned by end of 2026), so this is currently open code, closed development."
+  },
+  "tally": {
+    "stars": "~24k stars accumulated while the compiler was still closed — the post-open-sourcing count wants a fresh look at review time",
+    "lastActivity": "Compiler open-sourced August 19, 2026; nightly releases continuing daily (Mojo 1.1.0-dev pinned August 31)",
+    "status": "maintained",
+    "checked": "2026-08-31"
+  },
+  "links": {
+    "site": "https://www.modular.com/blog/mojo-open-source",
+    "docs": "https://docs.modular.com/mojo/"
+  },
+  "limitations": "Compiler contributions aren't accepted yet, so the community reads but doesn't write until the promised end-of-2026 opening; the language still trails Python's ecosystem by orders of magnitude; and the new corporate owner's long-term stewardship is a question the Apache license answers only partially — you can always fork, but nobody wants to fork a compiler.",
+  "related": ["exo", "mistral.rs", "llamafile"],
+  "take": "A language for AI that shipped its compiler under lock was always a contradiction. Resolving it took an acquisition and four years — but the resolution is the real thing, not a source-available consolation prize.",
+  "added": "2026-08-24",
+  "featured": true
+}

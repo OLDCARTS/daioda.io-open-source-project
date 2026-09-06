@@ -1,0 +1,41 @@
+{
+  "name": "dots3-note preview",
+  "repo": "https://huggingface.co/dots-studio/dots3-note-prev",
+  "category": "models-weights",
+  "collections": ["daybreak", "deep-water"],
+  "type": "model",
+  "tagline": "RedNote's first open dots3: 280B omni-modal in, 512K context — with an Apache LICENSE exactly where it belongs",
+  "description": "The first open-weights release in Xiaohongshu's dots3 family — the sibling line of the lab's IMO perfect-score model. A 280B-total / 16B-active MoE that takes text, images, video, and audio in and writes text out, through a 7B MoE ViT vision encoder (1.2B active) and an 800M audio encoder, with 512K tokens of context. Built, per dots studio, for 'long-term daily tasks' — the days-long agent runs its self-evaluation loop targets — and the agentic numbers land the claim: 78.4 SWE-bench Verified and 75.1 Terminal-Bench 2.1, self-reported.",
+  "why": "This sat on our watch list as 'Apache-2.0 reported, verify on the official org' — and it verifies cleanly twice over. The official GitHub repo's LICENSE is the full standard Apache-2.0 text (11,357 bytes, read from a fresh clone on 2026-08-31), the README states 'the dots3-note preview model weights are released under the Apache License 2.0,' and the HF weights repo carries its own LICENSE file with the apache-2.0 tag. Copyright Xiaohongshu, released by dots studio, no rider anywhere we could find. A 280B omni-modal MoE under clean Apache is the kind of release the fine-print shelf makes you stop taking for granted.",
+  "useCases": [
+    "Long-horizon agents that watch, listen, and read — omni-modal input on one self-hosted stack",
+    "512K-context document, video, and audio pipelines without per-token API anxiety",
+    "Fine-tuning an Apache-licensed current-gen omni-modal base — no negotiation, no thresholds"
+  ],
+  "audience": "Agent-infra teams with a real GPU node; researchers who wanted MOSS-class omni input with a clean license",
+  "setup": {
+    "difficulty": "advanced",
+    "requirements": "Single 8-GPU node recommended for FP8 serving (BF16 wants more); vLLM support on main, Transformers and SGLang PRs in review; free hosted access via OpenRouter to try before you download"
+  },
+  "license": {
+    "code": "Apache-2.0",
+    "weights": "Apache-2.0",
+    "verdict": "open",
+    "notes": "Verified two ways on 2026-08-31: the official GitHub repo (studio-dots-ai/dots3-note-prev) carries the full, standard Apache-2.0 LICENSE (11,357 bytes) read directly from a fresh clone, with the README stating the model weights on HF and ModelScope are released under Apache-2.0 and the repo's docs and assets under the same; the HF weights repo is tagged apache-2.0 and lists its own LICENSE file. Copyright (c) 2026 Xiaohongshu, developed and released by dots studio. No acceptable-use rider, no scale trigger, no branding clause. Third-party inference stacks (vLLM, SGLang, Transformers) carry their own licenses, as the README notes."
+  },
+  "tally": {
+    "stars": "265 HF likes, ~2.1k downloads/mo — modest, which is what a 280B download and an 8-GPU floor do; free OpenRouter endpoint live",
+    "lastActivity": "Preview released August 14, 2026; Transformers and SGLang integration PRs in review at check time",
+    "status": "experimental",
+    "checked": "2026-08-31"
+  },
+  "links": {
+    "docs": "https://github.com/studio-dots-ai/dots3-note-prev",
+    "site": "https://studio.dots.ai/dots/dots3-en.html"
+  },
+  "limitations": "It's a preview checkpoint the lab says will evolve, benchmarks are self-reported with independent evals scarce, framework support is still landing (two of three integrations were open PRs at check), and the 8-GPU FP8 floor keeps it out of hobbyist reach regardless of the license's generosity.",
+  "related": ["MOSS-VL-Realtime", "Kimi K3", "Qwen3.8-27B"],
+  "take": "The social-media company shipped what the model labs keep promising: frontier-adjacent omni-modal weights, a real LICENSE file, and no fine print. Watch list, resolved — the way we wish they all resolved.",
+  "added": "2026-08-31",
+  "featured": true
+}

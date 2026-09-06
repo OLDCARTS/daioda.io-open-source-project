@@ -1,0 +1,40 @@
+{
+  "name": "GLM-5.3",
+  "repo": "https://huggingface.co/zai-org/GLM-5.3",
+  "category": "models-weights",
+  "collections": ["daybreak", "deep-water", "fine-print"],
+  "type": "model",
+  "tagline": "Zhipu's 753B flagship invents a new trip-wire: pass $10B in revenue, then pass Z.AI's security review",
+  "description": "Z.AI's flagship: a 753B-parameter MoE on the same base as GLM-5.2, with every gain — by the team's own account — coming from post-training. 1M-token context, a three-level reasoning_effort dial (low/high/max), and a benchmark story aimed at coding and cybersecurity: 66.9 DeepSWE, 84.5 CyberGym (claimed state-of-the-art), 105/130 on ExploitGym, and a fifty-percent jump over GLM-5.2 on Z.AI's internal code bench. Weights landed August 28 after a reported two-week safety hold.",
+  "why": "The license is a genuinely new species and that's why it's shelved on Fine Print. The 'GLM-5.3 License' is MIT-shaped in its grant — use, modify, sell, deploy, fine-tune — but one clause changes the category: a Model-as-a-Service business whose aggregate revenue with affiliates exceeds US$10 billion over any consecutive 12 months 'must pass Z.AI's security review before using the Software or its derivative works for any commercial purpose.' Not a paid license like Qwen's, not a branding lock like Solar's — a security review, with scope and methodology 'reasonably determined' by Z.AI, no published criteria, no timeline, no appeal.",
+  "useCases": [
+    "Frontier-class self-hosted reasoning and coding for orgs nowhere near the threshold — that is, almost everyone",
+    "Cyber-defense research on the model claiming CyberGym state-of-the-art",
+    "A case study in scale-triggered licensing — the newest variant of the genre"
+  ],
+  "audience": "Infra-rich teams under the (very high) threshold; license watchers — this clause will be imitated",
+  "setup": {
+    "difficulty": "advanced",
+    "requirements": "753B parameters means a serious multi-node deployment — coverage puts it at an eight-GPU minimum; BF16, FP8, and F32 tensors shipped"
+  },
+  "license": {
+    "code": "GLM-5.3 License (bespoke; HF repo LICENSE)",
+    "weights": "GLM-5.3 License",
+    "verdict": "partial",
+    "notes": "LICENSE read directly in the HF repo on 2026-08-31. The grant mirrors MIT: rights to use, copy, modify, merge, publish, distribute, sublicense, and sell, with attribution required. Then the trip-wire, quoted: if the Licensee or affiliates operate a Model-as-a-Service business and aggregate revenue exceeds US$10 billion over any consecutive 12 months, 'the Licensee must pass Z.AI's security review before using the Software or its derivative works for any commercial purpose.' 'Model as a Service' is defined (API access to inference/fine-tuning with meaningful control; embedded end-user products excluded). A scale-triggered condition on commercial use fails OSD #6/#8 — Kimi K3 precedent — so: partial, despite the threshold being high enough that it may never bind anyone but hyperscalers. Also notable for what's absent: no output-ownership language, no patent grant, no termination clause, and — despite the two-week safety hold — no acceptable-use restrictions at all. Contact: glmlicense@z.ai. The MIT-licensed GLM-5.3-Flash sibling is two days younger and carries none of this."
+  },
+  "tally": {
+    "stars": "1.32k HF likes, ~50.1k downloads/mo in week one — a tenth of Flash's, which is what 753B does to a download decision",
+    "lastActivity": "Weights released August 28, 2026, after a reported two-week safety hold",
+    "status": "early",
+    "checked": "2026-08-31"
+  },
+  "links": {
+    "site": "https://z.ai"
+  },
+  "limitations": "The benchmark table is Z.AI's own with independent evals still landing; the security-review clause has no published scope, timeline, or appeals process, so what it demands is whatever Z.AI reasonably says it demands; and the license's silence on patents and termination leaves counsel more homework than a bespoke text usually does.",
+  "related": ["GLM-5.2", "GLM-5.3-Flash", "Kimi K3", "Qwen3.8-2.4T-A95B"],
+  "take": "The fine-print genre keeps innovating: first branding locks, then revenue triggers, now a discretionary security review. $10B is a threshold most readers will never see — but 'we reasonably determine' is a phrase every license lawyer will.",
+  "added": "2026-08-31",
+  "featured": false
+}

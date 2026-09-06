@@ -1,0 +1,40 @@
+{
+  "name": "DeepSeek Harness",
+  "repo": "https://github.com/deepseek-ai/deepseek-harness",
+  "category": "agents-coding",
+  "collections": ["daybreak", "first-light"],
+  "type": "software",
+  "tagline": "Everything is a plugin: DeepSeek's MIT agent runtime just became the fastest-starred repo in GitHub history",
+  "description": "DeepSeek's open agent harness — a TypeScript monorepo built on the Cordis plugin framework where context management, tool use, and failure recovery are all composable plugins rather than hard-coded behavior. One `npx @deepseek-ai/dsh web` gets you a local web UI; plugin repos are discoverable under the `dsh-plugin` GitHub topic, and the docs tree ships architecture guides, an AGENTS.md, and a development handbook. Officially a developer preview with breaking changes expected.",
+  "why": "The star chart is the headline — roughly 190k stars within weeks of the mid-August launch, reported as the fastest star accumulation GitHub has seen — but the license is why it's here: a standard, unmodified 1,065-byte MIT LICENSE at the repo root, read directly from a clone, with third-party attributions handled in a separate THIRD_PARTY_NOTICES.md. No rider, no policy file, no telemetry clause we could find. From the lab whose V4 models we track shelf by shelf, the tooling layer arrives cleaner than most of the industry's model licenses.",
+  "useCases": [
+    "A self-hosted agent runtime you can actually re-plumb — swap context, tools, and recovery logic as plugins",
+    "Building and distributing agent capabilities as installable plugins rather than forks",
+    "Studying a production lab's agent architecture in the open, commit by commit"
+  ],
+  "audience": "Agent builders and tinkerers; anyone who found existing coding-agent CLIs too closed to bend",
+  "setup": {
+    "difficulty": "easy",
+    "requirements": "Node.js and one npx command for the web UI; pnpm build from source if you want to hack on it. Bring your own model API keys"
+  },
+  "license": {
+    "code": "MIT",
+    "weights": null,
+    "verdict": "open",
+    "notes": "LICENSE read directly from a fresh clone on 2026-08-24 and re-verified from another fresh clone on 2026-08-31: standard, unmodified MIT text (1,065 bytes), copyright 2026 DeepSeek, with third-party licenses documented separately in THIRD_PARTY_NOTICES.md — unchanged between reads. The harness is model-agnostic software — the models you point it at (including DeepSeek's own) each carry their own licenses, so your deployment's obligations follow your model choice, not this repo."
+  },
+  "tally": {
+    "stars": "~190k stars within weeks of launch — reported as GitHub's fastest-starred repo ever; 13k+ commits public",
+    "lastActivity": "v0.1.2-alpha.2 released August 30, 2026; very active daily development",
+    "status": "experimental",
+    "checked": "2026-08-31"
+  },
+  "links": {
+    "site": "https://www.deepseek.com"
+  },
+  "limitations": "A developer preview that says so — breaking changes are promised, the plugin ecosystem is days old, and the 'everything is a plugin' architecture means the stability of your agent depends on the stability of every plugin in your tree.",
+  "related": ["Claude Code", "Gemini CLI", "Hermes Agent"],
+  "take": "Claude Code sits in our catalog as the proprietary tool everyone stars anyway. Harness is DeepSeek's answer, and the answer is MIT. When the fastest-growing repo in GitHub's history is also one of the cleanest-licensed, the industry's excuses get thinner.",
+  "added": "2026-08-24",
+  "featured": true
+}

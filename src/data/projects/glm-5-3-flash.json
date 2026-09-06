@@ -1,0 +1,40 @@
+{
+  "name": "GLM-5.3-Flash",
+  "repo": "https://huggingface.co/zai-org/GLM-5.3-Flash",
+  "category": "models-weights",
+  "collections": ["daybreak"],
+  "type": "model",
+  "tagline": "The mystery model topping the charts was Zhipu all along — and the reveal comes with an unmodified MIT file",
+  "description": "For a week, an anonymous model called 'ox-alpha' quietly became the most popular model on OpenCode and OpenRouter — running, notably, on Chinese AI chips. On August 26 Z.AI claimed it: GLM-5.3-Flash, a 320B-total / 18B-active multimodal MoE mixing sparse and linear attention, taking text and images in, with day-one support across vLLM, SGLang, KTransformers, and Unsloth. Priced at roughly a tenth of GLM-5.2, positioned squarely at agentic coding.",
+  "why": "The stealth-launch theater is fun, but the license is why it leads this week: the LICENSE file in the repo root is the standard, unmodified MIT text — 1.07 kB, 'Copyright (c) 2026 Z.AI Co., Ltd', no rider, no threshold, read directly on 2026-08-31. GLM-5.2 sits in our catalog already; 5.3-Flash beats it soundly on Z.AI's own tables (63.4 DeepSWE v1.1 vs 46.2, 84.3 Terminal-Bench 2.1) while activating fewer parameters. The uptake — ~379k downloads in week one — suggests the ox-alpha audience followed it home.",
+  "useCases": [
+    "Self-hosted agentic coding at a fraction of flagship activation cost — 18B active per token",
+    "Multimodal agent loops that read screenshots and UIs, MIT-licensed end to end",
+    "Fine-tuning a current-generation hybrid-attention MoE without license negotiation"
+  ],
+  "audience": "Agent builders, GLM-5.2 users due an upgrade, and anyone who was already running ox-alpha",
+  "setup": {
+    "difficulty": "advanced",
+    "requirements": "~328GB of BF16 weights across the shard set; vLLM, SGLang, KTransformers, and Unsloth supported at launch, with community GGUF quants circulating"
+  },
+  "license": {
+    "code": "MIT",
+    "weights": "MIT",
+    "verdict": "open",
+    "notes": "LICENSE read directly in the HF repo on 2026-08-31: standard, unmodified MIT text (1.07 kB), copyright 2026 Z.AI Co., Ltd — every grant, condition, and disclaimer matches the canonical template, with no acceptable-use rider, no scale trigger, and no branding clause. The card is tagged mit. Worth naming because it is NOT the family default: the 753B GLM-5.3 flagship released two days later carries a bespoke license with a security-review trip-wire (see that entry). Zhipu is running the same two-tier license strategy as Alibaba's Qwen3.8 generation — the efficient sibling goes genuinely open, the crown jewels get fine print."
+  },
+  "tally": {
+    "stars": "1.77k HF likes and ~379k downloads in the first week — the fastest uptake in this week's batch, on the ox-alpha momentum",
+    "lastActivity": "Released August 26, 2026, after a week in stealth as 'ox-alpha'",
+    "status": "early",
+    "checked": "2026-08-31"
+  },
+  "links": {
+    "site": "https://z.ai"
+  },
+  "limitations": "Launch benchmarks are Z.AI's own and the ox-alpha popularity contest measured vibes, not rigor; the 1M-token context headline comes from coverage while the card's own evaluations run at 300K; and 320B total still wants serious hardware before quantization, whatever the activation count says.",
+  "related": ["GLM-5.2", "DeepSeek-V4-Flash-0731", "Qwen3.8-27B"],
+  "take": "A frontier lab ran a blind taste test, won it, and then published the recipe under MIT. The stealth launch proved the model; the license file proves the policy.",
+  "added": "2026-08-31",
+  "featured": true
+}

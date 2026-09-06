@@ -2,7 +2,9 @@
   "name": "GLM-5.3-Flash",
   "repo": "https://huggingface.co/zai-org/GLM-5.3-Flash",
   "category": "models-weights",
-  "collections": ["daybreak"],
+  "collections": [
+    "daybreak"
+  ],
   "type": "model",
   "tagline": "The mystery model topping the charts was Zhipu all along — and the reveal comes with an unmodified MIT file",
   "description": "For a week, an anonymous model called 'ox-alpha' quietly became the most popular model on OpenCode and OpenRouter — running, notably, on Chinese AI chips. On August 26 Z.AI claimed it: GLM-5.3-Flash, a 320B-total / 18B-active multimodal MoE mixing sparse and linear attention, taking text and images in, with day-one support across vLLM, SGLang, KTransformers, and Unsloth. Priced at roughly a tenth of GLM-5.2, positioned squarely at agentic coding.",
@@ -33,8 +35,12 @@
     "site": "https://z.ai"
   },
   "limitations": "Launch benchmarks are Z.AI's own and the ox-alpha popularity contest measured vibes, not rigor; the 1M-token context headline comes from coverage while the card's own evaluations run at 300K; and 320B total still wants serious hardware before quantization, whatever the activation count says.",
-  "related": ["GLM-5.2", "DeepSeek-V4-Flash-0731", "Qwen3.8-27B"],
+  "related": [
+    "GLM-5.2",
+    "DeepSeek-V4-Flash-0731",
+    "Qwen3.8-27B"
+  ],
   "take": "A frontier lab ran a blind taste test, won it, and then published the recipe under MIT. The stealth launch proved the model; the license file proves the policy.",
-  "added": "2026-08-31",
+  "added": "2026-09-06",
   "featured": true
 }

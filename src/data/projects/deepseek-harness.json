@@ -2,7 +2,10 @@
   "name": "DeepSeek Harness",
   "repo": "https://github.com/deepseek-ai/deepseek-harness",
   "category": "agents-coding",
-  "collections": ["daybreak", "first-light"],
+  "collections": [
+    "daybreak",
+    "first-light"
+  ],
   "type": "software",
   "tagline": "Everything is a plugin: DeepSeek's MIT agent runtime just became the fastest-starred repo in GitHub history",
   "description": "DeepSeek's open agent harness — a TypeScript monorepo built on the Cordis plugin framework where context management, tool use, and failure recovery are all composable plugins rather than hard-coded behavior. One `npx @deepseek-ai/dsh web` gets you a local web UI; plugin repos are discoverable under the `dsh-plugin` GitHub topic, and the docs tree ships architecture guides, an AGENTS.md, and a development handbook. Officially a developer preview with breaking changes expected.",
@@ -33,8 +36,12 @@
     "site": "https://www.deepseek.com"
   },
   "limitations": "A developer preview that says so — breaking changes are promised, the plugin ecosystem is days old, and the 'everything is a plugin' architecture means the stability of your agent depends on the stability of every plugin in your tree.",
-  "related": ["Claude Code", "Gemini CLI", "Hermes Agent"],
+  "related": [
+    "Claude Code",
+    "Gemini CLI",
+    "Hermes Agent"
+  ],
   "take": "Claude Code sits in our catalog as the proprietary tool everyone stars anyway. Harness is DeepSeek's answer, and the answer is MIT. When the fastest-growing repo in GitHub's history is also one of the cleanest-licensed, the industry's excuses get thinner.",
-  "added": "2026-08-24",
+  "added": "2026-09-06",
   "featured": true
 }

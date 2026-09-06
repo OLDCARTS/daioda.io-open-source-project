@@ -2,7 +2,11 @@
   "name": "Qwen3.8-2.4T-A95B",
   "repo": "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B",
   "category": "models-weights",
-  "collections": ["daybreak", "deep-water", "fine-print"],
+  "collections": [
+    "daybreak",
+    "deep-water",
+    "fine-print"
+  ],
   "type": "model",
   "tagline": "Qwen's 2.4T flagship weights land — under a license with a $50M trip-wire the API never mentions",
   "description": "The open-weights release of the Qwen3.8-Max generation: a 2.4T-total / 95B-active MoE with 92 layers, 512 experts (10 routed plus 1 shared), the Gated DeltaNet–Gated Attention hybrid of its 27B sibling, and 262K native context extensible to about 1M. It is not the API model in a trench coat: this checkpoint is text-only, runs in always-on thinking mode, and ships without the vision input, non-thinking mode, default 1M context, and built-in tools the hosted Qwen3.8-Max offers.",
@@ -33,8 +37,12 @@
     "docs": "https://github.com/QwenLM"
   },
   "limitations": "Text-only with thinking mode you cannot turn off — the API keeps vision, non-thinking, default 1M context, and built-in tools for itself; the hardware bill is Kimi K3-class; and the bespoke license means legal review before any commercial deployment, with a revenue definition that sweeps in affiliates.",
-  "related": ["Qwen3.8-27B", "Kimi K3", "Qwen3-Coder-Next"],
+  "related": [
+    "Qwen3.8-27B",
+    "Kimi K3",
+    "Qwen3-Coder-Next"
+  ],
   "take": "Last week the 27B shipped Apache with a LICENSE file and we praised it. This is the other shoe: the closer a checkpoint sits to the money, the further the license drifts from open. Read the definitions — 'AI Work Assistant' may describe your product.",
-  "added": "2026-08-24",
+  "added": "2026-09-06",
   "featured": false
 }

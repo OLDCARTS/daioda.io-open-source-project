@@ -2,7 +2,11 @@
   "name": "GLM-5.3",
   "repo": "https://huggingface.co/zai-org/GLM-5.3",
   "category": "models-weights",
-  "collections": ["daybreak", "deep-water", "fine-print"],
+  "collections": [
+    "daybreak",
+    "deep-water",
+    "fine-print"
+  ],
   "type": "model",
   "tagline": "Zhipu's 753B flagship invents a new trip-wire: pass $10B in revenue, then pass Z.AI's security review",
   "description": "Z.AI's flagship: a 753B-parameter MoE on the same base as GLM-5.2, with every gain — by the team's own account — coming from post-training. 1M-token context, a three-level reasoning_effort dial (low/high/max), and a benchmark story aimed at coding and cybersecurity: 66.9 DeepSWE, 84.5 CyberGym (claimed state-of-the-art), 105/130 on ExploitGym, and a fifty-percent jump over GLM-5.2 on Z.AI's internal code bench. Weights landed August 28 after a reported two-week safety hold.",
@@ -33,8 +37,13 @@
     "site": "https://z.ai"
   },
   "limitations": "The benchmark table is Z.AI's own with independent evals still landing; the security-review clause has no published scope, timeline, or appeals process, so what it demands is whatever Z.AI reasonably says it demands; and the license's silence on patents and termination leaves counsel more homework than a bespoke text usually does.",
-  "related": ["GLM-5.2", "GLM-5.3-Flash", "Kimi K3", "Qwen3.8-2.4T-A95B"],
+  "related": [
+    "GLM-5.2",
+    "GLM-5.3-Flash",
+    "Kimi K3",
+    "Qwen3.8-2.4T-A95B"
+  ],
   "take": "The fine-print genre keeps innovating: first branding locks, then revenue triggers, now a discretionary security review. $10B is a threshold most readers will never see — but 'we reasonably determine' is a phrase every license lawyer will.",
-  "added": "2026-08-31",
+  "added": "2026-09-06",
   "featured": false
 }

@@ -2,7 +2,10 @@
   "name": "Motif 3",
   "repo": "https://huggingface.co/Motif-Technologies/Motif-3",
   "category": "models-weights",
-  "collections": ["daybreak", "deep-water"],
+  "collections": [
+    "daybreak",
+    "deep-water"
+  ],
   "type": "model",
   "tagline": "Korea's 314B sovereign MoE said MIT on the card — and now the file is in the repo to prove it",
   "description": "Motif Technologies' flagship: a 314B-total / 13.2B-active MoE with 384 routed experts (top-8 plus one shared), 53 layers, 256K native context, and in-house architectural signatures — Grouped Differential Latent Attention and Expert-Specific PolyNorm. The final release landed August 13 alongside Base and NVFP4 variants and a technical report (arXiv 2608.09119), with self-reported agentic numbers that punch far above the active-parameter count: 76.2 SWE-bench Verified, 83.4 GPQA Diamond, 74.9 Terminal-Bench 2.1.",
@@ -33,8 +36,12 @@
     "paper": "https://arxiv.org/abs/2608.09119"
   },
   "limitations": "The headline benchmarks are self-reported and independent evals were scarce at check time, and the proprietary attention and normalization schemes mean framework support may lag standard MoEs.",
-  "related": ["Kimi K3", "Solar Open 2", "GLM-5.2"],
+  "related": [
+    "Kimi K3",
+    "Solar Open 2",
+    "GLM-5.2"
+  ],
   "take": "This entry was drafted ending 'if the card is telling the truth.' Between draft and publish, the file appeared — and it is. Graduation from the missing-LICENSE club costs exactly one kilobyte; the rest of the members know where the door is.",
-  "added": "2026-08-24",
+  "added": "2026-09-06",
   "featured": false
 }

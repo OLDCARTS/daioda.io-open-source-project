@@ -2,7 +2,10 @@
   "name": "DeepSeek-V4-Flash-Vision-Exp",
   "repo": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-Vision-Exp",
   "category": "models-weights",
-  "collections": ["daybreak", "deep-water"],
+  "collections": [
+    "daybreak",
+    "deep-water"
+  ],
   "type": "model",
   "tagline": "The V4 arc completes in threes: Flash, Pro, and now Vision — all under the same 1.08 kB MIT file",
   "description": "DeepSeek's first multimodal model in the V4 family: the V4-Flash architecture with native visual modules incorporated and continued training to unlock visual understanding — not a bolted-on vision tower. Ten days as an API-only experiment, then the weights landed August 31 with an unusually complete repo: tokenizer, prompt-encoding reference, and a minimal PyTorch inference implementation covering the vision encoder and aligner, DFlash attention, MoE, Hyper-Connections, and the DSpark speculative-decoding path — draft and target weights in one checkpoint.",
@@ -33,7 +36,11 @@
     "site": "https://www.deepseek.com"
   },
   "limitations": "'Exp' is in the name on purpose — DeepSeek calls it experimental and the model ID may not survive evaluation; the benchmark table is self-reported, evaluated with DeepSeek's own Harness in minimal mode; the card doesn't restate parameter counts or context length (the API lists 1M context and ~384 tokens per image — confirm before you plan around either); and there's no document/OCR mode, so PDFs mean rasterizing first.",
-  "related": ["DeepSeek-V4-Flash-0731", "DeepSeek-V4-Pro-0813", "DeepSeek Harness"],
+  "related": [
+    "DeepSeek-V4-Flash-0731",
+    "DeepSeek-V4-Pro-0813",
+    "DeepSeek Harness"
+  ],
   "take": "Flash was the promise, Pro was the proof, and Vision is the habit. When a lab's third straight release in a month ships the same one-kilobyte MIT file, you stop calling it a license choice and start calling it an identity.",
   "added": "2026-09-06",
   "featured": true

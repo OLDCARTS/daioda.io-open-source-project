@@ -2,7 +2,10 @@
   "name": "Qwen3.8-Flash-Next",
   "repo": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
   "category": "models-weights",
-  "collections": ["daybreak", "fine-print"],
+  "collections": [
+    "daybreak",
+    "fine-print"
+  ],
   "type": "model",
   "tagline": "The Qwen4 architecture preview ships open weights — under a license quietly stricter than the 2.4T flagship's",
   "description": "Alibaba's early look at the Qwen4 architecture, playing the role Qwen3-Next played a generation ago: a 125B-parameter multimodal MoE (plus 51B of N-gram embeddings and a 4B MTP head) activating just 6B per token. Four systematic upgrades — Qwen Sparse Attention on top of Gated DeltaNet, a 4-branch Gated Residual stream, context-keyed N-gram embeddings that can offload to host memory, and a refined Muon optimizer — cut training cost to about a ninth of Qwen3.7-Plus while beating it on coding and office tasks, per Alibaba's own harnesses. 262K native context.",
@@ -33,8 +36,12 @@
     "docs": "https://github.com/QwenLM/Qwen3.8-Flash-Next"
   },
   "limitations": "Benchmarks are Alibaba's own — the card even notes its Humanity's Last Exam score was graded by GPT-4o rather than the benchmark's grader; the threshold-free MaaS/work-assistant clause likely costs it the EU AI Act's open-source exemption (Recital 103 disqualifies monetized components); and 'preview of Qwen4' means the family built on this will supersede it within months.",
-  "related": ["Qwen3.8-27B", "Qwen3.8-2.4T-A95B", "Qwen3-Coder-Next"],
+  "related": [
+    "Qwen3.8-27B",
+    "Qwen3.8-2.4T-A95B",
+    "Qwen3-Coder-Next"
+  ],
   "take": "Read the family's licenses side by side: Apache for the 27B, a $50M trigger for the 2.4T, and no threshold at all for the architecture preview. The pattern isn't about model size — it's about how badly they think you need it.",
-  "added": "2026-08-31",
+  "added": "2026-09-06",
   "featured": false
 }

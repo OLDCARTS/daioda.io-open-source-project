@@ -2,7 +2,10 @@
   "name": "MiniMax Music 3",
   "repo": "https://huggingface.co/MiniMaxAI/MiniMax-Music3",
   "category": "audio-voice",
-  "collections": ["daybreak", "fine-print"],
+  "collections": [
+    "daybreak",
+    "fine-print"
+  ],
   "type": "model",
   "tagline": "Five-minute songs, open weights — and from the H3 lab, a license with every clause except the territory wall",
   "description": "MiniMax's open-weights music generator: hand it lyrics with section tags and a music description, get back a complete, structured song — up to five minutes of 32 kHz 16-bit stereo WAV. The stack is a hybrid: an 8B global LLM for long-range musical structure, a 0.6B local LLM for frame-level acoustic detail, a 2.4B flow-matching module, a 123M Flow-VAE decoder, and an eight-layer RVQ tokenizer. Served officially through SGLang-Omni, with a Diffusers pipeline in review and ComfyUI tutorials already documented.",
@@ -34,8 +37,12 @@
     "site": "https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model"
   },
   "limitations": "The AUP travels with every redistribution and the UI branding applies to any commercial product regardless of size; training data is undisclosed, which in music generation means the copyright provenance question is entirely unanswered; and output caps at five minutes / 9,000 acoustic frames per generation.",
-  "related": ["HeartMuLa", "MiniMax H3", "Kokoro"],
+  "related": [
+    "HeartMuLa",
+    "MiniMax H3",
+    "Kokoro"
+  ],
   "take": "The most interesting thing about this license is who wrote it: the same lab that walled four jurisdictions out of H3 shipped its music model to the whole world. Fine print is a choice, made release by release — which means it can be unmade.",
-  "added": "2026-08-31",
+  "added": "2026-09-06",
   "featured": false
 }

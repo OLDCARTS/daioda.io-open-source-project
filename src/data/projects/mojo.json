@@ -2,7 +2,9 @@
   "name": "Mojo",
   "repo": "https://github.com/modular/modular",
   "category": "experimental",
-  "collections": ["daybreak"],
+  "collections": [
+    "daybreak"
+  ],
   "type": "software",
   "tagline": "Four years closed, one week after 1.0: the Mojo compiler goes Apache-2.0, LLVM exceptions and all",
   "description": "Modular's Python-superset systems language for AI compute — one language from NumPy-flavored high-level code down to hand-tuned GPU kernels — now fully open source. The standard library and kernels had been public since 2024; on August 19, about a week after Mojo 1.0 shipped and following Qualcomm's reported acquisition of Modular, the compiler and tooling followed. The modular monorepo now holds the language, the MAX inference stack, and the docs under one license.",
@@ -34,8 +36,12 @@
     "docs": "https://docs.modular.com/mojo/"
   },
   "limitations": "Compiler contributions aren't accepted yet, so the community reads but doesn't write until the promised end-of-2026 opening; the language still trails Python's ecosystem by orders of magnitude; and the new corporate owner's long-term stewardship is a question the Apache license answers only partially — you can always fork, but nobody wants to fork a compiler.",
-  "related": ["exo", "mistral.rs", "llamafile"],
+  "related": [
+    "exo",
+    "mistral.rs",
+    "llamafile"
+  ],
   "take": "A language for AI that shipped its compiler under lock was always a contradiction. Resolving it took an acquisition and four years — but the resolution is the real thing, not a source-available consolation prize.",
-  "added": "2026-08-24",
+  "added": "2026-09-06",
   "featured": true
 }

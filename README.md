@@ -59,7 +59,7 @@ Connected to Netlify from GitHub. Build command `npm run build`, publish directo
 
 ## Content cadence
 
-New projects come ashore weekly — the **Daybreak** edition. Automation assists with discovery and activity re-checks; license verdicts and editorial writing stay under review. No auto-generated claim is published without source verification.
+New projects come ashore monthly — the **Daybreak** edition. Automation assists with discovery and activity re-checks; license verdicts and editorial writing stay under review. No auto-generated claim is published without source verification.
 
 ## License
 

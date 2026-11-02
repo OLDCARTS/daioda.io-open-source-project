@@ -8,7 +8,7 @@ export async function GET(context: APIContext) {
   const sorted = projects.sort((a, b) => b.data.added.localeCompare(a.data.added));
   return rss({
     title: 'DAIODA — Daybreak',
-    description: 'New genuinely open-source AI projects, license-verified and brought ashore each week.',
+    description: 'New genuinely open-source AI projects, license-verified and brought ashore each month.',
     site: context.site!,
     items: sorted.map((p) => ({
       title: `${p.data.name} — ${p.data.tagline}`,

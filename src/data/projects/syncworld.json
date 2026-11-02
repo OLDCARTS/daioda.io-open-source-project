@@ -1,0 +1,48 @@
+{
+  "name": "SyncWorld",
+  "repo": "https://github.com/UMass-Embodied-AGI/SyncWorld",
+  "category": "robotics",
+  "collections": [
+    "daybreak",
+    "deep-water"
+  ],
+  "type": "model",
+  "tagline": "Show it your robot for one calibration episode and it becomes your simulator — a prompt instead of a fine-tune",
+  "description": "An action-conditioned video world model from the UMass Embodied AGI lab (with NVIDIA copyright in the codebase) that treats deployment adaptation as in-context learning: instead of fine-tuning per camera view or robot placement, you record a short visual-calibration episode exercising each controllable degree of freedom, and the model reads it as a prompt demonstrating your setup's action-to-visual mapping. One checkpoint then acts as a zero-shot simulator in unseen environments. The release is complete for a research drop — FSDP training code, autoregressive rollout evaluation, weights and evaluation sets on Hugging Face, and a paper (arXiv 2609.09155).",
+  "why": "Two reasons. First, the idea: 'actions are not a universal language in pixel space' is the cleanest one-line diagnosis of why world models generalize badly, and the calibration-episode fix is the kind of trick that either fizzles or becomes standard practice. Second, the license chain: SyncWorld is derived from NVIDIA's Cosmos framework and inherits its OpenMDW-1.1 license, with NVIDIA's NOTICE and ATTRIBUTIONS files retained exactly as that license requires — the first downstream OpenMDW inheritance we've catalogued. Our Cosmos 3 entry set the precedent: OpenMDW-1.1 is MIT-grade in substance but not OSI-approved, so house policy says partial, not open.",
+  "useCases": [
+    "Zero-shot dynamics simulation for a new robot setup — calibrate with one episode instead of collecting a fine-tuning set",
+    "Research on in-context learning for world models, with the full FSDP training recipe to build on",
+    "Rollout-based evaluation of manipulation policies without a hand-built simulator"
+  ],
+  "audience": "Robotics and world-model researchers with serious GPUs; embodied-AI labs tired of per-deployment fine-tuning",
+  "setup": {
+    "difficulty": "advanced",
+    "requirements": "Linux with NVIDIA GPUs (trained from the Cosmos3-Nano checkpoint); ~31.5 GB of weights from HF plus the Wan2.2 VAE fetched separately (~2.8 GB, Apache-2.0); typed TOML recipes drive the trainer"
+  },
+  "license": {
+    "code": "OpenMDW-1.1",
+    "weights": "OpenMDW-1.1 (declared in the HF card; no LICENSE file in the weights repo)",
+    "verdict": "partial",
+    "notes": "Re-verified 2026-11-01; verdict set to partial per the catalog owner's ruling and our Cosmos 3 precedent. Code: LICENSE read from a fresh clone — OpenMDW-1.1, 2,694 bytes, copyright NVIDIA CORPORATION & AFFILIATES, rights granted 'without restriction' across copyright, patent, database, and trade-secret law, attribution-only conditions, no output restrictions, and a litigation-termination clause; unchanged since 2026-09-21. The README states the repo is derived from NVIDIA Cosmos-Framework and distributed under the same OpenMDW-1.1, covering code and weights alike. Weights: the yyuncong/SyncWorld HF repo's card metadata reads license: other with license_name openmdw-1.1 and a link to NVIDIA's Cosmos LICENSE (so the previously unread card tag is now confirmed); its 12-file listing holds no LICENSE file. OpenMDW-1.1 is among the most permissive model licenses in use but is not OSI-approved, and our bright line is OSI approval — downgrade rather than round up. The weights are still hosted on the first author's personal HF account rather than an org, but they are linked from the official org repo and the paper page, so the chain of custody is visible."
+  },
+  "tally": {
+    "stars": "23 GitHub stars and no forks; the HF weights repo shows 1 like and ~25 downloads last month — days-old research territory",
+    "lastActivity": "Paper, weights, and code landed September 8–14, 2026; GitHub last pushed September 10; HF weights last updated September 9",
+    "status": "experimental",
+    "checked": "2026-11-01"
+  },
+  "links": {
+    "site": "https://umass-embodied-agi.github.io/SyncWorld/",
+    "paper": "https://arxiv.org/abs/2609.09155"
+  },
+  "limitations": "A paper artifact, not a product — a handful of commits, 23 stars, and no external replication seven weeks on; calibration episodes must exercise every controllable degree of freedom, which is easy on a tabletop arm and unclear for complex embodiments; the weights live on a personal HF account; and the OpenMDW verdict means anyone with a hard OSI requirement should treat the whole stack as restricted, permissive as it reads.",
+  "related": [
+    "NVIDIA Cosmos 3",
+    "LeRobot",
+    "openpi"
+  ],
+  "take": "Fine-tuning a world model for every camera angle was always an admission that the model didn't understand actions — it had memorized viewpoints. Making calibration a prompt is either a lovely hack or the start of world models that actually transfer. Either way, watching NVIDIA's OpenMDW license propagate downstream intact is its own experiment worth following.",
+  "added": "2026-11-01",
+  "featured": true
+}

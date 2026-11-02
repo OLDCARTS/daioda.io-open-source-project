@@ -1,0 +1,48 @@
+{
+  "name": "Edge0",
+  "repo": "https://github.com/Edge0-AI/Edge0",
+  "category": "local-private-ai",
+  "collections": [
+    "daybreak",
+    "night-shift"
+  ],
+  "type": "model",
+  "tagline": "A 35B MoE in under 3 GB of RAM: SSD-streamed experts put big models on machines that were never invited",
+  "description": "An open streaming-MoE inference stack and two matching model previews that run far above their memory class: Edge0-35B-A3B (256 experts, 4 active per token, derived from Qwen's Apache-licensed 35B-A3B line) peaks at 2.9 GB of active memory by streaming experts from SSD, with a prerouter that predicts upcoming expert needs and a 'Recover-LoRA' adapter compensating for the compression — 14.9–17.7 tokens/second on Apple Silicon. An 8B-A1B sibling targets even smaller machines. The framework, adapters, and prerouter heads all ship together, with a paper in the repo. The same team also publishes the Audio8 TTS models covered elsewhere in this catalog.",
+  "why": "The pitch sounds like marketing until you notice everything is inspectable: the Apache-2.0 LICENSE in the framework repo is the standard 11,358-byte template, read directly from a clone, with a NOTICE file attributing vendored third-party code (mlx-lm and llama.cpp under MIT, bailing_hybrid under Apache). The weights repos are tagged apache-2.0 on clean Qwen Apache lineage — though neither checkpoint repo carries a standalone LICENSE file, which lands them in our missing-LICENSE club. Traction is real for a September release: nearly 9k GitHub stars within two months of the first commit.",
+  "useCases": [
+    "Running 35B-class MoE models on 8–16 GB MacBooks, fully offline once weights are down",
+    "Studying SSD-offload and predictive expert routing — the prerouter and Recover-LoRA training are part of the release",
+    "Edge deployments where the hardware budget is a consumer laptop, not a GPU server"
+  ],
+  "audience": "Apple Silicon locals, edge-inference tinkerers, and MoE-systems researchers",
+  "setup": {
+    "difficulty": "easy",
+    "requirements": "macOS on Apple Silicon (M1–M4) with a fast SSD; ~19.7 GB on disk for the 35B preview repo including adapters; CUDA is roadmap, not present"
+  },
+  "license": {
+    "code": "Apache-2.0",
+    "weights": "Apache-2.0 (declared — card tag, no LICENSE file in the checkpoint repos)",
+    "verdict": "open",
+    "notes": "Re-verified 2026-11-01; no change since 2026-09-21. Framework: LICENSE read from a fresh clone of Edge0-AI/Edge0 — standard Apache-2.0 text, 11,358 bytes, no modifications, with a 1,767-byte NOTICE attributing vendored mlx-lm (MIT), Ling bailing_hybrid (Apache-2.0), and llama.cpp (MIT); the GitHub license field reads Apache-2.0. Weights: Edge0/Edge0-35B-A3B-preview (20 files, 19.7 GB) and Edge0/Edge0-8B-A1B-preview are both tagged apache-2.0 and neither file listing holds a LICENSE or NOTICE file — the missing-LICENSE club. The lineage supports the declaration: the base is Qwen's Apache-2.0 35B-A3B checkpoint, and Apache derivatives inherit cleanly. Verdict open on the strength of the clone-read framework license plus declared weights on clean lineage; a LICENSE file landing in the weights repos would close the gap entirely."
+  },
+  "tally": {
+    "stars": "8.9k GitHub stars and 1.4k forks on the framework; 1.09k HF likes and ~4.4k downloads last month on the 35B preview (107 likes on the 8B sibling)",
+    "lastActivity": "Previews posted early September 2026 (first release September 8); 35B weights last updated October 1; framework repo pushed November 2",
+    "status": "experimental",
+    "checked": "2026-11-01"
+  },
+  "links": {
+    "site": "https://edge0.ai"
+  },
+  "limitations": "Previews from a young org with a paper but no external replication we could find — the 3 GB figure is peak active memory, and sustained SSD streaming has thermal, wear, and latency costs the headline omits; Apple Silicon only for now; the checkpoint repos' missing LICENSE files leave the weights formally on card-tag authority; and the org's other releases are not all Apache (see Audio8 TTS Preview), so check each repo's own terms.",
+  "related": [
+    "Ternary Bonsai 2 27B",
+    "Audio8 TTS Preview",
+    "Ollama",
+    "exo"
+  ],
+  "take": "Every few months someone claims big models on small machines, and it's usually a demo. This one ships the framework, the adapters, the training recipe, and a paper under Apache — and the only thing missing is a LICENSE file in the weights repo. Fix that, and it's the cleanest edge-inference story of the year.",
+  "added": "2026-11-01",
+  "featured": true
+}

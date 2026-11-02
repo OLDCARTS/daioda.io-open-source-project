@@ -1,0 +1,48 @@
+{
+  "name": "Hy4-preview",
+  "repo": "https://github.com/Tencent-Hunyuan/Hy4-preview",
+  "category": "models-weights",
+  "collections": [
+    "daybreak",
+    "deep-water"
+  ],
+  "type": "model",
+  "tagline": "Tencent's 770B flagship preview arrives under clean Apache-2.0 — the community-license era looks officially over",
+  "description": "Tencent's next-generation Mixture-of-Experts flagship: 770B total parameters with 49B active per token, 78 layers of Gated DeepSeek Sparse Attention with IndexCache for cross-layer sparse index reuse, and a 1M-token context window. Released August 28, 2026 as an open-weights preview with day-one vLLM and SGLang support, including MTP speculative decoding, plus an official FP8 repo. Tencent's internal panel — 203 engineering tasks rated by 163 experts — puts it slightly ahead of GLM-5.3 and Kimi K3.",
+  "why": "Remember Hy3-preview? It shipped under the Tencent Hunyuan Community License — void in the EU/UK/South Korea, 100M-MAU cap, no-training-on-outputs — and only the official Hy3 checkpoints later went Apache. Hy4-preview skips the fine-print phase entirely: the LICENSE in both the GitHub and HF repos is the canonical Apache-2.0 text behind a three-line Tencent preamble, read directly and searched for territory, user-count, revenue, and acceptable-use riders — none found. A 770B frontier-class preview with no strings is exactly the direction we want previews to go.",
+  "useCases": [
+    "Frontier-class self-hosted inference for teams with the hardware to feed 131 shards",
+    "Long-context engineering work — the 1M window plus sparse attention is built for repo-scale tasks",
+    "A no-negotiation base for serious fine-tuning and distillation programs, Apache end to end"
+  ],
+  "audience": "Infrastructure-rich labs and enterprises; anyone who sat out Hy3-preview because of its license",
+  "setup": {
+    "difficulty": "advanced",
+    "requirements": "1.56TB of BF16 weights across 131 safetensors shards (official FP8 repo available); vLLM and SGLang supported at launch with MTP speculative decoding"
+  },
+  "license": {
+    "code": "Apache-2.0",
+    "weights": "Apache-2.0",
+    "verdict": "open",
+    "notes": "Re-verified 2026-11-01. Code: LICENSE read from a fresh GitHub clone — 11,625 bytes, a three-line Tencent preamble ('Tencent Hy4 preview is licensed under the Apache-2.0', Copyright (C) 2026 Tencent) followed by the full canonical Apache-2.0 text; grepped for territory, acceptable-use, monthly-active-user, revenue, and prohibition clauses: none. Weights: the tencent/Hy4-preview HF repo carries the apache-2.0 tag and a standalone 11,625-byte LICENSE file (same size as the GitHub copy), and the tencent/Hy4-preview-FP8 repo carries the same tag and the same 11,625-byte file; the raw HF LICENSE text opens with the same Tencent preamble and contains no non-commercial, revenue, or territory language. No change since the 2026-09-07 check. Worth naming the contrast: Hy3-preview carried the restrictive Hunyuan Community License and only the official Hy3 release went Apache — this time the preview itself is clean."
+  },
+  "tally": {
+    "stars": "405 GitHub stars and 25 forks (the September check read ~25 stars — the anomaly was a young repo, not a quiet one); 523 HF likes and ~11.4k downloads last month on the main repo, 28 likes and ~18.4k downloads on the FP8 build",
+    "lastActivity": "Released August 28, 2026; official FP8 variant published alongside; no commits or HF updates since the release day",
+    "status": "early",
+    "checked": "2026-11-01"
+  },
+  "links": {
+    "site": "https://aistudio.tencent.com/"
+  },
+  "limitations": "The headline benchmark is Tencent's own 203-task internal expert panel, not a public eval; 'preview' means the official release may differ; the repos have been static since launch day; and 770B total parameters is deep-water hardware however sparse the activation — this is not a model you casually try.",
+  "related": [
+    "Hy3",
+    "GLM-5.3",
+    "Kimi K3",
+    "Qwen3.8-2.4T-A95B"
+  ],
+  "take": "Last generation, Tencent made us wait out a community-license preview before the Apache release arrived. This generation the preview itself is Apache. When the fine print disappears between versions, the pressure is working.",
+  "added": "2026-11-01",
+  "featured": true
+}

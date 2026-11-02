@@ -1,0 +1,49 @@
+{
+  "name": "DeepSeek-V4.1-Flash",
+  "repo": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+  "category": "models-weights",
+  "collections": [
+    "daybreak",
+    "deep-water"
+  ],
+  "type": "model",
+  "tagline": "DeepSeek rebuilds Flash as a 552B encoder-decoder with FP4 caching — MIT license, LICENSE file, no drama",
+  "description": "The first V4.1-generation release: a 552B-backbone MoE that breaks with decoder-only orthodoxy in favor of a 40-layer causal encoder-decoder split (20+20), activating ~8B parameters while reading and ~16B while writing. Compressed Sparse Attention 2 plus an FP4 main KV cache brings memory down to roughly 890 bytes per token — about a quarter of DeepSeek-V4-Flash — behind a 1M-token input window with up to 384K tokens out, image-and-text input, and a continuously dialable reasoning-effort setting (1–100). Trained on 45T tokens; DeepSeek reports 90.6 on Terminal-Bench 2.1, 74.2 on DeepSWE v1.1, and 90.9 on GPQA Diamond. A minor-update checkpoint, DeepSeek-V4.1-Flash-1017, followed on October 17 under the same MIT terms.",
+  "why": "The V4 line has now shipped three releases in a row with licensing done exactly the way we wish everyone did it: the HF weights repo carries a standalone LICENSE file — the standard, unmodified MIT text (1,084 bytes) — re-read directly this week, with the card tagged MIT and no acceptable-use rider or scale trigger anywhere. That makes the interesting part the architecture: a frontier lab betting that encoder-decoder plus four-bit caching is how you serve 1M-token agents cheaply, and publishing the weights and tech report the same day the API price drops to $0.15 per million input tokens off-peak. The October refresh repo carries the identical MIT file, so the whole V4.1 family stays clean.",
+  "useCases": [
+    "Long-horizon terminal and coding agents — the 90.6 Terminal-Bench claim is exactly the workload the cache math targets",
+    "Million-token document and codebase analysis where FP4 KV caching makes self-hosted context windows affordable",
+    "Fine-tuning and distillation programs that want a current-generation MIT base with zero license negotiation"
+  ],
+  "audience": "Agent-infra teams, inference-optimization researchers, and anyone already serving the V4 line who wants the cache bill cut in four",
+  "setup": {
+    "difficulty": "advanced",
+    "requirements": "A serious multi-GPU download (the repo totals ~510 GB) even at 8–16B active; the new CSA2 + FP4 encoder-decoder path needs current framework builds — check your inference stack's V4.1 support before committing hardware. Hosted access via the deepseek-flash API if you'd rather not"
+  },
+  "license": {
+    "code": "MIT",
+    "weights": "MIT",
+    "verdict": "open",
+    "notes": "Re-verified 2026-11-01. The HF repo has a standalone LICENSE file of 1,084 bytes — raw text read directly: 'MIT License', 'Copyright (c) 2023 DeepSeek', standard permission grant, no riders — plus the mit tag and the card statement that repository and weights are MIT. There is no separate code repo: the inference/ and encoding/ folders live inside the same HF repo and are covered by the same file. No acceptable-use rider, scale trigger, or territory clause found. The refresh checkpoint deepseek-ai/DeepSeek-V4.1-Flash-1017 (described on its card as a minor update, ~October 17) carries the same 1,084-byte MIT LICENSE and mit tag. No change to the license since the 2026-09-14 check. DeepSeek-V3 remains partial in our catalog under the old DeepSeek Model License; the V4/V4.1 line has now dropped those riders every release."
+  },
+  "tally": {
+    "stars": "4.8k HF likes and ~2.1M downloads last month on the main repo (the 1017 refresh adds ~4.3k likes and ~170k downloads); no GitHub repo — the code ships in the HF repo; community quantizations (GGUF, NVFP4) are widespread",
+    "lastActivity": "Released September 10, 2026; weights unchanged since, with the chat template, encoding, and inference folders patched through mid-October (HF repo last modified October 16); DeepSeek-V4.1-Flash-1017 followed October 17",
+    "status": "maintained",
+    "checked": "2026-11-01"
+  },
+  "links": {
+    "site": "https://www.deepseek.com",
+    "paper": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/main/DeepSeek_V41_Tech_Report.pdf"
+  },
+  "limitations": "Benchmarks are self-reported and the encoder-decoder + CSA2 + FP4 combination is genuinely novel — early framework support will be uneven and independent evals scarce; the card says 552B backbone while HF's safetensors metadata totals ~763B parameters (the difference is the non-backbone components), so read parameter counts carefully; 552B-class weights keep the download and the disk bill in deep water however few experts fire per token; and the 8B-read/16B-write asymmetry means throughput math from decoder-only models won't transfer directly.",
+  "related": [
+    "DeepSeek-V4-Pro-0813",
+    "DeepSeek-V4-Flash-0731",
+    "DeepSeek Harness",
+    "DeepSeek-V3"
+  ],
+  "take": "Everyone else is optimizing decoder-only inference; DeepSeek just shipped an encoder-decoder frontier model with a four-bit cache and put MIT on the tin. If the architecture bet pays off, this is the shape of cheap million-token agents — and the license means you get to find out yourself.",
+  "added": "2026-11-01",
+  "featured": true
+}

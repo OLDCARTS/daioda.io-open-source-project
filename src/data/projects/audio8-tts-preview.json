@@ -1,0 +1,48 @@
+{
+  "name": "Audio8 TTS Preview",
+  "repo": "https://github.com/Edge0-AI/Audio8_TTS",
+  "category": "audio-voice",
+  "collections": [
+    "daybreak",
+    "first-light",
+    "night-shift"
+  ],
+  "type": "model",
+  "tagline": "A 0.6B multilingual voice cloner under Apache-2.0 — read the license of its smaller 0.1B sibling before you ship it",
+  "description": "A compact multilingual text-to-speech model with zero-shot voice cloning, built on a DualAR architecture (separate slow and fast autoregressive transformers over a 10-codebook, 44.1 kHz codec — a design the NOTICE file credits as inspired by Fish Audio's S2 Pro). The Preview 0.6B covers 11 languages, from Cantonese to Polish, with SGLang Omni integration for GPU serving. The project has since moved under the Edge0 banner (GitHub org Edge0-AI, HF org Edge0 — the same team behind the Edge0 inference stack in this catalog) and grown a family: a newer 23-language 'Realistic 0.6B' (Apache-2.0, own LICENSE file) and a smaller 0.1B model with ONNX exports — which is under a different license, covered in the notes.",
+  "why": "Open TTS has settled into a pattern — tiny models (Kokoro) or English-first ones (Chatterbox) — while the multilingual voice-cloning tier stayed closed or restrictively licensed. The 0.6B Preview slots into that gap, claiming first-tier Seed-TTS numbers and the best English WER in its comparison set. Its code LICENSE is the canonical Apache-2.0 text, byte-for-byte (11,357 bytes), read from a fresh clone; the README states the code and 0.6B weights are Apache-2.0, and the HF weights repo carries the apache-2.0 tag — though, notably, no standalone LICENSE file. The cautionary footnote: the family's smaller 0.1B model is NOT Apache — it ships under a separate Audio8 Community License with free non-commercial use and a revenue-capped commercial tier — so 'Audio8' on the label no longer tells you which terms apply. Voice cloning with no acceptable-use rider on the 0.6B is worth a careful read either way.",
+  "useCases": [
+    "Local, private voice assistants and narration in 11 languages on a CUDA GPU, with no per-character API pricing",
+    "Zero-shot voice cloning from a short reference clip for accessibility and dubbing workflows",
+    "Embedding speech synthesis in products without license negotiation — on the Apache-licensed 0.6B models only"
+  ],
+  "audience": "Indie developers, accessibility builders, and anyone who wants Kokoro-class convenience with cloning and more languages",
+  "setup": {
+    "difficulty": "easy",
+    "requirements": "Python 3.10+; CUDA GPU recommended for the 0.6B; pip install from the repo, SGLang Omni for serving. The smaller 0.1B and its ONNX exports run on lighter hardware but follow their own license"
+  },
+  "license": {
+    "code": "Apache-2.0",
+    "weights": "Apache-2.0 (declared; see notes)",
+    "verdict": "open",
+    "notes": "Re-verified 2026-11-01, with a status change. Home: the project moved — github.com/Audio8-AI/Audio8_TTS now resolves to Edge0-AI/Audio8_TTS (Apache-2.0 per the GitHub license field), and the weights repo resolves under the Edge0 HF org (Edge0/Audio8-TTS-Preview-0.6b). Code: LICENSE read from a fresh clone — canonical Apache-2.0 at the exact canonical 11,357 bytes, no additions, with the 95-byte NOTICE crediting the Fish Audio S2 Pro-inspired DualAR design; unchanged. Weights (0.6B Preview): apache-2.0 tag, card states code AND weights are Apache-2.0, but the 16-file HF listing contains no standalone LICENSE file — the declared-but-fileless gap we track on several entries; verdict follows that precedent. Family caveat: the Edge0/Audio8-TTS-Preview-0.1b repo is tagged license:other and ships an 'Audio8 Community License v1.0' (5.1 kB) defining free Non-Commercial Use and a revenue-capped Commercial Use tier — not an open-source license; this verdict covers the 0.6B Preview only. The newer Edge0/Audio8-TTS-Realistic-0.6b carries an apache-2.0 tag with its own 11,357-byte LICENSE and NOTICE. No acceptable-use policy on the 0.6B voice-cloning model; the card's Responsible Use section asks for consent and disclosure as advice, not as a license condition."
+  },
+  "tally": {
+    "stars": "2.2k GitHub stars and 273 forks (the repo has roughly tripled since the September check); 424 HF likes and ~4.0k downloads last month on the 0.6B Preview",
+    "lastActivity": "Repo active through November 1, 2026 — recent work includes a Realistic 0.6B release and an SFT fix; the 0.6B Preview weights were last updated October 27",
+    "status": "early",
+    "checked": "2026-11-01"
+  },
+  "links": {
+    "docs": "https://huggingface.co/Edge0/Audio8-TTS-Preview-0.6b"
+  },
+  "limitations": "It says Preview and means it — language coverage is intentionally limited and the team behind it is young; the SOTA-tier claims are self-reported Seed-TTS comparisons; the family now spans two license regimes (Apache for the 0.6B models, a revenue-capped community license for the 0.1B), so check the repo you actually download from; and unrestricted zero-shot voice cloning puts the misuse question entirely on the deployer.",
+  "related": [
+    "Kokoro",
+    "Chatterbox",
+    "Edge0"
+  ],
+  "take": "Every month the gap between closed voice APIs and a pip install gets smaller. This one clones voices in 11 languages under Apache-2.0 — but the family's smaller sibling already shows how one org can ship two licenses under one brand, which is exactly why this catalog reads the file and not the logo.",
+  "added": "2026-11-01",
+  "featured": true
+}

@@ -1,0 +1,47 @@
+{
+  "name": "Fara 1.5",
+  "repo": "https://github.com/microsoft/fara",
+  "category": "agents-coding",
+  "collections": [
+    "daybreak"
+  ],
+  "type": "model",
+  "tagline": "Microsoft's computer-use agent family goes MIT — screenshots in, clicks out, weights on your disk",
+  "description": "A family of computer-use agent models from Microsoft Research AI Frontiers — 4B, 9B, and 27B, built on Qwen3.5 — that automate web tasks from vision alone: the model looks at browser screenshots and emits coordinate-grounded actions (click, type, scroll) with no DOM access required. The GitHub repo ships the full harness — agent runtime, WebEval benchmarking framework, docs, and a transparency note. Fara1.5-27B posts 89.3% on WebVoyager and 72.3% on Online-Mind2Web; the 9B is close behind at a fraction of the footprint.",
+  "why": "Computer-use agents have been the most conspicuously closed corner of the agent stack — the frontier labs sell theirs by the token. Here the whole family is downloadable, and the licensing is as clean as we could verify: the GitHub LICENSE is the standard, unmodified MIT text (1,066 bytes, copyright Microsoft), read directly from a fresh clone. The HF weights repos are tagged MIT and the card says MIT outright, though none of the three weights repos ships a standalone LICENSE file — the same gap we track on Qwen3-Coder-Next and friends. An open CUA you can fine-tune on your own workflows is a genuinely new capability class for this catalog.",
+  "useCases": [
+    "Self-hosted browser automation — form-filling, bookings, structured web tasks — without a per-token meter",
+    "Fine-tuning a computer-use agent on your own internal tools and flows, at 4B/9B sizes that fit real budgets",
+    "Studying and benchmarking CUA behavior with the bundled WebEval framework"
+  ],
+  "audience": "Agent builders, RPA refugees, and researchers who want a computer-use baseline they can actually inspect",
+  "setup": {
+    "difficulty": "moderate",
+    "requirements": "Python via uv; weights from HF (27B is ~55GB in 10 shards, 9B and 4B much lighter); a browser environment for the agent loop. Hosted inference via Microsoft Foundry if you'd rather not serve it"
+  },
+  "license": {
+    "code": "MIT",
+    "weights": "MIT (declared; see notes)",
+    "verdict": "open",
+    "notes": "Re-verified 2026-11-01. Code: LICENSE read from a fresh clone of microsoft/fara — standard, unmodified MIT text, 1,066 bytes, copyright Microsoft, no rider; unchanged since 2026-09-07. Weights: microsoft/Fara1.5-27B, -9B, and -4B on HF each carry the mit license tag, and the file listings (22, 17, and 14 files) contain no standalone LICENSE file — the same declared-but-fileless gap we flag on Qwen3-Coder-Next, KAT-Coder-V2.5-Dev, and Ling-3.0-flash, and the verdict follows that precedent. Release date settled: the repo README records 'Fara1.5 released' on 2026-07-22 and the weights repos date from late July (the 'May 21' date seen on one card rendering is unsupported). Note the models are built on Qwen3.5 (Apache-2.0 lineage), so obligations stay permissive either way. We'd like to see the file appear."
+  },
+  "tally": {
+    "stars": "6.2k GitHub stars and 605 forks; HF likes 298 (27B), 60 (9B), 59 (4B), with roughly 2.4k–3.0k downloads last month per size",
+    "lastActivity": "Fara1.5 family released July 22, 2026; weights repos last updated July 27; GitHub repo last pushed September 22, 2026",
+    "status": "early",
+    "checked": "2026-11-01"
+  },
+  "links": {
+    "site": "https://www.microsoft.com/en-us/research/articles/fara1-5-computer-use-agent/",
+    "paper": "https://huggingface.co/papers/2606.20785"
+  },
+  "limitations": "Computer-use benchmarks are notoriously brittle — 89% on WebVoyager does not mean 89% on your intranet app; vision-only perception means it can misread dense UIs; and an agent that clicks things on the live web deserves sandboxing and human oversight, which the repo's own transparency note is candid about.",
+  "related": [
+    "Hermes Agent",
+    "Agents-A1",
+    "DeepSeek Harness"
+  ],
+  "take": "The company that sells Copilot subscriptions just handed out MIT-licensed computer-use agents in three sizes. Whatever the strategy, the result is the first serious open CUA family — and the fine-tuning experiments start now.",
+  "added": "2026-11-01",
+  "featured": true
+}

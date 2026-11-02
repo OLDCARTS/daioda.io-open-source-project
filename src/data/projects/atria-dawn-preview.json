@@ -1,0 +1,48 @@
+{
+  "name": "Atria Dawn Preview",
+  "repo": "https://github.com/atria-asi/Atria-Dawn",
+  "category": "models-weights",
+  "collections": [
+    "daybreak",
+    "deep-water"
+  ],
+  "type": "model",
+  "tagline": "Shanghai AI Lab rebuilds GLM-5.2 into a 744B agent for days-long tasks — MIT code, MIT-declared weights",
+  "description": "Shanghai AI Laboratory's preview of a new-generation agentic model: a 744B-parameter MoE built on the GLM-5.2 foundation, post-trained for continuous environmental understanding, tool use, and multi-step task completion over a 256K context. The lab positions it for research and engineering work that runs for hours or days, not chat turns — search, coding, productivity, and security benchmarks all appear in the launch evaluation, with 59.6 on SWE-bench Pro and 78.3 on Terminal-Bench 2.1. BF16 and FP8 checkpoints ship on Hugging Face and ModelScope, with a technical report in the repo. Since launch the GitHub repo has been renamed Atria-Dawn and its README now also lists a full 'Atria Dawn' release with a 512K context — covered by a separate HF repo that this entry does not verify.",
+  "why": "A state research lab took another lab's MIT-licensed 744B foundation and gave its derivative back under the same terms — that's the open-weights flywheel actually turning, at flagship scale. The GitHub LICENSE is the standard, unmodified MIT text (1,066 bytes, 'Copyright (c) 2026 atria-asi'), read directly from a clone, and the README states plainly: 'The code and model weights in this repository are released under the MIT License.' The HF side is declared rather than filed: the repos are tagged mit, but the 364-file Preview listing has no LICENSE file (a direct fetch of the LICENSE path returns 404). GLM-5.2's weights are MIT (it's in our catalog), so the inheritance is clean; what's missing is the file, not the grant.",
+  "useCases": [
+    "Long-horizon agent research — tasks that need continuous tool use and environment state across hours, self-hosted",
+    "An MIT-licensed alternative at the 700B+ tier for labs that can't accept bespoke flagship licenses",
+    "Studying how far post-training alone can push an existing open foundation — the GLM-5.2 base is in our catalog for comparison"
+  ],
+  "audience": "Well-resourced agent labs and infrastructure teams; anyone benchmarking the open-flagship tier",
+  "setup": {
+    "difficulty": "advanced",
+    "requirements": "~1.51TB of BF16 weights across 353 shards, with an FP8 checkpoint (Atria-Dawn-Preview-FP8) for lighter deployments; 256K context; serving via the usual large-MoE stacks"
+  },
+  "license": {
+    "code": "MIT",
+    "weights": "MIT (declared; see notes)",
+    "verdict": "open",
+    "notes": "Re-verified 2026-11-01, with two changes since the 2026-09-21 check. Code: LICENSE read directly from a fresh clone of the GitHub repo — standard, unmodified MIT text, 1,066 bytes, copyright 2026 atria-asi, no acceptable-use rider, scale trigger, or branding clause; the repo has since been renamed from Atria-Dawn-Preview to Atria-Dawn (the old URL redirects). Weights: internlm/Atria-Dawn-Preview and its -FP8 sibling are tagged mit, and the README states the weights are MIT; BUT neither HF repo contains a LICENSE file (the 364-file listing shows none and a direct fetch of /raw/main/LICENSE returns 404) — so the weights join the declared-but-fileless club (the September note that the card 'links a LICENSE file' did not hold up). Verdict stays open on the declared-precedent basis, with clean lineage: the base, Zhipu's GLM-5.2, carries MIT weights per our existing entry. Provenance: the weights sit under internlm — Shanghai AI Lab's official HF org — which cross-links the atria-asi GitHub org. Not covered: the newer full-release 'Atria Dawn' repo (internlm/Atria-Dawn) currently shows no license tag, so nothing here should be read as vouching for it."
+  },
+  "tally": {
+    "stars": "636 GitHub stars and 34 forks (the September read of ~1 star was a brand-new repo); 255 HF likes and ~1.5k downloads last month on the Preview repo, 21 likes on the FP8 build",
+    "lastActivity": "Preview released September 11, 2026 (HF weights last updated September 16); GitHub repo last pushed October 23 with the full-release documentation",
+    "status": "early",
+    "checked": "2026-11-01"
+  },
+  "links": {
+    "site": "https://huggingface.co/internlm/Atria-Dawn-Preview",
+    "paper": "https://github.com/atria-asi/Atria-Dawn-Preview/blob/main/atria-dawn-preview.pdf"
+  },
+  "limitations": "A preview by its own name, with launch numbers from the lab's own tables; the project has moved on to a full 512K-context release whose license we have not verified; 744B total parameters put local deployment out of reach for almost everyone even quantized; the weights' MIT grant rests on tags and README text until a LICENSE file lands; and the days-long-agent positioning means real evaluation requires harness time, not a benchmark skim.",
+  "related": [
+    "GLM-5.2",
+    "GLM-5.3",
+    "DeepSeek-V4-Pro-0813"
+  ],
+  "take": "The most interesting thing here isn't the parameter count — it's the family tree. Zhipu published a 744B foundation under MIT, and a state lab's derivative came back under MIT. Licenses this clean are supposed to be how open source compounds — as long as the file actually lands next to the weights.",
+  "added": "2026-11-01",
+  "featured": true
+}

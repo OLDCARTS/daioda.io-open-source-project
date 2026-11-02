@@ -1,0 +1,47 @@
+{
+  "name": "Instella-MoE",
+  "repo": "https://github.com/AMD-AGI/Instella-MoE",
+  "category": "models-weights",
+  "collections": [
+    "daybreak",
+    "fine-print"
+  ],
+  "type": "model",
+  "tagline": "AMD publishes the whole training kitchen — six checkpoints, MIT code — then locks the weights to research-only",
+  "description": "AMD's 16B-total / 2.8B-active Mixture-of-Experts family, trained end-to-end on AMD Instinct MI300X and MI325X GPUs — pretraining (7.1T tokens from open datasets), mid-training, 64K long-context extension, SFT, DPO, and RL, with a checkpoint published at every stage. Gated Multi-head Latent Attention plus the open Primus and Miles training frameworks. The Think variant averages 73.22 across benchmarks — AMD's claim to the top of the 'fully open' class — and the base model beats OLMo-3-7B and SmolLM3 averages.",
+  "why": "This is a Fine Print entry with real substance on both sides. The substance: end-to-end proof that competitive MoE training runs on AMD silicon, with process transparency almost nobody else offers — every stage checkpoint, the data mix, and a genuinely MIT training codebase (LICENSE read from a fresh clone: standard MIT plus a third-party notices appendix). The fine print: the weights are NOT open. Every HF checkpoint ships a Research-only RAIL license — academic and research purposes only, no commercial use, plus a mandatory responsible-AI use policy that must propagate to derivatives. 'Fully open' here means you can watch how it was made, not use what was made.",
+  "useCases": [
+    "Research on MoE training dynamics — six stage checkpoints make ablations and interpretability work unusually tractable",
+    "Reproducing or adapting a full modern training pipeline on ROCm hardware with the MIT-licensed Primus/Miles stack",
+    "Academic evaluation and red-teaming where the research-only grant is exactly what you need"
+  ],
+  "audience": "Researchers, ROCm early adopters, and anyone auditing what 'fully open' claims actually license",
+  "setup": {
+    "difficulty": "moderate",
+    "requirements": "16B/2.8B-active runs comfortably on a single high-memory GPU; safetensors in BF16 on HF; training reproduction wants Instinct-class hardware and the Primus framework"
+  },
+  "license": {
+    "code": "MIT",
+    "weights": "AMD Research-only RAIL",
+    "verdict": "not-open",
+    "notes": "Re-verified 2026-11-01; no change since 2026-09-07. Two licenses, opposite verdicts. Code: LICENSE read from a fresh clone of AMD-AGI/Instella-MoE — MIT text (1,941 bytes: standard MIT under an AMD copyright line, followed by a third-party notices appendix listing SGLang, Megatron-LM, Miles, and open-instruct). Weights: the amd/Instella-MoE-16B-A3B-Think HF repo has a standalone 15,137-byte LICENSE headed 'RESEARCH-ONLY RAIL Model License' (HF license tag: other); the card states the license permits academic and research use only, and the grant excludes commercial use, with the AMD Responsible AI Use Policy attached as use-based restrictions that must be passed on to any derivative. Research-only fails the basic open-source freedoms, so the model verdict is not-open regardless of the exemplary transparency around it. OLMo 3 proves 'fully open' can include an Apache license on the weights; this isn't that."
+  },
+  "tally": {
+    "stars": "80 GitHub stars and 12 forks; 185 HF likes and ~900 downloads last month on the Think checkpoint",
+    "lastActivity": "Repo history runs July–September 2026; last commit September 2, 2026; HF weights last updated the same day",
+    "status": "early",
+    "checked": "2026-11-01"
+  },
+  "links": {
+    "docs": "https://rocm.blogs.amd.com/artificial-intelligence/instella-moe/README.html"
+  },
+  "limitations": "The weights license bars all commercial use, full stop; AMD's own card warns against factual-accuracy-dependent, safety-critical, and medical uses; multilingual ability is untested; the repo has been quiet since early September; and the 'highest among fully open models' framing quietly redefines 'fully open' as process transparency rather than usable freedom.",
+  "related": [
+    "OLMo 3",
+    "SmolLM3",
+    "Nemotron 3.5 Lightning"
+  ],
+  "take": "The most transparent training pipeline of the year, attached to weights you can't ship. AMD built the perfect proof that its GPUs can train frontier-class MoEs — and the perfect example of why 'fully open' needs to mean the license, not the blog post.",
+  "added": "2026-11-01",
+  "featured": false
+}

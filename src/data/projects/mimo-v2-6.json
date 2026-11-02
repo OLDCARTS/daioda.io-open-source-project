@@ -1,0 +1,49 @@
+{
+  "name": "MiMo-V2.6",
+  "repo": "https://huggingface.co/collections/XiaomiMiMo/mimo-v26",
+  "category": "models-weights",
+  "collections": [
+    "daybreak",
+    "deep-water"
+  ],
+  "type": "model",
+  "tagline": "Xiaomi ships a 1T omnimodal open-weight flagship, MIT-declared — plus the 7,780 RL environments that trained it",
+  "description": "Xiaomi's new flagship family, released September 22, 2026: MiMo-V2.6-Pro is a 1.02T-total / 42B-active sparse MoE that takes text, images, video, and audio in one model (681M vision encoder, 308M audio tokenizer plus a 127M patch encoder) across a 1M-token context, with a hybrid 60-sliding-window / 10-global-attention layer stack and multi-token prediction for self-speculative decoding. A 309B/15B Flash sibling, a Qwen3.5-9B-based distill for RL research, and — added in October — a 'MOPD' upgrade checkpoint of Pro round out the family. Xiaomi reports 71.9 on DeepSWE v1.1 and 66.2 on SWE-bench Verified, and independent index placements have moved as the indexes themselves were revised, so we don't repeat a ranking here. The RL phase ran publicly over six days with published curves, and the 7,780 task environments it trained on shipped as an Apache-2.0 dataset.",
+  "why": "Two stories in one release. The headline: a trillion-parameter omnimodal flagship whose every checkpoint repo (Pro-RL, Flash-RL, Distill-Qwen-9B, and the MOPD upgrade) carries the mit tag, consistent across Xiaomi's announcement and independent trackers. The sleeper: MiMo-V2.6-RL-oss, an Apache-2.0 tagged dataset of 7,780 executable RL task environments spanning software engineering, vulnerability reproduction, knowledge work, web design, and symbolic music — the kind of training infrastructure labs usually guard hardest, published alongside a six-day public RL run with curves. The catch we have to name: none of the checkpoint repos ships a standalone LICENSE file, and there is still no dedicated V2.6 code repo on Xiaomi's GitHub, so the largest model in our missing-LICENSE club is now a trillion parameters.",
+  "useCases": [
+    "Frontier-tier self-hosted inference for infra-rich teams — omnimodal input and 1M context without a bespoke license to negotiate",
+    "Agentic RL research on the released environments — the 9B distill is explicitly positioned as the starting checkpoint for it",
+    "Long-horizon multimodal agents: repo-scale code, tool traces, video and audio understanding in one deployment"
+  ],
+  "audience": "Infrastructure-rich labs at the Pro/Flash tier; RL researchers at the 9B-plus-environments tier",
+  "setup": {
+    "difficulty": "advanced",
+    "requirements": "Pro-RL is a ~573GB download at 1.02T total parameters — multi-node territory (an FP8 tag is listed); Flash (309B/15B active) is the practical self-hosting target; the 9B distill runs on a single GPU. SGLang is the primary supported serving path and the repos need trust_remote_code"
+  },
+  "license": {
+    "code": "MIT (declared; see notes)",
+    "weights": "MIT (declared; see notes)",
+    "verdict": "open",
+    "notes": "Re-verified 2026-11-01; no license change since 2026-09-28. All four checkpoint repos on Hugging Face — XiaomiMiMo/MiMo-V2.6-Pro-RL (155 files), MiMo-V2.6-Flash-RL (90), MiMo-V2.6-Distill-Qwen-9B (17), and the newer MiMo-V2.6-Pro-MOPD (155) — carry the mit license tag, and modeling code ships in-repo under the same tag. None of the four file listings contains a LICENSE file, and the XiaomiMiMo GitHub org (18 repos) has no V2.6 code repo to read one from — so both code and weights carry the declared-but-fileless hedge, the same both-sides gap as our Nanbeige4.2-3B call, and the verdict follows that precedent on the strength of the unambiguous tags, Xiaomi's announcement, and Xiaomi's Apache/MIT track record on prior MiMo repos. The RL environments are cleaner: the XiaomiMiMo/MiMo-V2.6-RL-oss dataset is tagged Apache-2.0. Also worth naming: only post-RL checkpoints, the MOPD upgrade, and the distill are published — the pre-RL base checkpoint is not, so the openness is license-clean but pipeline-partial. When the LICENSE files land, this becomes an easy call; until then, it is our precedent doing the work."
+  },
+  "tally": {
+    "stars": "HF likes: 793 on Pro-RL (573GB), 685 on the 9B distill, 581 on Flash-RL, 47 on the MOPD upgrade; the RL-environments dataset has 1.0k likes and ~287k downloads last month, and Flash-RL ~76k downloads",
+    "lastActivity": "Released September 22, 2026; all four checkpoint repos last updated October 28 (the MOPD upgrade is new since our September check); the RL-oss dataset last updated October 20",
+    "status": "early",
+    "checked": "2026-11-01"
+  },
+  "links": {
+    "site": "https://mimo.mi.com",
+    "docs": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL"
+  },
+  "limitations": "Every benchmark is Xiaomi's own measurement or a third-party index whose scale has since been revised; 1.02T parameters is deep-water hardware however sparse the routing; the pre-RL base checkpoint stays unpublished, so full-pipeline reproduction is off the table; community threads have already caught card typos (a '42T' activation figure that should read 42B); and the missing LICENSE files leave a trillion-parameter MIT grant resting on repo tags until Xiaomi adds the text.",
+  "related": [
+    "Kimi K3",
+    "GLM-5.3",
+    "Qwen3.8-2.4T-A95B",
+    "DeepSeek-V4-Pro-0813"
+  ],
+  "take": "A phone company just published a trillion-parameter omnimodal flagship and the training environments to go with it — the RL gym may matter longer than the checkpoint. Now do what the fine print of every 'open' release has taught us to ask, Xiaomi: put the LICENSE file in the repo.",
+  "added": "2026-11-01",
+  "featured": true
+}

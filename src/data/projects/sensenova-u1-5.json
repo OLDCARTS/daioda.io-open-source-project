@@ -1,0 +1,46 @@
+{
+  "name": "SenseNova-U1.5",
+  "repo": "https://github.com/OpenSenseNova/SenseNova-U1",
+  "category": "generative-media",
+  "collections": [
+    "daybreak"
+  ],
+  "type": "model",
+  "tagline": "SenseTime's 8B drops the encoder and the VAE — one native architecture that reads, reasons, and paints in 4K",
+  "description": "A native unified multimodal 8B from SenseTime's OpenSenseNova line: instead of bolting a vision encoder and a diffusion VAE onto a language model, the NEO-unify architecture spans understanding, reasoning, and image generation in a single network. U1.5 (weights August 20, technical report September 11) improves instruction following, text and layout rendering, native 4K text-to-image, identity-preserving image editing, and visual control via bounding boxes and references. A LoRA-8step distill ships alongside for fast inference, official ComfyUI workflows landed in early September, and the lab says the full training pipeline — SFT, RL, and MOPD — is being prepared for open-source release.",
+  "why": "Unified any-to-any models have mostly been research demos or API products; this one is 8B, runs on a single GPU, has community GGUF and MLX ports, and carries clean licensing on the code side: the GitHub LICENSE is the canonical Apache-2.0 text at its exact canonical size (11,357 bytes), read from a fresh clone this week. The HF weights repo is tagged apache-2.0 and the card states the release is under Apache-2.0 — but the license link points at the GitHub file on a feature branch and the weights repo itself ships no standalone LICENSE file, so the weights verdict follows our declared-but-fileless precedent. If the promised training-pipeline release lands, this becomes one of the most complete open unified-model stacks anywhere.",
+  "useCases": [
+    "Self-hosted image generation and editing where the same checkpoint also understands and reasons about images",
+    "Text-heavy generation — posters, UI mocks, layout work — where U1.5's text rendering focus pays off",
+    "Research on native unified architectures, with community fine-tunes and a distill LoRA already circulating"
+  ],
+  "audience": "Generative-media tinkerers with a 24GB-class GPU, ComfyUI users, and researchers betting on unified architectures over model zoos",
+  "setup": {
+    "difficulty": "moderate",
+    "requirements": "8B in BF16 (~16GB of safetensors) fits a single high-VRAM consumer GPU; official ComfyUI workflows, a LoRA-8step distill for faster sampling, and community Q8 GGUF (~21GB) and MLX builds for other runtimes"
+  },
+  "license": {
+    "code": "Apache-2.0",
+    "weights": "Apache-2.0 (declared; see notes)",
+    "verdict": "open",
+    "notes": "Re-verified 2026-11-01. Code: LICENSE read from a fresh clone of OpenSenseNova/SenseNova-U1 — the canonical Apache-2.0 text at the exact canonical 11,357 bytes, byte-identical on main and on the feat/u1.5 branch the card links to, README badged Apache-2.0. Weights: the HF repo (now at SenseNova/SenseNova-U1.5-8B-MoT) is tagged apache-2.0 and the card states release under Apache-2.0 with its license link pointing at the GitHub branch copy; the 18-file HF listing holds no standalone LICENSE file — the declared-but-fileless gap we track on Qwen3-Coder-Next and friends, so the verdict follows that precedent. No acceptable-use rider, territory clause, or scale trigger found in the canonical text or the cards. No change since the 2026-09-14 check."
+  },
+  "tally": {
+    "stars": "6.9k GitHub stars and 529 forks; 269 HF likes and ~4.5k downloads last month on the U1.5 MoT checkpoint",
+    "lastActivity": "U1.5 weights released August 20, 2026 (HF repo last updated September 15); technical report September 11; GitHub main still receiving documentation commits as of October 30",
+    "status": "early",
+    "checked": "2026-11-01"
+  },
+  "links": {
+    "docs": "https://github.com/OpenSenseNova/SenseNova-U1"
+  },
+  "limitations": "An 8B doing three jobs won't beat dedicated 20B-class image models at pure generation quality; benchmark charts are the lab's own; the weights card links its license at a feature branch rather than shipping the file, which is tidier to fix than to explain; and the SFT/RL/MOPD pipeline release is a promise, not yet a repo.",
+  "related": [
+    "Qwen-Image",
+    "Z-Image",
+    "FLUX.2"
+  ],
+  "take": "The bet here isn't quality, it's architecture: one native network instead of an encoder, an LLM, and a VAE in a trenchcoat. At 8B with Apache code and single-GPU weights, it's the first unified model you can actually live with — now put the LICENSE file in the weights repo.",
+  "added": "2026-11-01",
+  "featured": true
+}

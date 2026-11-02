@@ -1,0 +1,47 @@
+{
+  "name": "Beam 1.0",
+  "repo": "https://huggingface.co/reflection/Beam-1.0-501B-A23B",
+  "category": "models-weights",
+  "collections": [
+    "daybreak",
+    "deep-water"
+  ],
+  "type": "model",
+  "tagline": "A 501B American MoE with a real Apache-2.0 LICENSE file — and the training harness open-sourced beside it",
+  "description": "Reflection AI's first open-weight model: a sparse Mixture-of-Experts for coding, reasoning, and agentic work — 501B total parameters, 23.4B active, 52 layers (3 dense + 49 MoE, 256 experts), gated GQA with sliding-window attention, and a 1M-token context. The October 16 drop is unusually complete for a frontier-scale release: BF16, FP8, and NVFP4 weights, tokenizer, reference implementation, a DFlash2 speculative-decoding drafter, and Mirror CLI — the open-source coding-agent harness Reflection says Beam was trained against — with a self-distillation recipe promised to follow.",
+  "why": "This sat on our watch list as 'Apache-2.0 weights promised in October' — and Reflection delivered the whole promise, not the usual half. The main repo carries an apache-2.0 tag AND an actual LICENSE file in the tree (as do the FP8 and NVFP4 builds — no missing-LICENSE club here), and the card goes out of its way to stay permissive: 'this Model Card is informational only and does not modify or restrict the model's license,' with distillation, output-training, fine-tuning, and commercial use explicitly not prohibited. The numbers are frontier-class on Reflection's own table — 81.6% SWE-bench Verified, 97.7% AIME 2026, 90.6% GPQA Diamond, 80.1% Terminal-Bench 2.1. An American 501B under clean Apache-2.0 is exactly the release this catalog exists to flag.",
+  "useCases": [
+    "Self-hosted frontier-class coding and terminal agents — SWE-bench Verified 81.6% with weights you control",
+    "Long-horizon agentic workflows that need the full 1M-token context without API rate limits or data egress",
+    "Distillation and fine-tuning base for smaller specialist models — the license explicitly permits both, and Reflection has promised its own self-distillation recipe"
+  ],
+  "audience": "Agent builders and infra teams with serious multi-GPU hardware; labs that want a clean-licensed frontier base for distillation",
+  "setup": {
+    "difficulty": "advanced",
+    "requirements": "This is deep water: BF16 is a ~1 TB repo (188 safetensors shards); FP8 roughly halves that and NVFP4 quarters it, so even the friendliest build wants a modern multi-GPU node (GB300/B200 class). Reference implementation and chat template ship in the repo; the DFlash2 drafter (~2B) accelerates decoding. Mirror CLI installs as the ready-made agent harness"
+  },
+  "license": {
+    "code": "Apache-2.0",
+    "weights": "Apache-2.0",
+    "verdict": "open",
+    "notes": "Re-verified 2026-11-01; no license change since 2026-10-19. Weights: the reflection/Beam-1.0-501B-A23B HF repo is tagged apache-2.0 and holds a standalone LICENSE file of 11,356 bytes — read directly, the standard Apache-2.0 text headed 'Apache License' — and the -FP8 and -NVFP4 repos each carry the same tag and an identical 11,356-byte file. The -DFlash2 drafter repo is tagged apache-2.0 but its 4-file listing holds no LICENSE file (a small declared-but-fileless exception). The card states 'License: Apache 2.0,' says it 'is informational only and does not modify or restrict the model's license,' and does not prohibit distillation, use of outputs to train other models, fine-tuning, quantization, or merging; it links a Usage Policy that, per the card, lists areas Reflection recommends reviewing — framed as guidance rather than a license condition. The tokenizer and reference implementation ship in the weights repo under the same grant. Mirror CLI (reflection-oss/mirror) is confirmed open: LICENSE read from a fresh clone, 11,358 bytes beginning 'Apache License Version 2.0, January 2004', no territory, revenue, or non-commercial terms, Cargo.toml declares Apache-2.0, GitHub reports Apache-2.0. The promised self-distillation recipe had not been released as of this check."
+  },
+  "tally": {
+    "stars": "296 HF likes and ~9.1k downloads last month on the main repo (the FP8, NVFP4, and DFlash2 builds add 36, 42, and 35 likes); Mirror CLI has 214 GitHub stars and 17 forks",
+    "lastActivity": "Weights released October 16, 2026; HF repos last updated October 30; Mirror CLI last pushed October 22; self-distillation recipe still pending",
+    "status": "early",
+    "checked": "2026-11-01"
+  },
+  "links": {
+    "site": "https://reflection.ai"
+  },
+  "limitations": "Text-only and primarily English — no vision, no audio; the benchmark table is self-reported (evaluated at temp 0.7) and independent scores are only beginning to land; the pre-training corpus and base checkpoint are not published; knowledge cutoff June 30, 2026; the promised self-distillation recipe has not appeared yet; and at 501B even the NVFP4 build is out of reach of hobbyist hardware — this is a model you deploy, not one you run on a laptop.",
+  "related": [
+    "MiMo-V2.6",
+    "Atria Dawn Preview",
+    "Kimi K3"
+  ],
+  "take": "Every frontier lab promises open weights 'soon'; most ship a license with a trapdoor. Reflection shipped a one-terabyte repo with the boring, beautiful 11-kilobyte Apache file at the top — and then open-sourced the harness it was trained in. That second gift is the tell: this is a lab that wants you to reproduce the loop, not just download the artifact.",
+  "added": "2026-11-01",
+  "featured": true
+}

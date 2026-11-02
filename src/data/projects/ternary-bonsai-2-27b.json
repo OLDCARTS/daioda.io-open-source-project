@@ -1,0 +1,47 @@
+{
+  "name": "Ternary Bonsai 2 27B",
+  "repo": "https://huggingface.co/collections/prism-ml/bonsai-2",
+  "category": "local-private-ai",
+  "collections": [
+    "daybreak",
+    "night-shift"
+  ],
+  "type": "model",
+  "tagline": "PrismML's ternary trick, round two: 98.2% of Qwen3.8-27B in a 5.9 GB file — Apache, with the license in the repo",
+  "description": "Two months after the first Bonsai release, PrismML's second-generation ternary compression of Qwen3.8-27B lands at 9x smaller than its full-precision base while retaining a claimed 98.2% of aggregate benchmark performance. The distribution hub is the -gguf repo: a 5.95 GB PTQ1_0 file and a 7.21 GB PQ2_0 alongside the 53.8 GB F16 reference, a later 7.63 GB Q2_0 build, and mmproj files that keep the base model's vision path intact, with MLX 2-bit builds in the same collection. PrismML says the biggest change from gen one is simply quality — same footprint, better model.",
+  "why": "Gen-one Bonsai 27B is already on our shelf as the proof that 2-bit ternary quantization had graduated from paper to product; gen two is the cadence proof. And the paperwork improved along with the weights: where the first release leaned on card tags, the Bonsai 2 gguf repo carries an actual LICENSE file — the standard Apache-2.0 text (10,174 bytes, appendix unfilled), re-read on 2026-11-01, with a NOTICE.txt beside it. Base-model lineage is clean too: Qwen3.8-27B is Apache-2.0 with a LICENSE file, per our existing entry. Apache in, Apache out, and file-verified at both ends — plus PrismML's runtime code (a llama.cpp fork and a demo repo) is open under MIT and Apache-2.0 respectively.",
+  "useCases": [
+    "Frontier-adjacent local inference on 8–16 GB machines — a 27B-class multimodal model in under 6 GB",
+    "Offline and air-gapped deployments where every gigabyte of the artifact matters",
+    "Comparing ternary quantization against GGUF Q-quants of the same base — the F16 reference ships in the same repo"
+  ],
+  "audience": "Local-AI users on modest hardware, edge deployers, and quantization researchers",
+  "setup": {
+    "difficulty": "easy",
+    "requirements": "llama.cpp-compatible runtimes for the GGUF builds — the PTQ/PQ formats are supported by PrismML's llama.cpp fork, so check which file your build can load; MLX 2-bit builds for Apple Silicon; the F16 reference wants ~54 GB of headroom"
+  },
+  "license": {
+    "code": "Apache-2.0 (demo repo); MIT (llama.cpp fork)",
+    "weights": "Apache-2.0",
+    "verdict": "open",
+    "notes": "Re-verified 2026-11-01. Weights: the prism-ml/Ternary-Bonsai-2-27B-gguf HF repo is tagged apache-2.0 and holds a standalone 10,174-byte LICENSE (read directly: standard Apache-2.0 template headed 'Apache License', appendix unfilled — the size difference from the canonical 11.4 kB) and a 411-byte NOTICE.txt, unchanged in size since 2026-09-21; no riders, territory clauses, or use restrictions found. Base: Qwen/Qwen3.8-27B is Apache-2.0 with its own LICENSE file per our catalog entry, so the derivative chain is Apache end to end. Code: PrismML's companion repos are open — PrismML-Eng/Bonsai-demo reports Apache-2.0 and PrismML-Eng/llama.cpp (a fork) reports MIT on GitHub; the weights repo itself contains no code. A step up from gen one, which we verified via runtime forks and card tags; this generation puts the license text in the weights repo itself."
+  },
+  "tally": {
+    "stars": "2.9k HF likes and ~1.85M downloads last month on the -gguf repo; the companion GitHub repos show 3.5k stars (Bonsai-demo) and 990 stars (llama.cpp fork)",
+    "lastActivity": "Announced September 17, 2026; HF repo last updated October 30 (Q2_0 file documented); companion repos pushed in late October",
+    "status": "early",
+    "checked": "2026-11-01"
+  },
+  "links": {
+    "site": "https://prismml.com/news/bonsai-2-27b"
+  },
+  "limitations": "The 98.2% retention figure is PrismML's own aggregate and deserves task-level scrutiny — ternary models historically degrade unevenly, with long-tail knowledge and edge-case reasoning suffering first; PQ/PTQ formats need runtime support (PrismML maintains a fork for exactly this), and a separate -gguf-dev repo exists for builds that need the fork, so confirm which file matches your runtime before assuming it just loads.",
+  "related": [
+    "Bonsai 27B",
+    "Qwen3.8-27B",
+    "Colibri"
+  ],
+  "take": "The first Bonsai asked whether ternary compression was real. The second one answers a better question: can it keep up with the release cadence of the models it compresses? Two months base-to-derivative, with the license file where it belongs. That's a supply chain, not a stunt.",
+  "added": "2026-11-01",
+  "featured": true
+}

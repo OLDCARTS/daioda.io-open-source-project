@@ -1,0 +1,48 @@
+{
+  "name": "YuE2",
+  "repo": "https://github.com/multimodal-art-projection/YuE",
+  "category": "audio-voice",
+  "collections": [
+    "daybreak",
+    "fine-print"
+  ],
+  "type": "model",
+  "tagline": "Suno-class song generation with an editable score — and the first license regression we've had to write up",
+  "description": "The HKUST/M-A-P music model returns at frontier quality: a 3B AR–NAR Mixture-of-Transformers that first writes an explicit melody-and-chord plan in editable notation, then renders it into a full 48kHz stereo song with vocals via semantic tokens, flow-matching acoustic latents, and a VAE decoder. The white-box score layer enables zero-shot covers (transcribe a song, reimagine its style) and agentic editing — the repo ships a ready-made SKILL.md agent package, and the flagship demo walks one song through nine editing steps from Mandarin pop to English jazz. On WildSongBench's 192 prompts, YuE2 best-of-8 posts the highest observed mean (6.96), competitive with Suno v5/v6.",
+  "why": "This is a Fine Print entry with a history lesson attached. In January 2025, YuE v1 made open-music history by relicensing to Apache-2.0 — 'a new era under Apache 2.0,' the announcement said, and that LICENSE is still on the archived v1 branch. YuE2 walks it back: the first-party code, skill, and docs are genuinely Apache-2.0 (canonical text, read from a fresh clone), but the MODEL_LICENSE file puts the YuE2-3B, YuE2-Vae, and YuE2-Vae-legacy weights under CC BY-NC 4.0 — non-commercial for companies, full stop. Two days after our September check the repo softened that with an added permission for individual creators (free use and monetization of outputs, academic use stated separately), which is welcome but still a field-of-use carve-out, not an open license: the freedoms are granted to some users and withheld from others. That keeps the catalog's first inter-generation license regression on the not-open shelf, however good the music sounds.",
+  "useCases": [
+    "Research and personal music generation where you can read and edit the composition before rendering it",
+    "Zero-shot covers and style transfer experiments driven from transcribed scores",
+    "Agent-integrated music editing — the bundled yue2-music skill plugs into any SKILL.md-compatible agent"
+  ],
+  "audience": "Music-AI researchers, hobbyists with a 24GB GPU, and anyone tracking what 'open' means release to release",
+  "setup": {
+    "difficulty": "moderate",
+    "requirements": "Linux, Python 3.12, NVIDIA GPU with BF16 and 24GB VRAM; ~7.3GB checkpoint pulled from HF on first run; pip install from the repo, native ComfyUI nodes since September 11"
+  },
+  "license": {
+    "code": "Apache-2.0",
+    "weights": "CC BY-NC 4.0 (with an individual-creator permission in the GitHub MODEL_LICENSE)",
+    "verdict": "not-open",
+    "notes": "Re-verified 2026-11-01, with a license change since the 2026-09-14 check. Code: LICENSE read from a fresh clone — canonical Apache-2.0, 11,358 bytes, covering first-party code, the agent skill, and docs; unchanged. Weights: the GitHub MODEL_LICENSE grew from 20,308 to 23,876 bytes via two commits on 2026-09-16 that prepend an 'Individual creator permission and academic use' section. As read: individual creators acting in a personal capacity may use the weights free of charge and publish, sell, or monetize outputs, with the non-commercial restriction waived for that activity; students, educators, and institutions get free research and education use under CC BY-NC; companies are NOT granted commercial use and must contact the licensors; commercial redistribution or sale of the weights is excluded, and a responsible-use condition applies. The underlying grant remains CC BY-NC 4.0. Conflict to know about: the m-a-p/YuE2-3B HF repo is tagged cc-by-nc-4.0 and its LICENSE file is 20,305 characters — the pre-amendment size — so the Hugging Face copy appears not to carry the September 16 carve-out; the GitHub file is treated as the more current text. Field-of-use discrimination fails the open-source definition, so the verdict stays not-open. The archived YuE-v1 branch still carries the Apache-2.0 LICENSE and the January 2025 announcement, making YuE2 the catalog's first generation-over-generation license regression."
+  },
+  "tally": {
+    "stars": "~13.0k GitHub stars and 1.5k forks on the shared YuE repo (most earned in the v1 era); the YuE2-3B weights show 1.2k HF likes and ~24k downloads last month",
+    "lastActivity": "YuE2 released ~September 9, 2026; MODEL_LICENSE amended September 16; HF weights last updated October 6; repo commits through November 1, 2026",
+    "status": "maintained",
+    "checked": "2026-11-01"
+  },
+  "links": {
+    "site": "https://map-yue2.github.io/",
+    "docs": "https://huggingface.co/m-a-p/YuE2-3B"
+  },
+  "limitations": "The weights bar commercial use by companies — no studio pipelines, no products, no client work at organizational scale — and the v1 Apache weights don't transfer their freedom forward; the individual-creator permission is not mirrored in the HF license file we could read, so anyone relying on it should cite the GitHub text and confirm with the licensors; WildSongBench is the team's own benchmark and best-of-8 flatters any generator; 24GB VRAM and Python 3.12-only keeps casual users on the demo page; and voice-capable song generation still ships with no separate acceptable-use policy beyond the new responsible-use condition.",
+  "related": [
+    "HeartMuLa",
+    "MiniMax Music 3",
+    "Kokoro"
+  ],
+  "take": "YuE v1's Apache relicense was the feel-good story of open music AI; YuE2 quietly takes it back at the exact moment the quality gets good enough to sell, then half-restores it for individual creators. A permission for some users is a courtesy, not a license — and this shelf exists to tell the two apart.",
+  "added": "2026-11-01",
+  "featured": false
+}

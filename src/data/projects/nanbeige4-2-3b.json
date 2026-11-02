@@ -1,0 +1,47 @@
+{
+  "name": "Nanbeige4.2-3B",
+  "repo": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B",
+  "category": "models-weights",
+  "collections": [
+    "daybreak",
+    "first-light"
+  ],
+  "type": "model",
+  "tagline": "A 3B that loops its own layers to punch at 12B weight — 256K context, agentic chops, and an Apache tag",
+  "description": "Nanbeige LLM Lab's small-model flagship: 4B total parameters (3B non-embedding) built as a Looped Transformer that reuses its layers at inference time to buy extra effective depth without extra weights. The result reads like a mid-size model's report card — 87.4 on GPQA-Diamond, 63.6 on SWE-Bench Verified, 46.9 on SWE-Bench Pro, 82.8 on HMMT-Feb-2026 — with the lab claiming wins over Qwen3.5-9B and Gemma4-12B on agentic tasks, all inside a 256K context window. The lab maintains its own SGLang, vLLM, llama.cpp, and Ollama forks while upstream support lands, and the community has already produced dozens of quantized variants.",
+  "why": "Small models are where open weights earn their keep — anyone can run a 3B — and this one has been quietly excellent since late July while bigger releases hogged the headlines. The license picture is good-but-incomplete in a familiar way: the HF repo is tagged apache-2.0 and the technical report ships right in the repo, but the file listing contains no standalone LICENSE file, which lands it in our declared-but-fileless club alongside Qwen3-Coder-Next. The looped-layer trick is the interesting research angle: if capacity really can be recycled at inference time, the whole small-model tier gets a free upgrade.",
+  "useCases": [
+    "Local agents and coding assistants on consumer hardware — 8GB of weights, forks for every major runtime",
+    "Long-document work on modest GPUs, with 256K tokens of context at 3B-class memory cost",
+    "Research on looped/recursive transformer architectures with an actual competitive checkpoint to study"
+  ],
+  "audience": "Local-AI tinkerers, edge deployers, and small-model researchers who want frontier-adjacent scores without frontier hardware",
+  "setup": {
+    "difficulty": "easy",
+    "requirements": "~8GB of safetensors runs on a single consumer GPU (or CPU via the community GGUF quants); lab-maintained SGLang/vLLM/llama.cpp/Ollama forks until upstream merges land"
+  },
+  "license": {
+    "code": "Apache-2.0 (declared; see notes)",
+    "weights": "Apache-2.0 (declared; see notes)",
+    "verdict": "open",
+    "notes": "Re-verified 2026-11-01. The Nanbeige/Nanbeige4.2-3B HF repo is tagged apache-2.0 and carries the modeling code and technical report in-repo, but its 25-file listing contains no standalone LICENSE file — the declared-but-fileless gap we track on Qwen3-Coder-Next, KAT-Coder-V2.5-Dev, and Ling-3.0-flash. There is still no first-party code repo to read a license from: the Nanbeige GitHub org holds only runtime forks (sglang, vllm, llama.cpp, ollama) and one research repo, so both code and weights carry the declared hedge and the verdict follows that precedent. No rider, trigger, or restriction found on the card. Nanbeige LLM Lab has shipped Apache-tagged models since 2023; we'd still like to see the file. No change since the 2026-09-14 check."
+  },
+  "tally": {
+    "stars": "856 HF likes and ~120k downloads last month, with a card-listed 58 quantized variants and 17 fine-tunes downstream — unusually deep community uptake for a lab this quiet",
+    "lastActivity": "Released late July 2026 (technical report July 27); HF weights last updated September 11; community discussion still active in late October",
+    "status": "maintained",
+    "checked": "2026-11-01"
+  },
+  "links": {
+    "paper": "https://arxiv.org/abs/2607.22083"
+  },
+  "limitations": "No standalone LICENSE file means the Apache grant rests on the repo tag and card until the lab adds one; the headline scores are lab-reported and small models are notoriously benchmark-tunable; the looped architecture needs the custom modeling code (trust-remote-code territory) or the lab's runtime forks until upstream support merges; and English/Chinese are the proven languages.",
+  "related": [
+    "SmolLM3",
+    "Bonsai 27B",
+    "Qwen3.8-27B"
+  ],
+  "take": "Every week a 500B model makes the news; meanwhile a 3B that loops its layers is quietly doing 12B work on hardware people actually own. Add the LICENSE file and this is the small-model release of the summer.",
+  "added": "2026-11-01",
+  "featured": true
+}
